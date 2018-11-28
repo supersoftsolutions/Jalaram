@@ -41,6 +41,15 @@ public class Retail_client_VO {
 	@Column
 	private String samosa;
 	
+	@Column
+	private String balance;
+	
+	public String getBalance() {
+		return balance;
+	}
+	public void setBalance(String balance) {
+		this.balance = balance;
+	}
 	public int getID() {
 		return ID;
 	}

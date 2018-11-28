@@ -44,6 +44,14 @@ public class Add_wholesale_client_VO {
 	private String samosa;
 	@Column
 	private String password;
+	@Column
+	private String balance;
+	public String getBalance() {
+		return balance;
+	}
+	public void setBalance(String balance) {
+		this.balance = balance;
+	}
 	@ManyToOne
 	private LoginVO lvo;
    

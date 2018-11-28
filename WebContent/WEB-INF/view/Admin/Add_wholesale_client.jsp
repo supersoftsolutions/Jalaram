@@ -150,6 +150,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         </div>
                                     </div>
                                     
+                                    <div class="form-group ">
+                                        <label for="balance" class="control-label col-lg-3">Opening Balance*</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="balance" name="balance" type="text" required="required">
+                                        </div>
+                                    </div>
+                                    
                                     
                                     <div class="form-group">
                                         <div class="col-lg-offset-5 col-lg-6">
