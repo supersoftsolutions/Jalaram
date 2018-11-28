@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Retail_client")
-public class Retail_client {
+public class Retail_client_VO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int ID;
