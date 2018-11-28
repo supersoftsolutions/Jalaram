@@ -40,11 +40,11 @@ public class MainController {
 		return "Admin/Welcome";
 	}
 	
-	@RequestMapping(value="Add_wholesale_client.html",method=RequestMethod.GET)
+/*	@RequestMapping(value="Add_wholesale_client.html",method=RequestMethod.GET)
 	public ModelAndView index1()
 	{
 		return new ModelAndView("Admin/Add_wholesale_client","data",new Add_wholesale_client_VO());
-	}
+	}*/
 	
 	@RequestMapping(value="add_wholesale_client.html",method=RequestMethod.POST)
 	public ModelAndView insert(@ModelAttribute Add_wholesale_client_VO  vo,HttpSession session)

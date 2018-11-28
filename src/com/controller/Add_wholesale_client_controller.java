@@ -15,12 +15,12 @@ import com.VO.Add_wholesale_client_VO;
 
 public class Add_wholesale_client_controller {
 	
-	/*@Autowired
+	@Autowired
 	Add_wholesale_client_DAO dao;
 	
 	
 	@RequestMapping(value="add_wholesale_client.html",method=RequestMethod.POST)
-	public ModelAndView insert(@ModelAttribute Add_wholesale_client_VO  vo)
+	public ModelAndView insert(@ModelAttribute Add_wholesale_client_VO vo)
 	{
 		this.dao.insert(vo);
 		
@@ -28,6 +28,6 @@ public class Add_wholesale_client_controller {
 		
 		
 		return new ModelAndView("redirect:Add_wholesale_client.html");
-	}*/
+	}
 
 }
