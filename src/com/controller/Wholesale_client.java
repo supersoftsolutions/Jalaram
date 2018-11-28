@@ -90,4 +90,11 @@ public class Wholesale_client {
 
 		return null;
 	}
+	
+	
+	@RequestMapping(value="View_wholesale_client.html",method=RequestMethod.GET)
+	public ModelAndView index12()
+	{
+		return new ModelAndView("Admin/View_wholesale_client","data",new Add_wholesale_client_VO());
+	}
 }
