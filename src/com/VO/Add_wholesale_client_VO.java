@@ -5,7 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.VO.LoginVO;
 
 @Entity
 @Table(name = "Wholesale_client")
@@ -40,9 +43,10 @@ public class Add_wholesale_client_VO {
 	@Column
 	private String samosa;
 	@Column
-	private String username;
-	@Column
 	private String password;
+	@ManyToOne
+	private LoginVO lvo;
+   
 	public int getID() {
 		return ID;
 	}
@@ -126,12 +130,8 @@ public class Add_wholesale_client_VO {
 	}
 	public void setSamosa(String samosa) {
 		this.samosa = samosa;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
+		
+		
 	}
 	public String getPassword() {
 		return password;
@@ -139,7 +139,13 @@ public class Add_wholesale_client_VO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+	public LoginVO getLvo() {
+		return lvo;
+	}
+	public void setLvo(LoginVO lvo) {
+		this.lvo = lvo;
+	}
+
 	
 	
 }

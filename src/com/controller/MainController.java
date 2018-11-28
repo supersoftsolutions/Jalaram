@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.util.Random;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +14,20 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.DAO.Add_wholesale_client_DAO;
 import com.VO.Add_wholesale_client_VO;
+import com.VO.LoginVO;
+import com.DAO.LoginDAO;
+
 
 @Controller
 public class MainController {
 
 	@Autowired
 	Add_wholesale_client_DAO dao;
+	
+	@Autowired
+	LoginDAO ldao;
+	
+	String password;
 	
 	@RequestMapping(value = { "/", "index.html" }, method = RequestMethod.GET)
 	public ModelAndView index() {
@@ -37,8 +47,21 @@ public class MainController {
 	}
 	
 	@RequestMapping(value="add_wholesale_client.html",method=RequestMethod.POST)
-	public ModelAndView insert(@ModelAttribute Add_wholesale_client_VO  vo)
+	public ModelAndView insert(@ModelAttribute Add_wholesale_client_VO  vo,HttpSession session)
 	{
+		
+		session.setAttribute("generatePswd",password);
+		 
+		 LoginVO lvo=new LoginVO();
+			lvo.setUserName(vo.getMobile());
+			lvo.setPassword(password);
+
+			lvo.setEnabled("1");
+			lvo.setRole("ROLE_USER");
+			this.ldao.insert(lvo);
+			vo.setLvo(lvo);
+		
+		
 		this.dao.insert(vo);
 		
 				
@@ -63,4 +86,39 @@ public class MainController {
 		System.out.println("*****Successfully Loggedout******");
 		return("Admin/Login");
 	}
+	private char[] generatePswd(int length) {
+		
+		 {
+		        int length1 = 6; // password length
+		        System.out.println(generatePswd(length1));
+		    }
+		   
+		
+		{
+	        System.out.println("Your Password:");
+	        String charsCaps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	        String chars = "abcdefghijklmnopqrstuvwxyz";
+	        String nums = "0123456789";
+	        
+
+	        String passSymbols = charsCaps + chars + nums;
+	        Random rnd = new Random();
+	         
+	        int len = 0;
+			char[] password = new char[len];
+	        int index = 0;
+	        for (int i = 0; i < len; i++) 
+	        {
+	            password[i] = passSymbols.charAt(rnd.nextInt(passSymbols.length()));
+	            
+	        }
+	       
+	    }
+
+
+		return null;
+	}
 }
+
+
+
