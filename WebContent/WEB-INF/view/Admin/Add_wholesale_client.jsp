@@ -150,19 +150,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         </div>
                                     </div>
                                     
-                                    <div class="form-group ">
-                                        <label for="username" class="control-label col-lg-3">Username*</label>
-                                        <div class="col-lg-6">
-                                            <input class=" form-control" id="username" name="username" type="text" required="required">
-                                        </div>
-                                    </div>
                                     
-                                    <div class="form-group ">
-                                        <label for="password" class="control-label col-lg-3">Password*</label>
-                                        <div class="col-lg-6">
-                                            <input class=" form-control" id="password" name="password" type="text" required="required">
-                                        </div>
-                                    </div>
                                     <div class="form-group">
                                         <div class="col-lg-offset-5 col-lg-6">
                                             <button class="btn btn-primary" type="submit">Save</button>
