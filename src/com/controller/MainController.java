@@ -23,8 +23,8 @@ public class MainController {
 	public ModelAndView index() {
 		return new ModelAndView("Admin/Login");
 	}
-	
-	
+	           
+	  
 	@RequestMapping(value = "/admin.html", method = RequestMethod.GET)
 	public String admin(HttpSession session,Model model) {
 		
