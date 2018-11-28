@@ -30,7 +30,7 @@ public class MainController {
 		return "Admin/Welcome";
 	}
 	
-	/*@RequestMapping(value="Add_wholesale_client.html",method=RequestMethod.GET)
+	@RequestMapping(value="Add_wholesale_client.html",method=RequestMethod.GET)
 	public ModelAndView index1()
 	{
 		return new ModelAndView("Admin/Add_wholesale_client","data",new Add_wholesale_client_VO());
@@ -45,7 +45,7 @@ public class MainController {
 		
 		
 		return new ModelAndView("redirect:Add_wholesale_client.html");
-	}*/
+	}
 
 	@RequestMapping(value = "/user.html", method = RequestMethod.GET)
 	public String user(HttpSession session,Model model) {
