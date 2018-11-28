@@ -21,6 +21,8 @@ public class Retail_client_VO {
 	@Column
 	private String address2;
 	@Column
+	private String address3;
+	@Column
 	private String mobile;
 	@Column
 	private String priority;
@@ -121,6 +123,12 @@ public class Retail_client_VO {
 	}
 	public void setSandwich_dhokla(String sandwich_dhokla) {
 		this.sandwich_dhokla = sandwich_dhokla;
+	}
+	public String getAddress3() {
+		return address3;
+	}
+	public void setAddress3(String address3) {
+		this.address3 = address3;
 	}
 	public String getSp_patra() {
 		return sp_patra;

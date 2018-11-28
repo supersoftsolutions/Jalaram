@@ -23,6 +23,8 @@ public class Add_wholesale_client_VO {
 	@Column
 	private String address2;
 	@Column
+	private String address3;
+	@Column
 	private String mobile;
 	@Column
 	private String priority;
@@ -140,6 +142,12 @@ public class Add_wholesale_client_VO {
 		this.samosa = samosa;
 		
 		
+	}
+	public String getAddress3() {
+		return address3;
+	}
+	public void setAddress3(String address3) {
+		this.address3 = address3;
 	}
 	public String getPassword() {
 		return password;
