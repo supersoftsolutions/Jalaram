@@ -47,12 +47,14 @@ public class Add_wholesale_client_DAO {
 		return ls;
 	}
 
-	public void delete(Add_wholesale_client_VO vo,LoginVO lvo) {
+	public void delete(Add_wholesale_client_VO vo) {
 		
 		Session session = sessionFactory.openSession();
 		
+
 		Transaction tr = session.beginTransaction();
 		session.delete(vo);
+		
 		tr.commit();
 		// TODO Auto-generated method stub
 		

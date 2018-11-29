@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +26,7 @@ public class Retail_client {
 	@RequestMapping(value="Add_retail_client.html",method=RequestMethod.GET)
 	public ModelAndView index12()
 	{
-		return new ModelAndView("Admin/Add_retail_client","data",new Add_wholesale_client_VO());
+		return new ModelAndView("Admin/Add_retail_client","data",new Retail_client_VO());
 	}
 	
 	@RequestMapping(value="add_retail_client.html",method=RequestMethod.POST)
@@ -34,4 +36,16 @@ public class Retail_client {
 		
 		return new ModelAndView("redirect:Add_retail_client.html");
 	}
+	
+	@RequestMapping(value="View_retail_client.html",method=RequestMethod.GET)
+	public ModelAndView index12(@ModelAttribute Retail_client_VO  vo)
+	
+	
+	{
+		
+		List ls=dao.search1(vo);
+		return new ModelAndView("Admin/View_retail_client","list",ls);
+	}
+	
+
 }

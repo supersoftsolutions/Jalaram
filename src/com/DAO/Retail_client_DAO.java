@@ -1,5 +1,8 @@
 package com.DAO;
 
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -27,5 +30,14 @@ public class Retail_client_DAO {
 			e.printStackTrace();
 		}	
 		}
+
+	public List search1(Retail_client_VO vo) {
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery("from Retail_client_VO");
+		List ls = q.list();
+		session.close();
+		return ls;
+		
+	}
 
 }

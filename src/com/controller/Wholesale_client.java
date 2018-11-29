@@ -117,12 +117,13 @@ public class Wholesale_client {
 	}
 	
 	@RequestMapping(value="deletewholesale.html",method=RequestMethod.GET)
-	public ModelAndView delete(@RequestParam("id") int id, Add_wholesale_client_VO  vo,LoginVO lvo)
+	public ModelAndView delete(@RequestParam("id") int id, Add_wholesale_client_VO  vo)
 	{
-			lvo.setLoginId(id);
-			vo.setID(id);
-			dao.delete(vo, lvo);
-	//		dao.delete(lvo);
+		LoginVO lvo = null;
+			//	lvo.setLoginId(id);
+			vo.setLvo(lvo);
+						
+		dao.delete(vo);
 			return new ModelAndView("redirect:View_wholesale_client.html");
 	}
 }
