@@ -17,11 +17,16 @@ public class Add_wholesale_client_DAO {
 	
 	@Autowired
 	SessionFactory sessionFactory;
+	public Object i;
 	
 	public void insert(Add_wholesale_client_VO vo) {
 		// TODO Auto-generated method stub
 		try{
 			Session session = sessionFactory.openSession();
+			
+			/*Query q1 = session.createQuery("select mobile from Add_wholesale_client_VO where mobile='"+vo.getMobile()+"'");
+			i= q1.uniqueResult();*/
+			
 			Transaction tr = session.beginTransaction();
 			session.saveOrUpdate(vo);
 			tr.commit();
@@ -35,11 +40,22 @@ public class Add_wholesale_client_DAO {
 	public List search1(Add_wholesale_client_VO vo) {
 		Session session = sessionFactory.openSession();
 		   
-		Query q = session.createQuery("from Add_wholesale_client_VO where name='milan'");
+		Query q = session.createQuery("from Add_wholesale_client_VO");
 		List ls = q.list();
-		System.out.println(ls.get(0)); 
+	//	System.out.println(ls.get(0)); 
 		session.close();
 		return ls;
+	}
+
+	public void delete(Add_wholesale_client_VO vo,LoginVO lvo) {
+		
+		Session session = sessionFactory.openSession();
+		
+		Transaction tr = session.beginTransaction();
+		session.delete(vo);
+		tr.commit();
+		// TODO Auto-generated method stub
+		
 	}
 
 }

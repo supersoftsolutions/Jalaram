@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.DAO.Add_wholesale_client_DAO;
@@ -52,21 +53,17 @@ public class Wholesale_client {
 			lvo.setRole("ROLE_USER");
 			this.ldao.insert(lvo);
 		
-			
-			try
+			//System.out.println(dao.i);
+			//if(empty(dao.i.toString()))
+			/*if(dao.i.equals(null))
 			{
+				System.out.println("empty method");
+			}
+			else
+			{*/
 				vo.setPassword(mansi);
 				this.dao.insert(vo);
-			}
-			catch(Exception ae)
-			{
-				ae.printStackTrace();
-			}
-		
-		
-				
-		
-		
+			//}
 		return new ModelAndView("redirect:Add_wholesale_client.html");
 	}
 	
@@ -103,6 +100,11 @@ public class Wholesale_client {
 		return password;
 	}
 	
+	public static boolean empty( final String s ) 
+	{
+		return s == null || s.trim().isEmpty();
+	}
+	
 	
 	@RequestMapping(value="View_wholesale_client.html",method=RequestMethod.GET)
 	public ModelAndView index12(@ModelAttribute Add_wholesale_client_VO  vo)
@@ -112,5 +114,15 @@ public class Wholesale_client {
 		
 		List ls=dao.search1(vo);
 		return new ModelAndView("Admin/View_wholesale_client","list",ls);
+	}
+	
+	@RequestMapping(value="deletewholesale.html",method=RequestMethod.GET)
+	public ModelAndView delete(@RequestParam("id") int id, Add_wholesale_client_VO  vo,LoginVO lvo)
+	{
+			lvo.setLoginId(id);
+			vo.setID(id);
+			dao.delete(vo, lvo);
+	//		dao.delete(lvo);
+			return new ModelAndView("redirect:View_wholesale_client.html");
 	}
 }

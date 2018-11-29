@@ -115,6 +115,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <td>${x.address1}</td>
                                             <td>${x.balance}</td>
                                             
+       <td height="30px" width="30px"><%-- <a href="editsubCategory.htm?id=${x.ID}">Edit/</a> --%><a href="deletewholesale.html?id=${x.moblie}">Delete</a></td>
                                             
                                           
                                             
