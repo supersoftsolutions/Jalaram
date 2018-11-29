@@ -96,12 +96,12 @@ public class Wholesale_client {
 	
 	
 	@RequestMapping(value="View_wholesale_client.html",method=RequestMethod.GET)
-	public ModelAndView index12()
+	public ModelAndView index12(@ModelAttribute Add_wholesale_client_VO  vo)
 	
 	
 	{
 		
-		List ls=dao.search1();
+		List ls=dao.search1(vo);
 		return new ModelAndView("Admin/View_wholesale_client","list",ls);
 	}
 }

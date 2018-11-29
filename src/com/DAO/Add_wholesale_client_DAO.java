@@ -32,12 +32,12 @@ public class Add_wholesale_client_DAO {
 		
 	}
 
-	public List search1() {
+	public List search1(Add_wholesale_client_VO vo) {
 		Session session = sessionFactory.openSession();
-		Transaction tr=session.beginTransaction();    
-		Query q = session.createQuery("from Add_wholesale_client_VO");
+		   
+		Query q = session.createQuery("from Add_wholesale_client_VO where name='milan'");
 		List ls = q.list();
-		tr.commit(); 
+		System.out.println(ls.get(0)); 
 		session.close();
 		return ls;
 	}

@@ -69,31 +69,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <input type="checkbox"><i></i>
               </label>
             </th> -->
-           <!--  <th>ID</th> -->
+            <th>ID</th> 
             <th>Name</th>
-            <th>Address</th>
+             <th>Address</th>
            <th>Balance</th>
             
             <th style="width:30px;"></th>
           </tr>
         </thead>
-        <tbody>
-         <c:forEach items="${list}" var="x">
-                                           <%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/functions"%>
-          <tr>
-          						<%--   <td>${x.ID}</td> --%>
-  										 	 <td>${x.name}</td>
-  										 	 <td>${x.address1}</td>		
-                                              <td>${x.balance}</td>
-                                               <%-- <td>${x.taskDescription}</td>
-                                               <td>${x.taskStatus}</td>
-                                           		 <td>${x.lvo.email}</td>
-                                           		 <td>${x.reply}</td>
-                                        		 <td>${x.replyDate}</td>
-                                           		 <td>${x.replyTime}</td> --%>
-          </tr>
-          </c:forEach>
-        </tbody>
+         <tbody>
+                                        <c:forEach items="${list}" var="x">
+                                        
+                                        <tr>
+                                            <%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/functions"%>
+                                            
+                                            <td>${x.ID}</td>
+                                            <td>${x.name}</td>
+                                            <td>${x.address1}</td>
+                                            <td>${x.balance}</td>
+                                          
+                                            
+                                                </tr>
+                                        </c:forEach>
+                                      </tbody>
+
       </table>
     </div>
     
