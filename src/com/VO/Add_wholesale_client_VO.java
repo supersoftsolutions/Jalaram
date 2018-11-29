@@ -24,7 +24,7 @@ public class Add_wholesale_client_VO {
 	private String address2;
 	@Column
 	private String address3;
-	@Column
+	@Column(unique = true)
 	private String mobile;
 	@Column
 	private String priority;

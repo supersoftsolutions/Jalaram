@@ -52,8 +52,17 @@ public class Wholesale_client {
 			lvo.setRole("ROLE_USER");
 			this.ldao.insert(lvo);
 		
-		vo.setPassword(mansi);
-		this.dao.insert(vo);
+			
+			try
+			{
+				vo.setPassword(mansi);
+				this.dao.insert(vo);
+			}
+			catch(Exception ae)
+			{
+				ae.printStackTrace();
+			}
+		
 		
 				
 		
