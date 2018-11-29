@@ -69,7 +69,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <input type="checkbox"><i></i>
               </label>
             </th> -->
-            <th>ID</th>
+           <!--  <th>ID</th> -->
             <th>Name</th>
             <th>Address</th>
            <th>Balance</th>
@@ -81,7 +81,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
          <c:forEach items="${list}" var="x">
                                            <%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/functions"%>
           <tr>
-          							  <td>${x.ID}</td>
+          						<%--   <td>${x.ID}</td> --%>
   										 	 <td>${x.name}</td>
   										 	 <td>${x.address1}</td>		
                                               <td>${x.balance}</td>
@@ -89,7 +89,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                <td>${x.taskStatus}</td>
                                            		 <td>${x.lvo.email}</td>
                                            		 <td>${x.reply}</td>
-                                           		 <td>${x.replyDate}</td>
+                                        		 <td>${x.replyDate}</td>
                                            		 <td>${x.replyTime}</td> --%>
           </tr>
           </c:forEach>

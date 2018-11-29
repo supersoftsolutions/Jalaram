@@ -34,8 +34,10 @@ public class Add_wholesale_client_DAO {
 
 	public List search1() {
 		Session session = sessionFactory.openSession();
+		Transaction tr=session.beginTransaction();    
 		Query q = session.createQuery("from Add_wholesale_client_VO");
 		List ls = q.list();
+		tr.commit(); 
 		session.close();
 		return ls;
 	}

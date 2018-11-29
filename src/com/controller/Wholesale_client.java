@@ -27,7 +27,7 @@ public class Wholesale_client {
 	@Autowired
 	LoginDAO ldao;
 	
-	String password;
+	String password="";
 	
 	@RequestMapping(value="Add_wholesale_client.html",method=RequestMethod.GET)
 	public ModelAndView index1()
@@ -42,15 +42,17 @@ public class Wholesale_client {
 		session.setAttribute("generatePswd",password);
 		 
 		 LoginVO lvo=new LoginVO();
+		 
+		 String mansi=generatePswd(6);
 			lvo.setUserName(vo.getMobile());
-			lvo.setPassword(password);
+			//System.out.println(mansi);
+			lvo.setPassword(mansi);
 
 			lvo.setEnabled("1");
 			lvo.setRole("ROLE_USER");
 			this.ldao.insert(lvo);
-			vo.setLvo(lvo);
 		
-		
+		vo.setPassword(mansi);
 		this.dao.insert(vo);
 		
 				
@@ -59,12 +61,12 @@ public class Wholesale_client {
 		return new ModelAndView("redirect:Add_wholesale_client.html");
 	}
 	
-	private char[] generatePswd(int length) {
+	private String generatePswd(int length) {
 		
-		 {
+		 /*{
 		        int length1 = 6; // password length
 		        System.out.println(generatePswd(length1));
-		    }
+		    }*/
 		   
 		
 		{
@@ -77,19 +79,19 @@ public class Wholesale_client {
 	        String passSymbols = charsCaps + chars + nums;
 	        Random rnd = new Random();
 	         
-	        int len = 0;
-			char[] password = new char[len];
+	        int len = length;
+			//char[] password = new char[len];
 	        int index = 0;
 	        for (int i = 0; i < len; i++) 
 	        {
-	            password[i] = passSymbols.charAt(rnd.nextInt(passSymbols.length()));
+	            password += passSymbols.charAt(rnd.nextInt(passSymbols.length()));
 	            
 	        }
 	       
 	    }
 
 
-		return null;
+		return password;
 	}
 	
 	

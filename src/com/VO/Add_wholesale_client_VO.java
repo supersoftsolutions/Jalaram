@@ -54,8 +54,7 @@ public class Add_wholesale_client_VO {
 	public void setBalance(String balance) {
 		this.balance = balance;
 	}
-	@ManyToOne
-	private LoginVO lvo;
+	
    
 	public int getID() {
 		return ID;
@@ -140,8 +139,6 @@ public class Add_wholesale_client_VO {
 	}
 	public void setSamosa(String samosa) {
 		this.samosa = samosa;
-		
-		
 	}
 	public String getAddress3() {
 		return address3;
@@ -155,13 +152,4 @@ public class Add_wholesale_client_VO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public LoginVO getLvo() {
-		return lvo;
-	}
-	public void setLvo(LoginVO lvo) {
-		this.lvo = lvo;
-	}
-
-	
-	
 }
