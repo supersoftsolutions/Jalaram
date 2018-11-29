@@ -40,4 +40,13 @@ public class Retail_client_DAO {
 		
 	}
 
+	public void delete(Retail_client_VO vo) {
+		Session session = sessionFactory.openSession();
+		Transaction tr = session.beginTransaction();
+		session.delete(vo);
+		tr.commit();
+		// TODO Auto-generated method stub
+		
+	}
+
 }

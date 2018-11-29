@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.DAO.Add_wholesale_client_DAO;
@@ -45,6 +46,14 @@ public class Retail_client {
 		
 		List ls=dao.search1(vo);
 		return new ModelAndView("Admin/View_retail_client","list",ls);
+	}
+	
+	@RequestMapping(value="delete_retail.html",method=RequestMethod.GET)
+	public ModelAndView delete(@RequestParam("id") int id, Retail_client_VO  vo)
+	{
+			vo.setID(id);
+			dao.delete(vo);
+			return new ModelAndView("redirect:View_retail_client.html");
 	}
 	
 
