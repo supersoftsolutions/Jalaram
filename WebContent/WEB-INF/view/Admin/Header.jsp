@@ -65,7 +65,7 @@
                     </a>
                     <ul class="sub">
                         <li><a href="Add_retail_client.html">Add Retail Client</a></li>
-                        	<li><a href="View_retail_client.html">View Wholesale Client</a></li>
+                        	<li><a href="View_retail_client.html">View Retail Client</a></li>
                         
                     </ul>
                 </li>
