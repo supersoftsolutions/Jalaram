@@ -1,5 +1,6 @@
 package com.DAO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -49,4 +50,22 @@ public class Retail_client_DAO {
 		
 	}
 
+
+	public List edit(Retail_client_VO vo) {
+		List ls=new ArrayList();
+		Session session=sessionFactory.openSession();
+		Query q = session.createQuery("from Retail_client_VO where id='"+vo.getID()+"'");
+		ls = q.list();
+		return ls;
+	}
+
+	public void update(Retail_client_VO vo) {
+		Session session = sessionFactory.openSession();
+		Transaction tr = session.beginTransaction();
+		Query q = session.createQuery("update Retail_client_VO set address1='"+vo.getAddress1()+"',address2='"+vo.getAddress2()+"',address3='"+vo.getAddress3()+"',idada='"+vo.getIdada()+"',khaman='"+vo.getKhaman()+"',khandvi='"+vo.getKhandvi()+"',nylon='"+vo.getNylon()+"',patra='"+vo.getPatra()+"',priority='"+vo.getPriority()+"',samosa='"+vo.getSamosa()+"',sandwich_dhokla='"+vo.getSandwich_dhokla()+"',sp_patra='"+vo.getSp_patra()+"',id='"+vo.getID()+"'");
+		q.executeUpdate();		
+		
+			tr.commit();
+		
+	}
 }
