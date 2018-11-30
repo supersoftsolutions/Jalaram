@@ -57,4 +57,22 @@ public class Retail_client {
 	}
 	
 
+	@RequestMapping(value="editretail_client.html",method=RequestMethod.GET)
+	public ModelAndView edit(@RequestParam("id") int id, Retail_client_VO  vo)
+	{
+		vo.setID(id);
+		List ls=dao.edit(vo);
+		return new ModelAndView("Admin/Edit_retail_client","list",(Retail_client_VO)ls.get(0));
+	}
+	
+	@RequestMapping(value="updateretail_client.html",method=RequestMethod.POST)
+	public ModelAndView update(@ModelAttribute Retail_client_VO  vo)
+	{
+		dao.update(vo);
+		return new ModelAndView("redirect:View_retail_client.html");
+		
+	}
+	
+
+
 }
