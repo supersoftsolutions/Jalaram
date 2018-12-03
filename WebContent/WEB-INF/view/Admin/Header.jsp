@@ -76,8 +76,8 @@
                     </a>
                     <ul class="sub">
                         <li><a href="Add_wholesale_product.html">Add Wholesale Product</a></li>
-                        <li><a href="form_validation.html">Form Validation</a></li>
-						<li><a href="dropzone.html">Dropzone</a></li>
+                        <li><a href="View_wholesale_product.html">View Wholesale Product</a></li>
+						
                     </ul>
                 </li>
                 <li class="sub-menu">
