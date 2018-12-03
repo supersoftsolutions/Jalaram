@@ -40,4 +40,38 @@ public class Wholesale_product {
 		return new ModelAndView("redirect:Add_wholesale_product.html");
 	}
 	
+	@RequestMapping(value="View_wholesale_product.html",method=RequestMethod.GET)
+	public ModelAndView search()
+	{
+		List ls=dao.search();
+		return new ModelAndView("Admin/View_wholesale_product","list",ls);
+	}
+	
+	@RequestMapping(value="delete_wholesale_product.html",method=RequestMethod.GET)
+	public ModelAndView delete(@RequestParam("id") int id, Wholesale_product_VO  vo)
+	{
+		vo.setProductid(id);
+		dao.delete(vo);
+		return new ModelAndView("redirect:View_wholesale_product.html");
+
+	}
+	
+	@RequestMapping(value="edit_wholesale_product.html",method=RequestMethod.GET)
+	public ModelAndView edit(@RequestParam("id") int id, Wholesale_product_VO  vo)
+	{
+		
+		List ls1=dao.search1();
+		vo.setProductid(id);
+		List ls=dao.edit(vo);
+		return new ModelAndView("Admin/Edit_wholesale_product","data",( Wholesale_product_VO)ls.get(0)).addObject("list",ls1);
+	}
+	
+	@RequestMapping(value="update_wholesale_product.html",method=RequestMethod.POST)
+	public ModelAndView update(@ModelAttribute  Wholesale_product_VO vo)
+	{
+		dao.update1(vo);
+		return new ModelAndView("redirect:View_wholesale_product.html");
+		
+	}
+	
 }
