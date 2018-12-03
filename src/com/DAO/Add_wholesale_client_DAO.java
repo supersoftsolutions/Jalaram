@@ -109,9 +109,49 @@ public class Add_wholesale_client_DAO {
 	
 		
 	}
+
+	public List search() {
+		
+			
+			Session session = sessionFactory.openSession();
+			Query q = session.createQuery("from Wholesale_product_VO");
+			List ls = q.list();
+			session.close();
+			return ls;
+		}
+
+	public void delete(Wholesale_product_VO vo) {
+		
+		Session session = sessionFactory.openSession();
+		Transaction tr = session.beginTransaction();
+		session.delete(vo);
+		tr.commit();
+		session.close();
+		// TODO Auto-generated method stub
+		
+	}
+
+	public List edit(Wholesale_product_VO vo) {
+		Session session=sessionFactory.openSession();
+		Query q = session.createQuery("from Wholesale_product_VO where id='"+vo.getProductid()+"'");
+		List ls = q.list();
+		session.close();
+		return ls;
+	}
+
+	public void update1(Wholesale_product_VO vo) {
+		
+		Session session = sessionFactory.openSession();
+		Transaction tr = session.beginTransaction();
+		session.update(vo);
+		tr.commit();
+		session.close();
+		
+	}
+	}
 	
 	
 
 	
 
-}
+
