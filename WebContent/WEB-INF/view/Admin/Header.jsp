@@ -80,6 +80,19 @@
 						
                     </ul>
                 </li>
+                
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-tasks"></i>
+                        <span>Retail Product</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="Add_retail_product.html">Add Retail Product</a></li>
+                        <li><a href="View_retail_product.html">View Retail Product</a></li>
+						
+                    </ul>
+                </li>
+                
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-envelope"></i>
