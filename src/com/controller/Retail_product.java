@@ -30,6 +30,13 @@ public class Retail_product {
 		return new ModelAndView("Admin/Add_retail_product","data",new Retail_product_VO()).addObject("list",ls);
 	}
 	
+	@RequestMapping(value="View_retail_product.html",method=RequestMethod.GET)
+	public ModelAndView index2()
+	{
+		List ls=dao.search1();
+		return new ModelAndView("Admin/View_retail_product","data",new Retail_product_VO()).addObject("list",ls);
+	}
+	
 	@RequestMapping(value="insert_retail_product.html",method=RequestMethod.POST)
 	public ModelAndView insert(@ModelAttribute Retail_product_VO  vo,HttpSession session)
 	{
