@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.VO.Add_wholesale_client_VO;
 import com.VO.LoginVO;
+import com.VO.Wholesale_product_VO;
 
 @Repository
 public class Add_wholesale_client_DAO {
@@ -35,7 +36,7 @@ public class Add_wholesale_client_DAO {
 		
 	}
 
-	public List search1(Add_wholesale_client_VO vo) {
+	public List search1() {
 		Session session = sessionFactory.openSession();
 		   
 		Query q = session.createQuery("from Add_wholesale_client_VO");
@@ -94,6 +95,22 @@ public class Add_wholesale_client_DAO {
 		tr.commit();
 		session.close();
 	}
+
+	public void product(Wholesale_product_VO vo) {
+		Session session = sessionFactory.openSession();
+		
+		/*Query q1 = session.createQuery("select mobile from Add_wholesale_client_VO where mobile='"+vo.getMobile()+"'");
+		i= q1.uniqueResult();*/
+		
+		Transaction tr = session.beginTransaction();
+		session.saveOrUpdate(vo);
+		tr.commit();
+		session.close();
+	
+		
+	}
+	
+	
 
 	
 

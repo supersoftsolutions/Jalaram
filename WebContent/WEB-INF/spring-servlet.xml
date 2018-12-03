@@ -27,6 +27,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
                                 <value>com.VO.LoginVO</value>
                                  <value>com.VO.Add_wholesale_client_VO</value>
                                  <value>com.VO.Retail_client_VO</value>
+                                 <value>com.VO.Wholesale_product_VO</value>
                  
 			</list>
         </property>

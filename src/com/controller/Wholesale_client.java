@@ -33,6 +33,7 @@ public class Wholesale_client {
 	@RequestMapping(value="Add_wholesale_client.html",method=RequestMethod.GET)
 	public ModelAndView index1()
 	{
+		
 		return new ModelAndView("Admin/Add_wholesale_client","data",new Add_wholesale_client_VO());
 	}
 	
@@ -114,7 +115,7 @@ public class Wholesale_client {
 	
 	{
 		
-		List ls=dao.search1(vo);
+		List ls=dao.search1();
 		return new ModelAndView("Admin/View_wholesale_client","list",ls);
 	}
 	
