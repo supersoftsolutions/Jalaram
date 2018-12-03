@@ -115,9 +115,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <td>${x.address1}</td>
                                             <td>${x.balance}</td>
                                             
-       <td height="30px" width="30px"><%-- <a href="editsubCategory.htm?id=${x.ID}">Edit/</a> --%><a href="deletewholesale.html?id=${x.lvo.userName}">Delete</a></td>
+       <td height="30px" width="30px"> <a href="editwholesale.html?id=${x.ID}">Edit/</a> <a href="deletewholesale.html?id=${x.ID}">Delete</a></td>
                                             
-                                          
+         <td>      
+          <%--  <button class="btn btn-primary" type="submit" onclick="showPopupWindow(); setAttributes(${question.id}, 0>Save</button> --%> 
+           <button onclick="showPopupWindow(); setAttributes(${x.ID}, 0)">Reply</button>
+         </td>                                 
                                             
                                                 </tr>
                                         </c:forEach>
@@ -142,5 +145,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="AdminResources/js/jquery.nicescroll.js"></script>
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
 <script src="AdminResources/js/jquery.scrollTo.js"></script>
+
 </body>
 </html>

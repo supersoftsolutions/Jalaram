@@ -21,7 +21,7 @@ public class Add_wholesale_client_DAO {
 	
 	public void insert(Add_wholesale_client_VO vo) {
 		// TODO Auto-generated method stub
-		try{
+	
 			Session session = sessionFactory.openSession();
 			
 			/*Query q1 = session.createQuery("select mobile from Add_wholesale_client_VO where mobile='"+vo.getMobile()+"'");
@@ -31,9 +31,7 @@ public class Add_wholesale_client_DAO {
 			session.saveOrUpdate(vo);
 			tr.commit();
 			session.close();
-		}catch(Exception e){
-			e.printStackTrace();
-		}	
+		
 		
 	}
 
@@ -47,17 +45,56 @@ public class Add_wholesale_client_DAO {
 		return ls;
 	}
 
-	public void delete(Add_wholesale_client_VO vo) {
+	public void delete(Add_wholesale_client_VO vo)
+	{
+		Session session = sessionFactory.openSession();
+		Transaction tr = session.beginTransaction();
+		session.delete(vo);
+		tr.commit();
+		session.close();
+	}
+	
+	public void delete(LoginVO lvo)
+	{
+		Session session = sessionFactory.openSession();
+		Transaction tr = session.beginTransaction();
+		session.delete(lvo);
+		tr.commit();
+		session.close();
+	}
+	
+/*public void delete1(LoginVO lvo) {
 		
 		Session session = sessionFactory.openSession();
 		
 
 		Transaction tr = session.beginTransaction();
-		session.delete(vo);
+		session.delete(lvo);
 		
 		tr.commit();
 		// TODO Auto-generated method stub
 		
+	}*/
+	
+	public List edit(Add_wholesale_client_VO vo)
+	{
+	
+		Session session=sessionFactory.openSession();
+		Query q = session.createQuery("from Add_wholesale_client_VO where id='"+vo.getID()+"'");
+		List ls = q.list();
+		session.close();
+		return ls;
+		
 	}
+	public void update(Add_wholesale_client_VO vo)
+	{
+		Session session = sessionFactory.openSession();
+		Transaction tr = session.beginTransaction();
+		session.update(vo);
+		tr.commit();
+		session.close();
+	}
+
+	
 
 }
