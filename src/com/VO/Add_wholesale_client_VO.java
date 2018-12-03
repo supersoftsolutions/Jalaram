@@ -49,10 +49,11 @@ public class Add_wholesale_client_VO {
 	@Column
 	private String balance;
 	
-
 	@ManyToOne
 	private LoginVO lvo;
+
 	
+
 	public String getBalance() {
 		return balance;
 	}
@@ -163,5 +164,6 @@ public class Add_wholesale_client_VO {
 	public void setLvo(LoginVO lvo) {
 		this.lvo = lvo;
 	}
+	
 	
 }
