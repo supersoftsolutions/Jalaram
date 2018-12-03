@@ -44,7 +44,7 @@ public class Retail_client {
 	
 	{
 		
-		List ls=dao.search1(vo);
+		List ls=dao.search1();
 		return new ModelAndView("Admin/View_retail_client","list",ls);
 	}
 	
