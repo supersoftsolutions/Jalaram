@@ -71,21 +71,52 @@ public class Retail_client_DAO {
 		tr.commit();
 		session.close();
 	}
+
 	
-	
+
 	public void product(Retail_product_VO vo) {
 		Session session = sessionFactory.openSession();
-		
-		/*Query q1 = session.createQuery("select mobile from Add_wholesale_client_VO where mobile='"+vo.getMobile()+"'");
-		i= q1.uniqueResult();*/
-		
 		Transaction tr = session.beginTransaction();
 		session.saveOrUpdate(vo);
 		tr.commit();
 		session.close();
-	
 		
 	}
+
+	
+
+	public List search() {
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery("from Retail_product_VO");
+		List ls = q.list();
+	//	session.close();
+		return ls;
+	}
+
+	public void delete(Retail_product_VO vo) {
+		Session session = sessionFactory.openSession();
+		Transaction tr = session.beginTransaction();
+		session.delete(vo);
+		tr.commit();		
+	}
+
+	public List edit(Retail_product_VO vo) {
+		Session session=sessionFactory.openSession();
+		Query q = session.createQuery("from Retail_product_VO where id='"+vo.getProductid()+"'");
+		List ls = q.list();
+		//session.close();
+		return ls;
+	}
+
+	public void update1(Retail_product_VO vo) {
+		Session session = sessionFactory.openSession();
+		Transaction tr = session.beginTransaction();
+		session.update(vo);
+		tr.commit();
+	//	session.close();		
+	}
+	
+	
 	
 	
 

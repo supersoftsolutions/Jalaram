@@ -2,9 +2,11 @@ package com.VO;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -23,6 +25,7 @@ public class Retail_product_VO {
 	private String sun;
 	
 	@ManyToOne
+
 	private Retail_client_VO rvo;
 
 	public int getProductid() {
@@ -49,6 +52,14 @@ public class Retail_product_VO {
 		this.mon = mon;
 	}
 
+	public String getSun() {
+		return sun;
+	}
+
+	public void setSun(String sun) {
+		this.sun = sun;
+	}
+
 	public Retail_client_VO getRvo() {
 		return rvo;
 	}
@@ -57,13 +68,7 @@ public class Retail_product_VO {
 		this.rvo = rvo;
 	}
 
-	public String getSun() {
-		return sun;
-	}
-
-	public void setSun(String sun) {
-		this.sun = sun;
-	}
+	
 
 	
 

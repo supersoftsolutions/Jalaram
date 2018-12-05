@@ -40,12 +40,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Edit Wholesale Product
+                            Edit Retail Product
                             
                         </header>
+                                                          
+                        
                         <div class="panel-body">
                             <div class="form">
-                                <f:form class="cmxform form-horizontal " modelAttribute="data" id="signupForm" method="post" action="update_wholesale_product.html" novalidate="">
+                                <f:form class="cmxform form-horizontal " modelAttribute="data" id="signupForm" method="post" action="update_retail_product.html" novalidate="">
                                 <f:hidden path="productid"/>
                                    <%--    <div class="form-group ">
                                         <label for="priority" class="control-label col-lg-3">Name</label>
@@ -58,14 +60,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         </div>
                                     </div> --%>
                                     
-                 
+              
                                     <div class="form-group ">
+                                    
                                         <label for="mon" class="control-label col-lg-3">Name</label>
                                         <div class="col-lg-6">
-                                            <f:input class=" form-control" id="mon" path="wvo.ID" itemLabel="ID" itemValue="ID" type="text" readOnly="true" required="required"/>
+                                            <f:input class=" form-control" id="mon" path="rvo.ID" itemLabel="ID" itemValue="ID" type="text" readOnly="true" required="required"/>
                                         </div>
                                     </div> 
-
+                                    
                                     
                                      <div class="form-group ">
                                         <label for="mon" class="control-label col-lg-3">Product</label>
@@ -73,7 +76,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <f:input class=" form-control" id="mon" path="product" type="text" readOnly="true" required="required"/>
                                         </div>
                                     </div>   
-                                      
+                              
                                     
                                    
                                 

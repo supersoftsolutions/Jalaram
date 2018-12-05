@@ -1,4 +1,3 @@
-
 <!--A Design by W3layouts
 Author: W3layout
 Author URL: http://w3layouts.com
@@ -116,8 +115,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <td>${x.mon}</td>
                                             <td>${x.sun}</td>
                                             
-    <td height="30px" width="30px">  <a href="edit_retail_product.html?id=${x.productid}">Edit/</a>  <a href="delete_retail_product.html?id=${x.productid}">Delete</a></td> 
-                                         
+     <td height="30px" width="30px"> <a href="edit_retail_product.html?id=${x.productid}">Edit/</a> <a href="delete_retail_product.html?id=${x.productid}">Delete</a></td> 
+                                            
       <!--    <td>       -->
           <%--  <button class="btn btn-primary" type="submit" onclick="showPopupWindow(); setAttributes(${question.id}, 0>Save</button> --%> 
 <%--            <button onclick="showPopupWindow(); setAttributes(${x.ID}, 0)">Reply</button>
@@ -149,3 +148,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </body>
 </html>
+s
