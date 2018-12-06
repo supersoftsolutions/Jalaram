@@ -29,6 +29,8 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
                                  <value>com.VO.Retail_client_VO</value>
                                  <value>com.VO.Wholesale_product_VO</value>
                                  <value>com.VO.Retail_product_VO</value>
+                                 <value>com.VO.Product_sun_wholesale_VO</value>
+                                 <value>com.VO.Product_mon_wholesale_VO</value>
                  
 			</list>
         </property>

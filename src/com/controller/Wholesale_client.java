@@ -15,8 +15,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.DAO.Add_wholesale_client_DAO;
 import com.DAO.LoginDAO;
+import com.DAO.Sun_mon_product_DAO;
 import com.VO.Add_wholesale_client_VO;
 import com.VO.LoginVO;
+import com.VO.Product_mon_wholesale_VO;
+import com.VO.Product_sun_wholesale_VO;
 
 @Controller
 public class Wholesale_client {
@@ -27,6 +30,8 @@ public class Wholesale_client {
 	
 	@Autowired
 	LoginDAO ldao;
+	@Autowired
+	Sun_mon_product_DAO sdao;
 	
 	String password="";
 	
@@ -44,6 +49,8 @@ public class Wholesale_client {
 		session.setAttribute("generatePswd",password);
 		 
 		 LoginVO lvo=new LoginVO();
+		 Product_sun_wholesale_VO svo=new Product_sun_wholesale_VO();
+		 Product_mon_wholesale_VO mvo=new Product_mon_wholesale_VO();
 		 
 		 String mansi=generatePswd(6);
 			lvo.setUserName(vo.getMobile());
@@ -62,10 +69,41 @@ public class Wholesale_client {
 			}
 			else
 			{*/
+			
+			
 			vo.setLvo(lvo);
 
 				vo.setPassword(mansi);
+				
+				svo.setIdada("0");
+				svo.setKhaman("0");
+				svo.setKhandvi("0");
+				svo.setNylon("0");
+				svo.setPatra("0");
+				svo.setSamosa("0");
+				svo.setSandwich_dhokla("0");
+				svo.setSp_patra("0");
+				//svo.setWvo(vo);
+				
+				
+				mvo.setIdada("0");
+				mvo.setKhaman("0");
+				mvo.setKhandvi("0");
+				mvo.setNylon("0");
+				mvo.setPatra("0");
+				mvo.setSamosa("0");
+				mvo.setSandwich_dhokla("0");
+				mvo.setSp_patra("0");
+				//mvo.setWvo(vo);
+				
+				this.sdao.insert(svo);
+				this.sdao.insert1(mvo);
+				
+				
 				this.dao.insert(vo);
+				
+				
+				
 			//}
 		return new ModelAndView("redirect:Add_wholesale_client.html");
 	}

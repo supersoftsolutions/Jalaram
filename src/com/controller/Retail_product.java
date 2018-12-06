@@ -17,8 +17,6 @@ import com.DAO.Retail_client_DAO;
 import com.VO.Retail_product_VO;
 import com.VO.Wholesale_product_VO;
 
-
-
 @Controller
 
 
