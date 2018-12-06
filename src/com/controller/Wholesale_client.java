@@ -75,6 +75,8 @@ public class Wholesale_client {
 
 				vo.setPassword(mansi);
 				
+				this.dao.insert(vo);
+				
 				svo.setIdada("0");
 				svo.setKhaman("0");
 				svo.setKhandvi("0");
@@ -83,7 +85,7 @@ public class Wholesale_client {
 				svo.setSamosa("0");
 				svo.setSandwich_dhokla("0");
 				svo.setSp_patra("0");
-				//svo.setWvo(vo);
+				svo.setWvo(vo);
 				
 				
 				mvo.setIdada("0");
@@ -94,13 +96,13 @@ public class Wholesale_client {
 				mvo.setSamosa("0");
 				mvo.setSandwich_dhokla("0");
 				mvo.setSp_patra("0");
-				//mvo.setWvo(vo);
+				mvo.setWvo(vo);
 				
 				this.sdao.insert(svo);
 				this.sdao.insert1(mvo);
 				
 				
-				this.dao.insert(vo);
+				
 				
 				
 				

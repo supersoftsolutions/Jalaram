@@ -50,7 +50,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <div class="form-group ">
                                         <label for="name" class="control-label col-lg-3">Name*</label>
                                         <div class="col-lg-6">
-                                            <f:input class=" form-control" id="name" path="name" readOnly="true" type="text" required="required"/>
+                                            <f:input class=" form-control" id="name" path="name"  type="text" required="required"/>
                                         </div>
                                     </div>
                                     

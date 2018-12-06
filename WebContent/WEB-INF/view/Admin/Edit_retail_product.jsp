@@ -49,25 +49,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="form">
                                 <f:form class="cmxform form-horizontal " modelAttribute="data" id="signupForm" method="post" action="update_retail_product.html" novalidate="">
                                 <f:hidden path="productid"/>
-                                 <%--     <div class="form-group ">
+                                   <%--    <div class="form-group ">
                                         <label for="priority" class="control-label col-lg-3">Name</label>
                                         <div class="col-lg-6">
                                             <!--  <input class=" form-control" id="address1" name="address1" type="text">-->
-                                        <f:select path="rvo.ID" class="custom-select form-control" disable="disable" required="">
-                                    <f:options items="${list}" itemLabel="name" itemValue="ID"/>
+                                        <f:select path="wvo.ID" class="custom-select form-control" readOnly="true" required="">
+                                    <f:options items="${list}" itemLabel="name" itemValue="ID" disabled="disabled"/>
 
                                             </f:select>
                                         </div>
-                                    </div>  --%>
+                                    </div> --%>
                                     
-            
+              
                                     <div class="form-group ">
                                     
                                         <label for="mon" class="control-label col-lg-3">Name</label>
                                         <div class="col-lg-6">
                                             <f:input class=" form-control" id="mon" path="rvo.ID" itemLabel="ID" itemValue="ID" type="text" readOnly="true" required="required"/>
                                         </div>
-                                    </div>  
+                                    </div> 
                                     
                                     
                                      <div class="form-group ">

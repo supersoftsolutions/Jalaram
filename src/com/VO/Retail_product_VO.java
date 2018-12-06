@@ -24,7 +24,7 @@ public class Retail_product_VO {
 	@Column
 	private String sun;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 
 	private Retail_client_VO rvo;
 
