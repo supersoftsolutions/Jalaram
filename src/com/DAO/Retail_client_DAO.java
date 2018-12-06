@@ -119,6 +119,5 @@ public class Retail_client_DAO {
 	
 	
 	
-
 }
 
