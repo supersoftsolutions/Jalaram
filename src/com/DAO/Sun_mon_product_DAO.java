@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.VO.Product_mon_wholesale_VO;
+import com.VO.Product_sun_retail_VO;
 import com.VO.Product_sun_wholesale_VO;
 import com.VO.Retail_client_VO;
 
@@ -35,6 +36,32 @@ public class Sun_mon_product_DAO {
 			Session session = sessionFactory.openSession();
 			Transaction tr = session.beginTransaction();
 			session.saveOrUpdate(mvo);
+			tr.commit();
+			session.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}	
+		}
+	
+	public void sun_retail(Product_sun_retail_VO svo) {
+		// TODO Auto-generated method stub
+		try{
+			Session session = sessionFactory.openSession();
+			Transaction tr = session.beginTransaction();
+			session.saveOrUpdate(svo);
+			tr.commit();
+			session.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}	
+		}
+	
+	public void mon_retail(Product_sun_retail_VO svo) {
+		// TODO Auto-generated method stub
+		try{
+			Session session = sessionFactory.openSession();
+			Transaction tr = session.beginTransaction();
+			session.saveOrUpdate(svo);
 			tr.commit();
 			session.close();
 		}catch(Exception e){
