@@ -76,11 +76,10 @@ public class Sun_mon_product_DAO {
 	public void update(Product_mon_wholesale_VO mvo)
 	{
 		Session session = sessionFactory.openSession();
-		Query q = session.createQuery("from Product_mon_wholesale_VO where id='"+mvo.getWvo()+"'");
-		List ls = q.list();
-	//	Transaction tr = session.beginTransaction();
+		
+		Transaction tr = session.beginTransaction();
 		session.update(mvo);
-	//	tr.commit();
+		tr.commit();
 		session.close();
 	}
 	
