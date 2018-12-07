@@ -15,7 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.DAO.Add_wholesale_client_DAO;
 import com.DAO.Sun_mon_product_DAO;
+import com.VO.Product_mon_retail_VO;
 import com.VO.Product_mon_wholesale_VO;
+import com.VO.Product_sun_retail_VO;
 import com.VO.Product_sun_wholesale_VO;
 import com.VO.Wholesale_product_VO;
 
@@ -62,8 +64,18 @@ public class Wholesale_product {
 	@RequestMapping(value="delete_wholesale_product.html",method=RequestMethod.GET)
 	public ModelAndView delete(@RequestParam("id") int id, Wholesale_product_VO  vo)
 	{
+		Product_sun_wholesale_VO svo=new Product_sun_wholesale_VO();
+		 Product_mon_wholesale_VO mvo=new Product_mon_wholesale_VO();
+		 
 		vo.setProductid(id);
+		
 		dao.delete(vo);
+		svo.setWvo(vo.getWvo());
+		mvo.setWvo(vo.getWvo());
+		sdao.delete(mvo, vo);
+		sdao.delete(svo, vo);
+		
+		
 		return new ModelAndView("redirect:View_wholesale_product.html");
 
 	}
