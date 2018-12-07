@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.DAO.Retail_client_DAO;
+import com.DAO.Sun_mon_product_DAO;
+import com.VO.Product_mon_retail_VO;
 import com.VO.Retail_product_VO;
 import com.VO.Wholesale_product_VO;
 
@@ -24,6 +26,8 @@ public class Retail_product {
 	
 	@Autowired
 	Retail_client_DAO dao;
+	@Autowired
+	Sun_mon_product_DAO sdao;
 
 
 	@RequestMapping(value="Add_retail_product.html",method=RequestMethod.GET)
@@ -36,7 +40,9 @@ public class Retail_product {
 	@RequestMapping(value="insert_retail_product.html",method=RequestMethod.POST)
 	public ModelAndView insert(@ModelAttribute Retail_product_VO  vo,HttpSession session)
 	{
+		Product_mon_retail_VO mvo=new Product_mon_retail_VO();
 		this.dao.product(vo);
+		this.sdao.edit(mvo, vo);
 		
 		return new ModelAndView("redirect:Add_retail_product.html");
 	}

@@ -14,6 +14,7 @@ import com.VO.Product_mon_wholesale_VO;
 import com.VO.Product_sun_retail_VO;
 import com.VO.Product_sun_wholesale_VO;
 import com.VO.Retail_client_VO;
+import com.VO.Retail_product_VO;
 
 @Repository
 public class Sun_mon_product_DAO {
@@ -90,6 +91,15 @@ public class Sun_mon_product_DAO {
 		session.update(svo);
 		tr.commit();
 		session.close();
+	}
+	
+	public void edit(Product_mon_retail_VO mvo,Retail_product_VO vo) {
+		Session session=sessionFactory.openSession();
+		Query q = session.createQuery("update Product_mon_retail_VO set "+vo.getProduct()+"='"+vo.getMon()+"'");
+		Transaction tr = session.beginTransaction();
+		session.update(q);
+		tr.commit();
+		
 	}
 	
 	
