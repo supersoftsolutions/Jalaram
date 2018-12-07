@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.DAO.Add_wholesale_client_DAO;
 import com.DAO.Retail_client_DAO;
+import com.DAO.Sun_mon_product_DAO;
 import com.VO.Add_wholesale_client_VO;
 import com.VO.LoginVO;
 import com.VO.Retail_client_VO;
@@ -23,6 +24,8 @@ public class Retail_client {
 	
 	@Autowired
 	Retail_client_DAO dao;
+	@Autowired
+	Sun_mon_product_DAO sdao;
 
 	@RequestMapping(value="Add_retail_client.html",method=RequestMethod.GET)
 	public ModelAndView index12()
