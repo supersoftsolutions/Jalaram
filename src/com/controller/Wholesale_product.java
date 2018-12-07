@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.DAO.Add_wholesale_client_DAO;
-
+import com.DAO.Sun_mon_product_DAO;
+import com.VO.Product_mon_wholesale_VO;
+import com.VO.Product_sun_wholesale_VO;
 import com.VO.Wholesale_product_VO;
 
 @Controller
@@ -24,6 +26,8 @@ public class Wholesale_product {
 	@Autowired
 	Add_wholesale_client_DAO dao;
 
+	@Autowired
+	Sun_mon_product_DAO sdao;
 
 	@RequestMapping(value="Add_wholesale_product.html",method=RequestMethod.GET)
 	public ModelAndView index1()
@@ -35,7 +39,13 @@ public class Wholesale_product {
 	@RequestMapping(value="insert_wholesale_product.html",method=RequestMethod.POST)
 	public ModelAndView insert(@ModelAttribute Wholesale_product_VO  vo,HttpSession session)
 	{
+		
+		 Product_sun_wholesale_VO svo=new Product_sun_wholesale_VO();
+		 Product_mon_wholesale_VO mvo=new Product_mon_wholesale_VO();
+		 
 		this.dao.product(vo);
+		sdao.update(svo);
+		sdao.update(mvo);
 		
 		return new ModelAndView("redirect:Add_wholesale_product.html");
 	}
