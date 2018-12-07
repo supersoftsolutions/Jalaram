@@ -15,6 +15,7 @@ import com.VO.Product_sun_retail_VO;
 import com.VO.Product_sun_wholesale_VO;
 import com.VO.Retail_client_VO;
 import com.VO.Retail_product_VO;
+import com.VO.Wholesale_product_VO;
 
 @Repository
 public class Sun_mon_product_DAO {
@@ -74,32 +75,46 @@ public class Sun_mon_product_DAO {
 		}	
 		}
 	
-	public void update(Product_mon_wholesale_VO mvo)
+	public void update(Product_mon_wholesale_VO mvo,Wholesale_product_VO vo)
 	{
-		Session session = sessionFactory.openSession();
-		Query q = session.createQuery("update Product_mon_retail_VO where '"+mvo.getProductid()+"'");
-
+		Session session=sessionFactory.openSession();
+		Query q = session.createQuery("update Product_mon_wholesale_VO set "+vo.getProduct()+"='"+vo.getMon()+"' where wvo_ID='"+mvo.getWvo().getID()+"'");
 		Transaction tr = session.beginTransaction();
-		session.update(q);
+	//	session.update(q);
+		q.executeUpdate();
 		tr.commit();
 		session.close();
+	
 	}
 	
-	/*public void update(Product_sun_wholesale_VO svo)
+	public void update(Product_sun_wholesale_VO svo,Wholesale_product_VO vo)
 	{
-		Session session = sessionFactory.openSession();
+		Session session=sessionFactory.openSession();
+		Query q = session.createQuery("update Product_sun_wholesale_VO set "+vo.getProduct()+"='"+vo.getMon()+"' where wvo_ID='"+svo.getWvo().getID()+"'");
 		Transaction tr = session.beginTransaction();
-		session.update(svo);
+	//	session.update(q);
+		q.executeUpdate();
 		tr.commit();
 		session.close();
-	}*/
 	
+	}
 	public void edit(Product_mon_retail_VO mvo,Retail_product_VO vo) {
 		Session session=sessionFactory.openSession();
-		Query q = session.createQuery("update Product_mon_retail_VO set "+vo.getProduct()+"='"+vo.getMon()+"'");
+		Query q = session.createQuery("update Product_mon_retail_VO set "+vo.getProduct()+"='"+vo.getMon()+"' where rvo_ID='"+mvo.getRvo().getID()+"'");
 		Transaction tr = session.beginTransaction();
-		session.update(q);
+		q.executeUpdate();
 		tr.commit();
+		session.close();
+		
+	}
+	
+	public void edit1(Product_sun_retail_VO svo,Retail_product_VO vo) {
+		Session session=sessionFactory.openSession();
+		Query q = session.createQuery("update Product_sun_retail_VO set "+vo.getProduct()+"='"+vo.getSun()+"' where rvo_ID='"+svo.getRvo().getID()+"'");
+		Transaction tr = session.beginTransaction();
+		q.executeUpdate();
+		tr.commit();
+		session.close();
 		
 	}
 	

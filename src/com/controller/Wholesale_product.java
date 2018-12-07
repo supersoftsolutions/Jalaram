@@ -46,8 +46,8 @@ public class Wholesale_product {
 		this.dao.product(vo);
 		svo.setWvo(vo.getWvo());
 		mvo.setWvo(vo.getWvo());
-		dao.update(mvo, vo);
-		dao.update(svo, vo);
+		sdao.update(mvo, vo);
+		sdao.update(svo, vo);
 		
 		return new ModelAndView("redirect:Add_wholesale_product.html");
 	}
