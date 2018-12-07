@@ -44,12 +44,12 @@ public class Wholesale_product {
 		 Product_mon_wholesale_VO mvo=new Product_mon_wholesale_VO();
 		 
 		this.dao.product(vo);
-		int id = 0;
+	/*	int id = 0;
 		svo.setProductid(id);
 
-		mvo.setProductid(id);
+		mvo.setProductid(id);*/
 
-		sdao.update(svo);
+	//	sdao.update(svo);
 		sdao.update(mvo);
 		
 		return new ModelAndView("redirect:Add_wholesale_product.html");
