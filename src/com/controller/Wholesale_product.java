@@ -70,12 +70,14 @@ public class Wholesale_product {
 		vo.setProductid(id);
 		
 		dao.delete(vo);
+		
+		/*mvo.setProductid(id);
+		svo.setProductid(id);*/
 		svo.setWvo(vo.getWvo());
 		mvo.setWvo(vo.getWvo());
-		sdao.delete(mvo, vo);
-		sdao.delete(svo, vo);
-		
-		
+		dao.delete(mvo, vo);
+		dao.delete(svo, vo);
+	
 		return new ModelAndView("redirect:View_wholesale_product.html");
 
 	}
