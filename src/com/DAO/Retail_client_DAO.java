@@ -111,7 +111,7 @@ public class Retail_client_DAO {
 	public void update1(Retail_product_VO vo) {
 		Session session = sessionFactory.openSession();
 		Transaction tr = session.beginTransaction();
-		session.update(vo);
+		session.saveOrUpdate(vo);
 		tr.commit();
 	//	session.close();		
 	}

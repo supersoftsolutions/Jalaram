@@ -16,6 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.DAO.Retail_client_DAO;
 import com.DAO.Sun_mon_product_DAO;
 import com.VO.Product_mon_retail_VO;
+import com.VO.Product_sun_retail_VO;
+import com.VO.Retail_client_VO;
 import com.VO.Retail_product_VO;
 import com.VO.Wholesale_product_VO;
 
@@ -41,9 +43,17 @@ public class Retail_product {
 	public ModelAndView insert(@ModelAttribute Retail_product_VO  vo,HttpSession session)
 	{
 		Product_mon_retail_VO mvo=new Product_mon_retail_VO();
-		this.dao.product(vo);
-		this.sdao.edit(mvo, vo);
+		Product_sun_retail_VO svo=new Product_sun_retail_VO();
 		
+		//vo.setRvo(Retail_client_VO);
+		this.dao.product(vo);
+		
+		//System.out.println(vo.getRvo().toString());
+		svo.setRvo(vo.getRvo());
+		mvo.setRvo(vo.getRvo());
+		sdao.edit(mvo, vo);
+
+		sdao.edit1(svo, vo);
 		return new ModelAndView("redirect:Add_retail_product.html");
 	}
 	
