@@ -40,7 +40,6 @@ public class Add_wholesale_client_DAO {
 
 	public List search1() {
 		Session session = sessionFactory.openSession();
-		   
 		Query q = session.createQuery("from Add_wholesale_client_VO");
 		List ls = q.list();
 	//	System.out.println(ls.get(0)); 
@@ -151,6 +150,29 @@ public class Add_wholesale_client_DAO {
 		
 	}
 	
+	public void delete(Product_mon_wholesale_VO mvo,Wholesale_product_VO vo)
+	{
+		Session session=sessionFactory.openSession();
+		Query q = session.createQuery("update Product_mon_wholesale_VO set wvo_ID='"+mvo.getWvo().getID()+"' where "+vo.getProduct()+"='0'");
+		Transaction tr = session.beginTransaction();
+	//	session.update(q);
+		q.executeUpdate();
+		tr.commit(); 
+		session.close();
+	
+	}
+	
+	public void delete(Product_sun_wholesale_VO svo,Wholesale_product_VO vo)
+	{
+		Session session=sessionFactory.openSession();
+		Query q = session.createQuery("update Product_sun_wholesale_VO setwvo_ID='"+svo.getWvo().getID()+"' where "+vo.getProduct()+"='0'");
+		Transaction tr = session.beginTransaction();
+	//	session.update(q);
+		q.executeUpdate();
+		tr.commit();
+		session.close();
+	
+	}
 	
 	}
 	

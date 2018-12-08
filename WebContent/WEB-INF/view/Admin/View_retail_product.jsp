@@ -56,7 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--sidebar end-->
 <!--main content start-->
 <section id="main-content">
-	<section class="wrapper">
+	<section class="">
 		<div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
