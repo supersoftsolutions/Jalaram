@@ -5,6 +5,7 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
   <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+  <%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
 <!DOCTYPE html>
 <head>
 <title>Jalaram</title>
@@ -24,12 +25,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- font-awesome icons -->
 <link rel="stylesheet" href="AdminResources/css/font.css" type="text/css"/>
 <link href="AdminResources/css/font-awesome.css" rel="stylesheet"> 
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-
 <!-- //font-awesome icons -->
 <script src="AdminResources/js/jquery2.0.3.min.js"></script>
- 
-
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
+  <script>
+$( ".selector" ).datepicker({
+  dayNamesShort: [ "sun", "mon", "tue", "wen", "Thu", "Fri", "Sat" ]
+});
+</script>
 <script type="text/javascript">
        function Search_Gridview(strKey, strGV) {
            var strData = strKey.value.toLowerCase().split(" ");
@@ -62,27 +73,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
-    View Retail Client
+   Daily Report
     </div>
     <div class="row w3-res-tb">
-   <!--  <div class="col-sm-5 m-b-xs">
-        <select class="input-sm form-control w-sm inline v-middle">
-          <option value="0">Bulk action</option>
-          <option value="1">Delete selected</option>
-          <option value="2">Bulk edit</option>
-          <option value="3">Export</option>
-        </select>
-        <button class="btn btn-sm btn-default">Apply</button>                
+     <div class="col-sm-2">
+       
+        <button class="btn btn-sm btn-default">Generate</button>                
       </div> 
-      <div class="col-sm-4">
-      </div> -->
       <div class="col-sm-3">
-        <div class="input-group">
+       
+ 
           <input type="text" class="input-sm form-control" placeholder="Search" onkeyup="Search_Gridview(this,'id1')">
-        <!--   <span class="input-group-btn">
+        <!--  <span class="input-group-btn">
             <button class="btn btn-sm btn-default" type="button">Go!</button>
           </span> -->
-        </div>
+           </div> 
+      <div class="col-sm-2">
+     	 <input  type="text" readonly="true" id=".selector" size="10" maxlength="10" />		
+<!--               <input  type="text" id="datepicker" size="10" maxlength="10" />
+ -->      
+      </div>
+          <div class="col-sm-3">
+<!--       <input  type="text" readonly="true" size="10" maxlength="10" />		
+ -->              <input  type="text"  id="datepicker"  size="10" maxlength="10" />
+      
+      </div>
+      <div class="col-sm-2">
+      <div class="input-group">
+                <button class="btn btn-sm btn-default">Update</button>                
+  </div> 
       </div>
     </div>
     <div class="table-responsive">
@@ -96,9 +115,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </th> -->
             <th>ID</th> 
              <th>Name</th>
-             <th>Mobile No</th>
-             <th>Address1</th>
-             <th>Balance</th>
+             <th>idada</th>
+             <th>Khaman</th>
+             <th>Khandvi</th>
+              <th>Nylon</th> 
+             <th>Patra</th>
+             <th>Samosa</th>
+             <th>Sandwich_dhokla</th>
+             <th>Sp_patra</th>
+             <th>Priority</th>
+             
              
            	
             
@@ -107,7 +133,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </thead>
          <tbody>
                                         <c:forEach items="${list}" var="x">
-                                         <%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/functions"%>
                                         <tr>
                                             
                                             
@@ -117,42 +142,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <td>${x.address1}</td>
                                             <td>${x.balance}</td>
                                             
-        <td height="30px" width="30px"> <a href="editretail_client.html?id=${x.ID}">Edit/</a><a href="delete_retail.html?id=${x.ID}">Delete</a></td>
-              <td height="30px" width="30px"> <button type="button"  class="btn btn-primary" data-toggle="model" id="#mymodel">Detail</button> </td>
-       
-                                                </tr>
-                                        </c:forEach>
+       <td height="30px" width="30px"> <a href="editwholesale.html?id=${x.ID}">Edit/</a> <a href="deletewholesale.html?id=${x.ID}">Delete</a></td>
+                       </tr>                      
+                            
+                                               
+                                        </c:forEach> 
                                       </tbody>
 
       </table>
     </div>
+    
   </div>
 </div>
 </section>
 <jsp:include page="Footer.jsp"></jsp:include>
   <!-- / footer -->
-  <div id="myModal" class="modal fade" role="dialog">
-		<div class="modal-dialog">
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title"></h4>
-				</div>
-				<div class="modal-body">
-					<p>
-						
-							          Modal body..
-							
-					</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-
-		</div>
-	</div>
 </section>
 
 <!--main content end-->
@@ -164,23 +168,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="AdminResources/js/jquery.nicescroll.js"></script>
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
 <script src="AdminResources/js/jquery.scrollTo.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-  <script type="text/javascript">
-  $(document).ready(function(){
-      setTimeout(function(){
-      if(!Cookies.get('modalShown')) {
-          $("#myModal").modal('show');
-        Cookies.set('modalShown', true);
-      } else {
-        <!-- alert('Your modal won\'t show again as it\'s shown before.');  -->
-      }
-
-},3000);
-})
-	  </script>
-
 
 </body>
 </html>

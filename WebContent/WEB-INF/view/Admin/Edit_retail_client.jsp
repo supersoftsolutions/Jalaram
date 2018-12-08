@@ -1,26 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@taglib uri="http://www.springframework.org/tags/form" prefix="f" %>
+	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
 <!DOCTYPE html>
 <head>
 <title>Jalaram</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+<meta name="keywords"
+	content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- bootstrap-css -->
-<link rel="stylesheet" href="AdminResources/css/bootstrap.min.css" >
+<link rel="stylesheet" href="AdminResources/css/bootstrap.min.css">
 <!-- //bootstrap-css -->
 <!-- Custom CSS -->
-<link href="AdminResources/css/style.css" rel='stylesheet' type='text/css' />
-<link href="AdminResources/css/style-responsive.css" rel="stylesheet"/>
+<link href="AdminResources/css/style.css" rel='stylesheet'
+	type='text/css' />
+<link href="AdminResources/css/style-responsive.css" rel="stylesheet" />
 <!-- font CSS -->
-<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<link
+	href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic'
+	rel='stylesheet' type='text/css'>
 <!-- font-awesome icons -->
-<link rel="stylesheet" href="AdminResources/css/font.css" type="text/css"/>
-<link href="AdminResources/css/font-awesome.css" rel="stylesheet"> 
-<link rel="stylesheet" href="AdminResources/css/morris.css" type="text/css"/>
+<link rel="stylesheet" href="AdminResources/css/font.css"
+	type="text/css" />
+<link href="AdminResources/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="AdminResources/css/morris.css"
+	type="text/css" />
 <!-- calendar -->
 <link rel="stylesheet" href="AdminResources/css/monthly.css">
 <!-- //calendar -->
@@ -30,159 +36,175 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="AdminResources/js/morris.js"></script>
 </head>
 <body>
-<!--sidebar end-->
-<!--main content start-->
-<jsp:include page="Header.jsp"></jsp:include>
-<section id="main-content">
+	<!--sidebar end-->
+	<!--main content start-->
+	<jsp:include page="Header.jsp"></jsp:include>
+	<section id="main-content">
 
 
-<div class="row">
-                <div class="col-lg-12">
-                    <section class="panel">
-                        <header class="panel-heading">
-                            Edit Retail Client
-                            
-                        </header>
-                        <div class="panel-body">
-                            <div class="form">
-                                <f:form class="cmxform form-horizontal " modelAttribute="list" id="signupForm" method="post" action="updateretail_client.html" novalidate="">
-                                    <div class="form-group ">
-                                        <label for="name" class="control-label col-lg-3">Name*</label>
-                                        <div class="col-lg-6">
-                                            <input class=" form-control" id="name" path="name" type="text" disabled="disabled" required="required">
-                                       
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group ">
-                                        <label for="address1" class="control-label col-lg-3">Address1*</label>
-                                        <div class="col-lg-6">
-                                            <input class=" form-control" id="address1" path="address1" type="text" required="required">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group ">
-                                        <label for="address2" class="control-label col-lg-3">Address2</label>
-                                        <div class="col-lg-6">
-                                            <input class=" form-control" id="address2" path="address2" type="text">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group ">
-                                        <label for="address3" class="control-label col-lg-3">Address3</label>
-                                        <div class="col-lg-6">
-                                            <input class=" form-control" id="address3" path="address3" type="text">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group ">
-                                        <label for="mobile" class="control-label col-lg-3">Mobile*</label>
-                                        <div class="col-lg-6">
-                                            <input class=" form-control" id="mobile" name="mobile" type="text" required="required">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group ">
-                                        <label for="priority" class="control-label col-lg-3">Priority</label>
-                                        <div class="col-lg-6">
-                                            <!--  <input class=" form-control" id="address1" name="address1" type="text">-->
-                                            <select name="priority" class="form-control">
-                                            	<option value="Low">Low</option>
-                                            	<option value="Medium">Medium</option>
-                                            	<option value="High">High</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group ">
-                                        <label for="patra" class="control-label col-lg-3">Patra*</label>
-                                        <div class="col-lg-6">
-                                            <input class=" form-control" id="patra" path="patra" type="text" required="required">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group ">
-                                        <label for="khaman" class="control-label col-lg-3">Khaman*</label>
-                                        <div class="col-lg-6">
-                                            <input class=" form-control" id="khaman" path="khaman" type="text" required="required">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group ">
-                                        <label for="nylon" class="control-label col-lg-3">Nylon*</label>
-                                        <div class="col-lg-6">
-                                            <input class=" form-control" id="nylon" path="nylon" type="text" required="required">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group ">
-                                        <label for="idada" class="control-label col-lg-3">Idada*</label>
-                                        <div class="col-lg-6">
-                                            <input class=" form-control" id="idada" path="idada" type="text" required="required">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group ">
-                                        <label for="khandvi" class="control-label col-lg-3">Khandvi*</label>
-                                        <div class="col-lg-6">
-                                            <input class=" form-control" id="khandvi" path="khandvi" type="text" required="required">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group ">
-                                        <label for="sandwich_dhokla" class="control-label col-lg-3">Sandwich Dhokla*</label>
-                                        <div class="col-lg-6">
-                                            <input class=" form-control" id="sandwich_dhokla" path="sandwich_dhokla" type="text" required="required">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group ">
-                                        <label for="sp_patra" class="control-label col-lg-3">SP Patra*</label>
-                                        <div class="col-lg-6">
-                                            <input class=" form-control" id="sp_patra" path="sp_patra" type="text" required="required">
-                                        </div>
-                                    </div>
-                                    
-                                    
-                                    <div class="form-group ">
-                                        <label for="samosa" class="control-label col-lg-3">Samosa*</label>
-                                        <div class="col-lg-6">
-                                            <input class=" form-control" id="samosa" path="samosa" type="text" required="required">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group ">
-                                        <label for="balance" class="control-label col-lg-3">Opening Balance*</label>
-                                        <div class="col-lg-6">
-                                            <input class=" form-control" id="balance" path="balance" type="text" required="required">
-                                        </div>
-                                    </div>
-                                    
-                                    
-                                    <div class="form-group">
-                                        <div class="col-lg-offset-5 col-lg-6">
-                                            <button class="btn btn-primary" type="submit">Save</button>
-                                        </div>
-                                    </div>
-                                </f:form>
-                            </div>
+		<div class="row">
+			<div class="col-lg-12">
+				<section class="panel">
+					<header class="panel-heading"> Edit Retail Client </header>
+					<div class="panel-body">
+						<div class="form">
+							<f:form class="cmxform form-horizontal " modelAttribute="list"
+								id="signupForm" method="post" action="updateretail_client.html"
+								novalidate="">
+								<f:hidden path="ID" />
 
-	
- <!-- footer -->
-	<jsp:include page="Footer.jsp"></jsp:include>	  
-  <!-- / footer -->
-</section>
-<!--main content end-->
-</section>
-<script src="AdminResources/js/bootstrap.js"></script>
-<script src="AdminResources/js/jquery.dcjqaccordion.2.7.js"></script>
-<script src="AdminResources/js/scripts.js"></script>
-<script src="AdminResources/js/jquery.slimscroll.js"></script>
-<script src="AdminResources/js/jquery.nicescroll.js"></script>
-<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
-<script src="AdminResources/js/jquery.scrollTo.js"></script>
-<!-- morris JavaScript -->	
-<script>
+								<div class="form-group ">
+									<label for="name" class="control-label col-lg-3">Name*</label>
+									<div class="col-lg-6">
+										<f:input class=" form-control" id="name" path="name"
+											type="text" required="required" />
+									</div>
+								</div>
+
+								<div class="form-group ">
+									<label for="address1" class="control-label col-lg-3">Address1*</label>
+									<div class="col-lg-6">
+										<f:input class=" form-control" id="address1" path="address1"
+											type="text" required="required" />
+									</div>
+								</div>
+
+								<div class="form-group ">
+									<label for="address2" class="control-label col-lg-3">Address2</label>
+									<div class="col-lg-6">
+										<f:input class=" form-control" id="address2" path="address2"
+											type="text" />
+									</div>
+								</div>
+
+								<div class="form-group ">
+									<label for="address3" class="control-label col-lg-3">Address3</label>
+									<div class="col-lg-6">
+										<f:input class=" form-control" id="address3" path="address3"
+											type="text" />
+									</div>
+								</div>
+
+								<div class="form-group ">
+									<label for="mobile" class="control-label col-lg-3">Mobile*</label>
+									<div class="col-lg-6">
+										<f:input class=" form-control" id="mobile" path="mobile"
+											readOnly="true" type="text" required="required" />
+									</div>
+								</div>
+
+								<div class="form-group ">
+									<label for="priority" class="control-label col-lg-3">Priority</label>
+									<div class="col-lg-6">
+										<!--  <input class=" form-control" id="address1" name="address1" type="text">-->
+										<f:select path="priority" class="form-control">
+											<option value="Low">Low</option>
+											<option value="Medium">Medium</option>
+											<option value="High">High</option>
+										</f:select>
+									</div>
+								</div>
+
+								<div class="form-group ">
+									<label for="patra" class="control-label col-lg-3">Patra*</label>
+									<div class="col-lg-6">
+										<f:input class=" form-control" id="patra" path="patra"
+											type="text" required="required" />
+									</div>
+								</div>
+
+								<div class="form-group ">
+									<label for="khaman" class="control-label col-lg-3">Khaman*</label>
+									<div class="col-lg-6">
+										<f:input class=" form-control" id="khaman" path="khaman"
+											type="text" required="required" />
+									</div>
+								</div>
+
+								<div class="form-group ">
+									<label for="nylon" class="control-label col-lg-3">Nylon*</label>
+									<div class="col-lg-6">
+										<f:input class=" form-control" id="nylon" path="nylon"
+											type="text" required="required" />
+									</div>
+								</div>
+
+								<div class="form-group ">
+									<label for="idada" class="control-label col-lg-3">Idada*</label>
+									<div class="col-lg-6">
+										<f:input class=" form-control" id="idada" path="idada"
+											type="text" required="required" />
+									</div>
+								</div>
+
+								<div class="form-group ">
+									<label for="khandvi" class="control-label col-lg-3">Khandvi*</label>
+									<div class="col-lg-6">
+										<f:input class=" form-control" id="khandvi" path="khandvi"
+											type="text" required="required" />
+									</div>
+								</div>
+
+								<div class="form-group ">
+									<label for="sandwich_dhokla" class="control-label col-lg-3">Sandwich
+										Dhokla*</label>
+									<div class="col-lg-6">
+										<f:input class=" form-control" id="sandwich_dhokla"
+											path="sandwich_dhokla" type="text" required="required" />
+									</div>
+								</div>
+
+								<div class="form-group ">
+									<label for="sp_patra" class="control-label col-lg-3">SP
+										Patra*</label>
+									<div class="col-lg-6">
+										<f:input class=" form-control" id="sp_patra" path="sp_patra"
+											type="text" required="required" />
+									</div>
+								</div>
+
+
+								<div class="form-group ">
+									<label for="samosa" class="control-label col-lg-3">Samosa*</label>
+									<div class="col-lg-6">
+										<f:input class=" form-control" id="samosa" path="samosa"
+											type="text" required="required" />
+									</div>
+								</div>
+
+								<div class="form-group ">
+									<label for="balance" class="control-label col-lg-3">Opening
+										Balance*</label>
+									<div class="col-lg-6">
+										<f:input class=" form-control" id="balance" path="balance"
+											readOnly="true" type="text" required="required" />
+									</div>
+								</div>
+
+
+								<div class="form-group">
+									<div class="col-lg-offset-5 col-lg-6">
+										<button class="btn btn-primary" type="submit">Save</button>
+									</div>
+							</f:form>
+						</div>
+
+
+						<!-- footer -->
+						<jsp:include page="Footer.jsp"></jsp:include>
+						<!-- / footer -->
+				</section>
+				<!--main content end-->
+	</section>
+	<script src="AdminResources/js/bootstrap.js"></script>
+	<script src="AdminResources/js/jquery.dcjqaccordion.2.7.js"></script>
+	<script src="AdminResources/js/scripts.js"></script>
+	<script src="AdminResources/js/jquery.slimscroll.js"></script>
+	<script src="AdminResources/js/jquery.nicescroll.js"></script>
+	<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
+	<script src="AdminResources/js/jquery.scrollTo.js"></script>
+	<!-- morris JavaScript -->
+	<script>
 	$(document).ready(function() {
 		//BOX BUTTON SHOW AND CLOSE
 	   jQuery('.small-graph-box').hover(function() {
@@ -237,7 +259,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	   
 	});
 	</script>
-<!-- calendar -->
+	<!-- calendar -->
 	<script type="text/javascript" src="AdminResources/js/monthly.js"></script>
 	<script type="text/javascript">
 		$(window).load( function() {

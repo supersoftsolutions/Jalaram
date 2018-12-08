@@ -74,8 +74,6 @@ public class Retail_client {
 	
 	@RequestMapping(value="View_retail_client.html",method=RequestMethod.GET)
 	public ModelAndView index12(@ModelAttribute Retail_client_VO  vo)
-	
-	
 	{
 		
 		List ls=dao.search1();
@@ -115,12 +113,6 @@ public class Retail_client {
 		return new ModelAndView("redirect:View_retail_client.html");
 		
 	}
-	
-	@RequestMapping(value = { "/", "form.html" }, method = RequestMethod.GET)
-	public ModelAndView index() {
-		return new ModelAndView("Admin/form");
-	}
-
 
 }
 

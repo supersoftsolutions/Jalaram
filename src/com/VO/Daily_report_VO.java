@@ -8,26 +8,16 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.VO.LoginVO;
-
 @Entity
-@Table(name = "Wholesale_client")
-public class Add_wholesale_client_VO {
+@Table(name = "Daily_report_temp")
+
+public class Daily_report_VO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int ID;
+	
 	@Column
-	private String name;
-	@Column
-	private String address1;
-	@Column
-	private String address2;
-	@Column
-	private String address3;
-	@Column(unique = true,nullable=false)
-	private String mobile;
-	@Column
-	private String priority;
+	private String Date;
 	@Column
 	private String patra;
 	@Column
@@ -45,58 +35,19 @@ public class Add_wholesale_client_VO {
 	@Column
 	private String samosa;
 	@Column
-	private String password;
-	@Column
-	private String balance;
+	private String total;
 	
-	@ManyToOne
-	private LoginVO lvo;
-
-	
-
-	public String getBalance() {
-		return balance;
-	}
-	public void setBalance(String balance) {
-		this.balance = balance;
-	}
-	
-   
 	public int getID() {
 		return ID;
 	}
 	public void setID(int iD) {
 		ID = iD;
 	}
-	public String getName() {
-		return name;
+	public String getDate() {
+		return Date;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getAddress1() {
-		return address1;
-	}
-	public void setAddress1(String address1) {
-		this.address1 = address1;
-	}
-	public String getAddress2() {
-		return address2;
-	}
-	public void setAddress2(String address2) {
-		this.address2 = address2;
-	}
-	public String getMobile() {
-		return mobile;
-	}
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
-	}
-	public String getPriority() {
-		return priority;
-	}
-	public void setPriority(String priority) {
-		this.priority = priority;
+	public void setDate(String date) {
+		Date = date;
 	}
 	public String getPatra() {
 		return patra;
@@ -146,24 +97,13 @@ public class Add_wholesale_client_VO {
 	public void setSamosa(String samosa) {
 		this.samosa = samosa;
 	}
-	public String getAddress3() {
-		return address3;
+	public String getTotal() {
+		return total;
 	}
-	public void setAddress3(String address3) {
-		this.address3 = address3;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public LoginVO getLvo() {
-		return lvo;
-	}
-	public void setLvo(LoginVO lvo) {
-		this.lvo = lvo;
+	public void setTotal(String total) {
+		this.total = total;
 	}
 	
 	
+
 }

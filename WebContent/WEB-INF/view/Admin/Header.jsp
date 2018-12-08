@@ -96,10 +96,10 @@
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-envelope"></i>
-                        <span>Mail </span>
+                        <span>Daily Report </span>
                     </a>
                     <ul class="sub">
-                        <li><a href="mail.html">Inbox</a></li>
+                        <li><a href="Daily_report.html">Daily Report</a></li>
                         <li><a href="mail_compose.html">Compose Mail</a></li>
                     </ul>
                 </li>

@@ -116,6 +116,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <td>${x.balance}</td>
                                             
        <td height="30px" width="30px"> <a href="editwholesale.html?id=${x.ID}">Edit/</a> <a href="deletewholesale.html?id=${x.ID}">Delete</a></td>
+              <td height="30px" width="30px"> <a href="editwholesale.html?id=${x.ID}">Edit/</a> </td>
+       
                        </tr>                      
          <%--  <td>       
            <button class="btn btn-primary" type="submit" onclick="showPopupWindow(); setAttributes(${question.id}, 0>Save</button> 

@@ -141,7 +141,7 @@ public class Wholesale_client {
 
 	@RequestMapping(value = "deletewholesale.html", method = RequestMethod.GET)
 	public ModelAndView delete(@RequestParam("id") int id, Add_wholesale_client_VO vo, LoginVO lvo) {
-		
+
 		lvo.setLoginId(id);
 		vo.setID(id);
 		dao.delete(vo);
