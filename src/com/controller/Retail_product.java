@@ -23,14 +23,11 @@ import com.VO.Wholesale_product_VO;
 
 @Controller
 
-
 public class Retail_product {
-	
 	@Autowired
 	Retail_client_DAO dao;
 	@Autowired
 	Sun_mon_product_DAO sdao;
-
 
 	@RequestMapping(value="Add_retail_product.html",method=RequestMethod.GET)
 	public ModelAndView index1()
@@ -38,7 +35,7 @@ public class Retail_product {
 		List ls=dao.search1();
 		return new ModelAndView("Admin/Add_retail_product","data",new Retail_product_VO()).addObject("list",ls);
 	}
-	
+
 	@RequestMapping(value="insert_retail_product.html",method=RequestMethod.POST)
 	public ModelAndView insert(@ModelAttribute Retail_product_VO  vo,HttpSession session)
 	{
@@ -56,23 +53,44 @@ public class Retail_product {
 		sdao.edit1(svo, vo);
 		return new ModelAndView("redirect:Add_retail_product.html");
 	}
-	
+
 	@RequestMapping(value="View_retail_product.html",method=RequestMethod.GET)
 	public ModelAndView search()
 	{
 		List ls=dao.search();
 		return new ModelAndView("Admin/View_retail_product","list",ls);
 	}
-	
+
 	@RequestMapping(value="delete_retail_product.html",method=RequestMethod.GET)
 	public ModelAndView delete(@RequestParam("id") int id, Retail_product_VO  vo)
 	{
 		vo.setProductid(id);
+		Product_mon_retail_VO mvo=new Product_mon_retail_VO();
+		Product_sun_retail_VO svo=new Product_sun_retail_VO();
+
+		/*String s=sdao.get1(vo.getProductid());
+		String s1=sdao.get1(vo.getProductid());*/
+
+		//vo.setRvo(s);
+
+		/*svo.setRvo(vo.getRvo());
+		mvo.setRvo(vo.getRvo());
+		*/
+		/*System.out.println(s);
+		sdao.dlt(mvo, vo,s,s1);
+		sdao.dlt1(svo, vo,s,s1);*/
+		
+		String ls=sdao.get(vo);
+		String ls1=sdao.get1(vo);
+		
+		System.out.println(ls);
+		sdao.dlt(mvo, vo,ls,ls1);
+		sdao.dlt1(svo, vo,ls,ls1);
+		
 		dao.delete(vo);
 		return new ModelAndView("redirect:View_retail_product.html");
-
 	}
-	
+
 	@RequestMapping(value="edit_retail_product.html",method=RequestMethod.GET)
 	public ModelAndView edit(@RequestParam("id") int id, Retail_product_VO  vo)
 	{
@@ -82,15 +100,11 @@ public class Retail_product {
 		List ls=dao.edit(vo);
 		return new ModelAndView("Admin/Edit_retail_product","data",( Retail_product_VO)ls.get(0)).addObject("list",ls1);
 	}
-	
+
 	@RequestMapping(value="update_retail_product.html",method=RequestMethod.POST)
 	public ModelAndView update(@ModelAttribute  Retail_product_VO vo)
 	{
 		dao.update1(vo);
 		return new ModelAndView("redirect:View_retail_product.html");
-		
 	}
-	
-	
-
 }
