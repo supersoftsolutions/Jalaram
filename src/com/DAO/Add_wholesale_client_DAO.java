@@ -153,7 +153,7 @@ public class Add_wholesale_client_DAO {
 	public void delete(Product_mon_wholesale_VO mvo,Wholesale_product_VO vo)
 	{
 		Session session=sessionFactory.openSession();
-		Query q = session.createQuery("update Product_mon_wholesale_VO set wvo_ID='"+mvo.getWvo().getID()+"' where "+vo.getProduct()+"='0'");
+		Query q = session.createQuery("update Product_mon_wholesale_VO set "+vo.getProduct()+"='"+vo.getMon()+"'='0' where wvo_ID='"+mvo.getWvo().getID()+"'");
 		Transaction tr = session.beginTransaction();
 	//	session.update(q);
 		q.executeUpdate();
@@ -165,7 +165,7 @@ public class Add_wholesale_client_DAO {
 	public void delete(Product_sun_wholesale_VO svo,Wholesale_product_VO vo)
 	{
 		Session session=sessionFactory.openSession();
-		Query q = session.createQuery("update Product_sun_wholesale_VO setwvo_ID='"+svo.getWvo().getID()+"' where "+vo.getProduct()+"='0'");
+		Query q = session.createQuery("update Product_sun_wholesale_VO set "+vo.getProduct()+"='"+vo.getSun()+"'='0' where wvo_ID='"+svo.getWvo().getID()+"'");
 		Transaction tr = session.beginTransaction();
 	//	session.update(q);
 		q.executeUpdate();
@@ -174,7 +174,10 @@ public class Add_wholesale_client_DAO {
 	
 	}
 	
+	
 	}
+	
+	
 	
 	
 

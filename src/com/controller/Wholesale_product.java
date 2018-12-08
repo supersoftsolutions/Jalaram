@@ -68,16 +68,16 @@ public class Wholesale_product {
 		 Product_mon_wholesale_VO mvo=new Product_mon_wholesale_VO();
 		 
 		vo.setProductid(id);
-		
-		dao.delete(vo);
-		
-		/*mvo.setProductid(id);
-		svo.setProductid(id);*/
 		svo.setWvo(vo.getWvo());
 		mvo.setWvo(vo.getWvo());
 		dao.delete(mvo, vo);
 		dao.delete(svo, vo);
 	
+		dao.delete(vo);
+		
+		/*mvo.setProductid(id);
+		svo.setProductid(id);*/
+		
 		return new ModelAndView("redirect:View_wholesale_product.html");
 
 	}
@@ -95,7 +95,16 @@ public class Wholesale_product {
 	@RequestMapping(value="update_wholesale_product.html",method=RequestMethod.POST)
 	public ModelAndView update(@ModelAttribute  Wholesale_product_VO vo)
 	{
+		
+
+		 Product_sun_wholesale_VO svo=new Product_sun_wholesale_VO();
+		 Product_mon_wholesale_VO mvo=new Product_mon_wholesale_VO();
+		 
 		dao.update1(vo);
+		svo.setWvo(vo.getWvo());
+		mvo.setWvo(vo.getWvo());
+		sdao.update(mvo, vo);
+		sdao.update(svo, vo);
 		return new ModelAndView("redirect:View_wholesale_product.html");
 		
 	}
