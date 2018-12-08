@@ -94,7 +94,6 @@ public class Retail_product {
 	@RequestMapping(value="edit_retail_product.html",method=RequestMethod.GET)
 	public ModelAndView edit(@RequestParam("id") int id, Retail_product_VO  vo)
 	{
-		
 		List ls1=dao.search1();
 		vo.setProductid(id);
 		List ls=dao.edit(vo);
@@ -104,16 +103,15 @@ public class Retail_product {
 	@RequestMapping(value="update_retail_product.html",method=RequestMethod.POST)
 	public ModelAndView update(@ModelAttribute  Retail_product_VO vo)
 	{
-		
 		Product_mon_retail_VO mvo=new Product_mon_retail_VO();
 		Product_sun_retail_VO svo=new Product_sun_retail_VO();
-		
+
 		svo.setRvo(vo.getRvo());
 		mvo.setRvo(vo.getRvo());
 		sdao.edit(mvo, vo);
 
 		sdao.edit1(svo, vo);
-		
+
 		dao.update1(vo);
 		return new ModelAndView("redirect:View_retail_product.html");
 	}
