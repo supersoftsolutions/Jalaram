@@ -24,89 +24,86 @@ import com.VO.Wholesale_product_VO;
 @Controller
 
 public class Wholesale_product {
-	
+
 	@Autowired
 	Add_wholesale_client_DAO dao;
 
 	@Autowired
 	Sun_mon_product_DAO sdao;
 
-	@RequestMapping(value="Add_wholesale_product.html",method=RequestMethod.GET)
-	public ModelAndView index1()
-	{
-		List ls=dao.search1();
-		return new ModelAndView("Admin/Add_wholesale_product","data",new Wholesale_product_VO()).addObject("list",ls);
+	@RequestMapping(value = "Add_wholesale_product.html", method = RequestMethod.GET)
+	public ModelAndView index1() {
+		List ls = dao.search1();
+		return new ModelAndView("Admin/Add_wholesale_product", "data", new Wholesale_product_VO()).addObject("list",
+				ls);
 	}
-	
-	@RequestMapping(value="insert_wholesale_product.html",method=RequestMethod.POST)
-	public ModelAndView insert(@ModelAttribute Wholesale_product_VO  vo,HttpSession session)
-	{
-		
-		 Product_sun_wholesale_VO svo=new Product_sun_wholesale_VO();
-		 Product_mon_wholesale_VO mvo=new Product_mon_wholesale_VO();
-		 
+
+	@RequestMapping(value = "insert_wholesale_product.html", method = RequestMethod.POST)
+	public ModelAndView insert(@ModelAttribute Wholesale_product_VO vo, HttpSession session) {
+		Product_sun_wholesale_VO svo = new Product_sun_wholesale_VO();
+		Product_mon_wholesale_VO mvo = new Product_mon_wholesale_VO();
+
 		this.dao.product(vo);
 		svo.setWvo(vo.getWvo());
 		mvo.setWvo(vo.getWvo());
 		sdao.update(mvo, vo);
 		sdao.update(svo, vo);
-		
+
 		return new ModelAndView("redirect:Add_wholesale_product.html");
 	}
-	
-	@RequestMapping(value="View_wholesale_product.html",method=RequestMethod.GET)
-	public ModelAndView search()
-	{
-		List ls=dao.search();
-		return new ModelAndView("Admin/View_wholesale_product","list",ls);
+
+	@RequestMapping(value = "View_wholesale_product.html", method = RequestMethod.GET)
+	public ModelAndView search() {
+		List ls = dao.search();
+		return new ModelAndView("Admin/View_wholesale_product", "list", ls);
 	}
-	
-	@RequestMapping(value="delete_wholesale_product.html",method=RequestMethod.GET)
-	public ModelAndView delete(@RequestParam("id") int id, Wholesale_product_VO  vo)
-	{
-		Product_sun_wholesale_VO svo=new Product_sun_wholesale_VO();
-		 Product_mon_wholesale_VO mvo=new Product_mon_wholesale_VO();
-		 
+
+	@RequestMapping(value = "delete_wholesale_product.html", method = RequestMethod.GET)
+	public ModelAndView delete(@RequestParam("id") int id, Wholesale_product_VO vo) {
+		Product_sun_wholesale_VO svo = new Product_sun_wholesale_VO();
+		Product_mon_wholesale_VO mvo = new Product_mon_wholesale_VO();
+
 		vo.setProductid(id);
+		mvo.getProductid();
+
 		svo.setWvo(vo.getWvo());
 		mvo.setWvo(vo.getWvo());
 		dao.delete(mvo, vo);
 		dao.delete(svo, vo);
-	
+
 		dao.delete(vo);
-		
-		/*mvo.setProductid(id);
-		svo.setProductid(id);*/
-		
+
+		/*
+		 * mvo.setProductid(id); svo.setProductid(id);
+		 */
+
 		return new ModelAndView("redirect:View_wholesale_product.html");
 
 	}
-	
-	@RequestMapping(value="edit_wholesale_product.html",method=RequestMethod.GET)
-	public ModelAndView edit(@RequestParam("id") int id, Wholesale_product_VO  vo)
-	{
-		
-		List ls1=dao.search1();
-		vo.setProductid(id);
-		List ls=dao.edit(vo);
-		return new ModelAndView("Admin/Edit_wholesale_product","data",( Wholesale_product_VO)ls.get(0)).addObject("list",ls1);
-	}
-	
-	@RequestMapping(value="update_wholesale_product.html",method=RequestMethod.POST)
-	public ModelAndView update(@ModelAttribute  Wholesale_product_VO vo)
-	{
-		
 
-		 Product_sun_wholesale_VO svo=new Product_sun_wholesale_VO();
-		 Product_mon_wholesale_VO mvo=new Product_mon_wholesale_VO();
-		 
+	@RequestMapping(value = "edit_wholesale_product.html", method = RequestMethod.GET)
+	public ModelAndView edit(@RequestParam("id") int id, Wholesale_product_VO vo) {
+
+		List ls1 = dao.search1();
+		vo.setProductid(id);
+		List ls = dao.edit(vo);
+		return new ModelAndView("Admin/Edit_wholesale_product", "data", (Wholesale_product_VO) ls.get(0))
+				.addObject("list", ls1);
+	}
+
+	@RequestMapping(value = "update_wholesale_product.html", method = RequestMethod.POST)
+	public ModelAndView update(@ModelAttribute Wholesale_product_VO vo) {
+
+		Product_sun_wholesale_VO svo = new Product_sun_wholesale_VO();
+		Product_mon_wholesale_VO mvo = new Product_mon_wholesale_VO();
+
 		dao.update1(vo);
 		svo.setWvo(vo.getWvo());
 		mvo.setWvo(vo.getWvo());
 		sdao.update(mvo, vo);
 		sdao.update(svo, vo);
 		return new ModelAndView("redirect:View_wholesale_product.html");
-		
+
 	}
-	
+
 }
