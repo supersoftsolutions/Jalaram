@@ -24,7 +24,7 @@ public class Sun_mon_product_DAO {
 	SessionFactory sessionFactory;
 	
 	public void insert(Product_sun_wholesale_VO svo) {
-		// TODO Auto-generated method stub
+		
 		try{
 			Session session = sessionFactory.openSession();
 			Transaction tr = session.beginTransaction();
@@ -166,7 +166,7 @@ public class Sun_mon_product_DAO {
 	
 	public String get(Retail_product_VO vo) {
 		Session session=sessionFactory.openSession();
-		Query q = session.createQuery("select rvo_ID from Retail_product_VO where id='"+vo.getProductid()+"'");
+		Query q = session.createQuery("select rvo_ID from Retail_product_VO where productid='"+vo.getProductid()+"'");
 		String s = (String)q.uniqueResult();
 		//session.close();
 		return s;
@@ -174,7 +174,7 @@ public class Sun_mon_product_DAO {
 	
 	public String get1(Retail_product_VO vo) {
 		Session session=sessionFactory.openSession();
-		Query q = session.createQuery("select product from Retail_product_VO where id='"+vo.getProductid()+"'");
+		Query q = session.createQuery("select product from Retail_product_VO where productid='"+vo.getProductid()+"'");
 		String s = (String)q.uniqueResult();
 		//session.close();
 		return s;
