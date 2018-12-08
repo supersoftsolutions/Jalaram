@@ -49,13 +49,9 @@ public class Retail_client_DAO {
 		session.delete(vo);
 		tr.commit();
 		// TODO Auto-generated method stub
-		
 	}
 
-
-
 	public List edit(Retail_client_VO vo) {
-	
 		Session session=sessionFactory.openSession();
 		Query q = session.createQuery("from Retail_client_VO where id='"+vo.getID()+"'");
 		List ls = q.list();
@@ -72,8 +68,6 @@ public class Retail_client_DAO {
 		session.close();
 	}
 
-	
-
 	public void product(Retail_product_VO vo) {
 		Session session = sessionFactory.openSession();
 		Transaction tr = session.beginTransaction();
@@ -82,8 +76,6 @@ public class Retail_client_DAO {
 		session.close();
 		
 	}
-
-	
 
 	public List search() {
 		Session session = sessionFactory.openSession();
@@ -115,10 +107,4 @@ public class Retail_client_DAO {
 		tr.commit();
 	//	session.close();		
 	}
-	
-	
-	
-	
-
 }
-
