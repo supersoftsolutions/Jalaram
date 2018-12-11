@@ -27,21 +27,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="AdminResources/css/font-awesome.css" rel="stylesheet"> 
 <!-- //font-awesome icons -->
 <script src="AdminResources/js/jquery2.0.3.min.js"></script>
- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
+  <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
+      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      
+ <!--  <script>
   $(function() {  
        $( "#datepicker" ).datepicker();  
       $( "#datepicker" ).datepicker("setDate", "1");  
+    /*   $(  "#datepicker" ).datepicker({
+    	  dayNamesShort: [ "sun", "mon", "tue", "wen", "Thu", "Fri", "Sat" ] */
    });  
-  </script>
- <!--  <script>
+  </script> -->
+   <script>
+         $(function() {
+            $( "#datepicker-3" ).datepicker({
+
+         
+/*                   defaultDate:+1	,
+ */               dateFormat:"yy-mm-dd",
+               altField: "#datepicker-4",
+               altFormat: "D"
+            });
+            $( "#datepicker-3" ).datepicker("setDate", "1");  
+
+         }); 
+
+      </script>
+ <!-- <script>
 $( ".selector" ).datepicker({
   dayNamesShort: [ "sun", "mon", "tue", "wen", "Thu", "Fri", "Sat" ]
-});
-</script> -->
+}); -->
+</script> 
 <script type="text/javascript">
        function Search_Gridview(strKey, strGV) {
            var strData = strKey.value.toLowerCase().split(" ");
@@ -79,7 +97,7 @@ $( ".selector" ).datepicker({
     <div class="row w3-res-tb">
      <div class="col-sm-2">
        
-        <button class="btn btn-sm btn-default">Generate</button>                
+        <button type="button" class="btn btn-primary">Generate</button>                
       </div> 
       <div class="col-sm-3">
        
@@ -90,16 +108,16 @@ $( ".selector" ).datepicker({
           </span> -->
            </div> 
       <div class="col-sm-2">
-     	 <input  type="text" readonly="true" id=".selector" size="10" maxlength="10" />		
+     	 <input  type="text" readonly="true" id="datepicker-4" size="10" maxlength="10" />		
      
       </div>
           <div class="col-sm-3">
-              <input  type="text" id="datepicker" size="10" maxlength="10"/>
+              <input  type="text" id="datepicker-3" size="10" maxlength="10"/>
       
       </div>
       <div class="col-sm-2">
       <div class="input-group">
-                <button class="btn btn-sm btn-default">Update</button>                
+                <button type="button" class="btn btn-primary">Update</button>                
   </div> 
       </div>
     </div>
