@@ -81,11 +81,11 @@ public class Retail_product {
 		*/
 		System.out.println(vo);
 		String ls=sdao.get(vo);
-		String ls1=sdao.get1(vo);
+	//	String ls1=sdao.get1(vo);
 		
 		System.out.println(ls);
-		sdao.dlt(mvo, vo,ls,ls1);
-		sdao.dlt1(svo, vo,ls,ls1);
+		sdao.dlt(mvo, vo,ls);
+		sdao.dlt1(svo, vo,ls);
 		
 		dao.delete(vo);
 		return new ModelAndView("redirect:View_retail_product.html");

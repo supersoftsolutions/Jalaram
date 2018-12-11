@@ -146,10 +146,10 @@ public class Sun_mon_product_DAO {
 
 	}
 
-	public void dlt(Product_mon_retail_VO mvo, Retail_product_VO vo, String object, String object2) {
+	public void dlt(Product_mon_retail_VO mvo, Retail_product_VO vo, String object2) {
 		Session session = sessionFactory.openSession();
 		Query q = session
-				.createQuery("update Product_mon_retail_VO set " + object2 + "='0' where rvo_ID='" + object + "'");
+				.createQuery("update Product_mon_retail_VO set " + object2 + "='0' where rvo_ID='" + + mvo.getRvo().getID() + "'");
 		Transaction tr = session.beginTransaction();
 		q.executeUpdate();
 		tr.commit();
@@ -157,10 +157,10 @@ public class Sun_mon_product_DAO {
 
 	}
 
-	public void dlt1(Product_sun_retail_VO svo, Retail_product_VO vo, String object, String object2) {
+	public void dlt1(Product_sun_retail_VO svo, Retail_product_VO vo, String object2) {
 		Session session = sessionFactory.openSession();
 		Query q = session
-				.createQuery("update Product_sun_wholesale_VO set " + object2 + "='0' where rvo_ID='" + object + "'");
+				.createQuery("update Product_sun_wholesale_VO set " + object2 + "='0' where rvo_ID='" + svo.getRvo().getID() + "'");
 		Transaction tr = session.beginTransaction();
 		// session.update(q);
 		q.executeUpdate();
@@ -172,7 +172,7 @@ public class Sun_mon_product_DAO {
 	public String get(Retail_product_VO vo) {
 		Session session = sessionFactory.openSession();
 		Query q = session
-				.createQuery("SELECT rvo_ID FROM Retail_product_VO where productid='" + vo.getProductid() + "'");
+				.createQuery("SELECT rvo_ID,product FROM Retail_product_VO where productid='" + vo.getProductid() + "'");
 		 ((SQLQuery) q).addEntity( Retail_product_VO.class);
 		//List<Retail_product_VO> ls = q.list();
 	//Object id = null;
@@ -182,12 +182,12 @@ public class Sun_mon_product_DAO {
 		return s;
 	}
 
-	public String get1(Retail_product_VO vo) {
+	/*public String get1(Retail_product_VO vo) {
 		Session session = sessionFactory.openSession();
 		Query q = session
 				.createQuery("select product from Retail_product_VO where productid='" + vo.getProductid() + "'");
 		String s = (String) q.uniqueResult();
 		// session.close();
 		return s;
-	}
+	}*/
 }

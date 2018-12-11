@@ -134,9 +134,7 @@ $( ".selector" ).datepicker({
          <tbody>
                                         <c:forEach items="${list}" var="x">
                                         <tr>
-                                            
-                                            
-                                            <td>${x.ID}</td>
+                                    <td>${x.ID}</td>
                                             <td>${x.name}</td>
                                             <td>${x.mobile}</td>
                                             <td>${x.address1}</td>
