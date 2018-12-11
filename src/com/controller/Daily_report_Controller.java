@@ -28,7 +28,7 @@ public class Daily_report_Controller {
 	
 	@RequestMapping(value = { "/", "Daily_report.html" }, method = RequestMethod.GET)
 	public ModelAndView index(@ModelAttribute Daily_report_VO  vo) {
-		Calendar cal = Calendar.getInstance();
+		/*Calendar cal = Calendar.getInstance();
 		Date d = null;
         //DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
@@ -47,7 +47,7 @@ public class Daily_report_Controller {
         catch (Exception e1)
         {
             e1.printStackTrace();
-        }
+        }*/
 		return new ModelAndView("Admin/Daily_Report");
 	}
 
