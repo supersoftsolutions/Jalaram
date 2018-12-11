@@ -30,7 +30,8 @@ public class Daily_report_Controller {
 	public ModelAndView index(@ModelAttribute Daily_report_VO  vo) {
 		Calendar cal = Calendar.getInstance();
 		Date d = null;
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        //DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         cal.add(Calendar.DATE, 1);
         String s = dateFormat.format(cal.getTime());
        
@@ -38,12 +39,12 @@ public class Daily_report_Controller {
         {
             d = (Date) dateFormat.parse(s);
             String date = null;
-			vo.setDate(date);
+			vo.setDate(s);
           //  vo.setMaxSelectableDate(d);*
            // dateChooser.setMinSelectableDate(d);
-            System.out.println(d);
+            System.out.println(s);
         }
-        catch (ParseException e1)
+        catch (Exception e1)
         {
             e1.printStackTrace();
         }

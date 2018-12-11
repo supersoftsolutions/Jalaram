@@ -1,5 +1,7 @@
 package com.VO;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "Daily_report_temp")
@@ -18,6 +22,9 @@ public class Daily_report_VO {
 	
 	@Column
 	private String Date;
+	
+	
+	
 	@Column
 	private String patra;
 	@Column
@@ -49,9 +56,12 @@ public class Daily_report_VO {
 	public void setDate(String date) {
 		Date = date;
 	}
+	
+	
 	public String getPatra() {
 		return patra;
 	}
+	
 	public void setPatra(String patra) {
 		this.patra = patra;
 	}
