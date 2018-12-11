@@ -174,7 +174,7 @@ public class Sun_mon_product_DAO {
 		Query q = session
 				.createQuery("SELECT rvo_ID FROM Retail_product_VO where productid='" + vo.getProductid() + "'");
 		 ((SQLQuery) q).addEntity( Retail_product_VO.class);
-		//	List<Retail_product_VO> ls = q.list();
+		//List<Retail_product_VO> ls = q.list();
 	//Object id = null;
 	//	q.setParameter("rvo_ID",id);  
 		String s = (String) q.uniqueResult();
