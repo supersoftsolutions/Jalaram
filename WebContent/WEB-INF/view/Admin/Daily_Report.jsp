@@ -33,15 +33,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $(function() {  
-      $( "#datepicker" ).datepicker();  
-      $( "#datepicker" ).datepicker("setDate", "10w+1");  
+       $( "#datepicker" ).datepicker();  
+      $( "#datepicker" ).datepicker("setDate", "1");  
    });  
   </script>
-  <script>
+ <!--  <script>
 $( ".selector" ).datepicker({
   dayNamesShort: [ "sun", "mon", "tue", "wen", "Thu", "Fri", "Sat" ]
 });
-</script>
+</script> -->
 <script type="text/javascript">
        function Search_Gridview(strKey, strGV) {
            var strData = strKey.value.toLowerCase().split(" ");
