@@ -32,15 +32,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
-  $( function() {
-    $( "#datepicker" ).datepicker();
-  } );
+  $(function() {  
+       $( "#datepicker" ).datepicker();  
+      $( "#datepicker" ).datepicker("setDate", "1");  
+   });  
   </script>
-  <script>
+ <!--  <script>
 $( ".selector" ).datepicker({
   dayNamesShort: [ "sun", "mon", "tue", "wen", "Thu", "Fri", "Sat" ]
 });
-</script>
+</script> -->
 <script type="text/javascript">
        function Search_Gridview(strKey, strGV) {
            var strData = strKey.value.toLowerCase().split(" ");
@@ -90,12 +91,10 @@ $( ".selector" ).datepicker({
            </div> 
       <div class="col-sm-2">
      	 <input  type="text" readonly="true" id=".selector" size="10" maxlength="10" />		
-<!--               <input  type="text" id="datepicker" size="10" maxlength="10" />
- -->      
+     
       </div>
           <div class="col-sm-3">
-<!--       <input  type="text" readonly="true" size="10" maxlength="10" />		
- -->              <input  type="text"  id="datepicker"  size="10" maxlength="10" />
+              <input  type="text" id="datepicker" size="10" maxlength="10"/>
       
       </div>
       <div class="col-sm-2">
