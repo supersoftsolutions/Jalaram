@@ -49,51 +49,57 @@ public class Wholesale_client {
 		Product_sun_wholesale_VO svo = new Product_sun_wholesale_VO();
 		Product_mon_wholesale_VO mvo = new Product_mon_wholesale_VO();
 
-		String mansi = generatePswd(6);
-		lvo.setUserName(vo.getMobile());
-		// System.out.println(mansi);
-		lvo.setPassword(mansi);
+		if(empty(dao.insert1(vo)))
+		{
+			String mansi = generatePswd(6);
+			lvo.setUserName(vo.getMobile());
+			// System.out.println(mansi);
+			lvo.setPassword(mansi);
 
-		lvo.setEnabled("1");
-		lvo.setRole("ROLE_USER");
-		this.ldao.insert(lvo);
+			lvo.setEnabled("1");
+			lvo.setRole("ROLE_USER");
+			this.ldao.insert(lvo);
 
-		// System.out.println(dao.i);
-		// if(empty(dao.i.toString()))
-		/*
-		 * if(dao.i.equals(null)) { System.out.println("empty method"); } else {
-		 */
+			// System.out.println(dao.i);
+			// if(empty(dao.i.toString()))
+			/*
+			 * if(dao.i.equals(null)) { System.out.println("empty method"); } else {
+			 */
 
-		vo.setLvo(lvo);
+			vo.setLvo(lvo);
 
-		vo.setPassword(mansi);
+			vo.setPassword(mansi);
 
-		this.dao.insert(vo);
+			this.dao.insert(vo);
 
-		svo.setIdada("0");
-		svo.setKhaman("0");
-		svo.setKhandvi("0");
-		svo.setNylon("0");
-		svo.setPatra("0");
-		svo.setSamosa("0");
-		svo.setSandwich_dhokla("0");
-		svo.setSp_patra("0");
-		svo.setWvo(vo);
+			svo.setIdada("0");
+			svo.setKhaman("0");
+			svo.setKhandvi("0");
+			svo.setNylon("0");
+			svo.setPatra("0");
+			svo.setSamosa("0");
+			svo.setSandwich_dhokla("0");
+			svo.setSp_patra("0");
+			svo.setWvo(vo);
 
-		mvo.setIdada("0");
-		mvo.setKhaman("0");
-		mvo.setKhandvi("0");
-		mvo.setNylon("0");
-		mvo.setPatra("0");
-		mvo.setSamosa("0");
-		mvo.setSandwich_dhokla("0");
-		mvo.setSp_patra("0");
-		mvo.setWvo(vo);
+			mvo.setIdada("0");
+			mvo.setKhaman("0");
+			mvo.setKhandvi("0");
+			mvo.setNylon("0");
+			mvo.setPatra("0");
+			mvo.setSamosa("0");
+			mvo.setSandwich_dhokla("0");
+			mvo.setSp_patra("0");
+			mvo.setWvo(vo);
 
-		this.sdao.insert(svo);
-		this.sdao.insert1(mvo);
+			this.sdao.insert(svo);
+			this.sdao.insert1(mvo);
 
-		// }
+			// }
+			
+		}//if end
+		
+		
 		return new ModelAndView("redirect:Add_wholesale_client.html");
 	}
 

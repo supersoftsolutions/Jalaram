@@ -39,6 +39,23 @@ public class Add_wholesale_client_DAO {
 		session.close();
 
 	}
+	
+	public String insert1(Add_wholesale_client_VO vo) {
+		// TODO Auto-generated method stub
+
+		Session session = sessionFactory.openSession();
+
+		
+		 Query q1 = session.createQuery("select mobile from Add_wholesale_client_VO where mobile='"+vo.getMobile()+"'"); 
+		 String i= (String) q1.uniqueResult();
+		
+		Transaction tr = session.beginTransaction();
+		//session.saveOrUpdate(vo);
+		tr.commit();
+		session.close();
+		return i;
+
+	}
 
 	public List search1() {
 		Session session = sessionFactory.openSession();
