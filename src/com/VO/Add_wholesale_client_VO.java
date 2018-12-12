@@ -12,6 +12,7 @@ import com.VO.LoginVO;
 
 @Entity
 @Table(name = "Wholesale_client")
+
 public class Add_wholesale_client_VO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
