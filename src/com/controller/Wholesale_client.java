@@ -18,9 +18,7 @@ import com.DAO.LoginDAO;
 import com.DAO.Sun_mon_product_DAO;
 import com.VO.Add_wholesale_client_VO;
 import com.VO.LoginVO;
-import com.VO.Product_mon_retail_VO;
 import com.VO.Product_mon_wholesale_VO;
-import com.VO.Product_sun_retail_VO;
 import com.VO.Product_sun_wholesale_VO;
 import com.VO.Retail_product_VO;
 import com.VO.Wholesale_product_VO;
@@ -142,9 +140,7 @@ public class Wholesale_client {
 
 	@RequestMapping(value = "View_wholesale_client.html", method = RequestMethod.GET)
 	public ModelAndView index12(@ModelAttribute Add_wholesale_client_VO vo)
-
 	{
-
 		List ls = dao.search1();
 		return new ModelAndView("Admin/View_wholesale_client", "list", ls);
 	}
@@ -156,7 +152,6 @@ public class Wholesale_client {
 		Product_sun_wholesale_VO svo=new Product_sun_wholesale_VO();
 		Wholesale_product_VO pvo=new Wholesale_product_VO();
 		
-		//lvo.setLoginId(id);
 		vo.setID(id);
 		String m=dao.get(vo);
 		sdao.delete(vo, svo);
@@ -164,7 +159,6 @@ public class Wholesale_client {
 		sdao.delete(vo, pvo);
 		dao.delete(vo);
 		dao.delete(lvo,vo,m);
-		
 		return new ModelAndView("redirect:View_wholesale_client.html");
 	}
 
