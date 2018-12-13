@@ -13,6 +13,7 @@ import com.VO.Add_wholesale_client_VO;
 import com.VO.LoginVO;
 import com.VO.Product_mon_wholesale_VO;
 import com.VO.Product_sun_wholesale_VO;
+import com.VO.Retail_product_VO;
 import com.VO.Wholesale_product_VO;
 
 @Repository
@@ -66,21 +67,9 @@ public class Add_wholesale_client_DAO {
 		return ls;
 	}
 
-	public void delete(Add_wholesale_client_VO vo) {
-		Session session = sessionFactory.openSession();
-		Transaction tr = session.beginTransaction();
-		session.delete(vo);
-		tr.commit();
-		session.close();
-	}
+	
 
-	public void delete(LoginVO lvo) {
-		Session session = sessionFactory.openSession();
-		Transaction tr = session.beginTransaction();
-		session.delete(lvo);
-		tr.commit();
-		session.close();
-	}
+	
 
 	/*
 	 * public void delete1(LoginVO lvo) {
@@ -166,22 +155,10 @@ public class Add_wholesale_client_DAO {
 		session.close();
 
 	}
-
-	/*public void delete(Product_mon_wholesale_VO mvo, Wholesale_product_VO vo) {
-		Session session = sessionFactory.openSession();
-		Query q = session.createQuery("update Product_mon_wholesale_VO set " + vo.getProduct() + "='0' where wvo_ID='"+ mvo.getWvo().getID() + "'");
-		Transaction tr = session.beginTransaction();
-		// session.update(q);
-		q.executeUpdate();
-		tr.commit();
-		session.close();
-
-	}*/
-
-	public void delete(Product_sun_wholesale_VO svo, Wholesale_product_VO vo,String s) {
+	public void delete(LoginVO lvo,Add_wholesale_client_VO vo,String m) {
 		Session session = sessionFactory.openSession();
 		//Query q = session.createQuery("update Product_sun_wholesale_VO set " + s + "='0' where wvo_ID='"+ vo.getWvo() + "'");
-		Query q = session.createQuery("update Product_sun_wholesale_VO set "+s+" = '0' where wvo_ID = (select wvo_ID from Wholesale_product_VO where productid='"+vo.getProductid()+"')");
+		Query q = session.createQuery("delete from LoginVO where userName = '"+m+"'");
 		Transaction tr = session.beginTransaction();
 		 //session.update(q);
 		q.executeUpdate();
@@ -189,29 +166,23 @@ public class Add_wholesale_client_DAO {
 		session.close();
 	}
 	
-	
-	public String get(Wholesale_product_VO vo) {
+	public void delete(Add_wholesale_client_VO vo) {
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery("delete from Add_wholesale_client_VO where ID ='"+vo.getID()+"'");
+		Transaction tr = session.beginTransaction();
+		q.executeUpdate();
+		tr.commit();
+		session.close();
+	}
+	public String get(Add_wholesale_client_VO vo) {
 
 		Session session = sessionFactory.openSession();
-		Query q1 = session.createQuery("select product from Wholesale_product_VO where productid='"+vo.getProductid()+"'");
+		Query q1 = session.createQuery("select mobile from Add_wholesale_client_VO where ID='"+vo.getID()+"'");
 		String i= (String)q1.uniqueResult();
 		Transaction tr = session.beginTransaction();
 		tr.commit();
 		session.close();
 		return i;
 	}
-	
-	/*public String get1(Wholesale_product_VO vo,Add_wholesale_client_VO vo) {
-		
-		Session session = sessionFactory.openSession();
-		Query q1 = session.createQuery("select wholesale_client.ID from wholesale_client join wholesale_product on wholesale_client.ID=wholesale_product.wvo_ID where productid='"+vo.getProductid()+"'");
-		 String i1= (String)q1.uniqueResult();
-		 Transaction tr = session.beginTransaction();
-		tr.commit();
-		session.close();
-		
-		return i1;
-
-	}*/
 
 }

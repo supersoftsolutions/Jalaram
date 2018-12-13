@@ -22,6 +22,7 @@ import com.VO.Product_mon_wholesale_VO;
 import com.VO.Product_sun_retail_VO;
 import com.VO.Product_sun_wholesale_VO;
 import com.VO.Retail_client_VO;
+import com.VO.Retail_product_VO;
 
 @Controller
 public class Retail_client {
@@ -83,7 +84,16 @@ public class Retail_client {
 	@RequestMapping(value="delete_retail.html",method=RequestMethod.GET)
 	public ModelAndView delete(@RequestParam("id") int id, Retail_client_VO  vo)
 	{
-			vo.setID(id);
+		
+		Product_mon_retail_VO mvo=new Product_mon_retail_VO();
+		Product_sun_retail_VO svo=new Product_sun_retail_VO();
+		Retail_product_VO pvo=new Retail_product_VO();
+		
+		vo.setID(id);
+			
+			sdao.delete(vo, svo);
+			sdao.delete(vo, mvo);
+			sdao.delete(vo, pvo);
 			dao.delete(vo);
 			return new ModelAndView("redirect:View_retail_client.html");
 	}
