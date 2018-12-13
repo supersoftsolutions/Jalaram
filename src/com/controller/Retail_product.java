@@ -91,13 +91,13 @@ public class Retail_product {
 	{
 		Product_mon_retail_VO mvo=new Product_mon_retail_VO();
 		Product_sun_retail_VO svo=new Product_sun_retail_VO();
+//System.out.println(vo.getProductid());
+		/*svo.setRvo(vo.getRvo());
+		mvo.setRvo(vo.getRvo());*/
 
-		svo.setRvo(vo.getRvo());
-		mvo.setRvo(vo.getRvo());
 		sdao.edit(mvo, vo);
-
 		sdao.edit1(svo, vo);
-
+		//System.out.println(vo.getRvo().getID());
 		dao.update1(vo);
 		return new ModelAndView("redirect:View_retail_product.html");
 	}

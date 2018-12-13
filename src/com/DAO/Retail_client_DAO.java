@@ -101,10 +101,17 @@ public class Retail_client_DAO {
 	}
 
 	public void update1(Retail_product_VO vo) {
-		Session session = sessionFactory.openSession();
+		/*Session session = sessionFactory.openSession();
 		Transaction tr = session.beginTransaction();
 		session.saveOrUpdate(vo);
 		tr.commit();
-	//	session.close();		
+		session.close();*/
+		
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery("update Retail_product_VO set mon='"+vo.getMon()+"',sun='"+vo.getSun()+"' where productid='"+vo.getProductid()+"'");
+		Transaction tr = session.beginTransaction();
+		q.executeUpdate();
+		tr.commit();
+		session.close();
 	}
 }
