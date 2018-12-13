@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.DAO.Daily_report_DAO;
-import com.VO.Add_wholesale_client_VO;
-import com.VO.Daily_report1_VO;
+import com.VO.Product_mon_retail_VO;
+
 
 
 @Controller
@@ -33,12 +33,13 @@ public class Daily_report_Controller {
 	Daily_report_DAO dao;
 	
 	@RequestMapping(value = "Daily_report.html", method = RequestMethod.GET)
-	public ModelAndView index12(@ModelAttribute Daily_report1_VO vo)
+	public ModelAndView index12(@ModelAttribute Product_mon_retail_VO vo)
 
 	{
 
 		List ls = dao.search();
-		return new ModelAndView("Admin/Daily_report", "list", ls);
+		List ls1 = dao.search();
+		return new ModelAndView("Admin/Daily_Report", "list" ,ls);
 	}
 
 

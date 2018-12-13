@@ -153,8 +153,9 @@ $( ".selector" ).datepicker({
          <tbody>
                                         <c:forEach items="${list}" var="x">
                                         <tr>
-                                    <td>${x.ID}</td>
-                                            <td>${x.wmvo.name}</td>
+                                  		  <td>${x.productid}</td>
+                                            <td>${x.rvo.name}</td>
+                                            
                                           <%--   <td>${datepicker-3}</td>
                                             <td>${x.wmvo.idada/wsvo.name}</td>
                                             <td>${x.balance}</td>
