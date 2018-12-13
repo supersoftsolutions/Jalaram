@@ -15,40 +15,31 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.VO.Daily_report_VO;
-import com.VO.Retail_client_VO;
+import com.DAO.Daily_report_DAO;
+import com.VO.Add_wholesale_client_VO;
+import com.VO.Daily_report1_VO;
+
 
 @Controller
 
 
+
+
 public class Daily_report_Controller {
 	
-	@RequestMapping(value = { "/", "Daily_report.html" }, method = RequestMethod.GET)
-	public ModelAndView index(@ModelAttribute Daily_report_VO  vo) {
-		/*Calendar cal = Calendar.getInstance();
-		Date d = null;
-        //DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-        cal.add(Calendar.DATE, 1);
-        String s = dateFormat.format(cal.getTime());
-       
-        try
-        {
-            d = (Date) dateFormat.parse(s);
-            String date = null;
-			vo.setDate(s);
-          //  vo.setMaxSelectableDate(d);*
-           // dateChooser.setMinSelectableDate(d);
-            System.out.println(s);
-        }
-        catch (Exception e1)
-        {
-            e1.printStackTrace();
-        }*/
-		return new ModelAndView("Admin/Daily_Report");
+	@Autowired
+	Daily_report_DAO dao;
+	
+	@RequestMapping(value = "Daily_report.html", method = RequestMethod.GET)
+	public ModelAndView index12(@ModelAttribute Daily_report1_VO vo)
+
+	{
+
+		List ls = dao.search();
+		return new ModelAndView("Admin/Daily_report", "list", ls);
 	}
+
 
 }
