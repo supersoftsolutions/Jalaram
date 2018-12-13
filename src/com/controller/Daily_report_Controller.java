@@ -3,6 +3,7 @@ package com.controller;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.DAO.Daily_report_DAO;
+import com.VO.Daily_report1_VO;
 import com.VO.Product_mon_retail_VO;
 
 
@@ -36,7 +38,10 @@ public class Daily_report_Controller {
 	public ModelAndView index12(@ModelAttribute Product_mon_retail_VO vo)
 
 	{
-		List ls = dao.search();
+		ArrayList<Daily_report1_VO> list = new ArrayList<>();
+		list.get();
+		
+	//	List ls = dao.search();
 		return new ModelAndView("Admin/Daily_Report", "list" ,ls);
 	}
 

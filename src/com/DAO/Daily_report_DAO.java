@@ -30,6 +30,4 @@ public class Daily_report_DAO {
 		return ls;
 	}
 	
-
-	
 }
