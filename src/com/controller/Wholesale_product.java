@@ -92,11 +92,13 @@ public class Wholesale_product {
 		Product_sun_wholesale_VO svo = new Product_sun_wholesale_VO();
 		Product_mon_wholesale_VO mvo = new Product_mon_wholesale_VO();
 
-		dao.update1(vo);
-		svo.setWvo(vo.getWvo());
-		mvo.setWvo(vo.getWvo());
+		
+		/*svo.setWvo(vo.getWvo());
+		mvo.setWvo(vo.getWvo());*/
 		sdao.update(mvo, vo);
 		sdao.update(svo, vo);
+		
+		dao.update1(vo);
 		return new ModelAndView("redirect:View_wholesale_product.html");
 
 	}

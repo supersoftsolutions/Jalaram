@@ -79,8 +79,8 @@ public class Sun_mon_product_DAO {
 
 	public void update(Product_mon_wholesale_VO mvo, Wholesale_product_VO vo) {
 		Session session = sessionFactory.openSession();
-		Query q = session.createQuery("update Product_mon_wholesale_VO set " + vo.getProduct() + "='" + vo.getMon()
-				+ "' where wvo_ID='" + mvo.getWvo().getID() + "'");
+		//Query q = session.createQuery("update Product_mon_wholesale_VO set " + vo.getProduct() + "='" + vo.getMon()+ "' where wvo_ID='" + mvo.getWvo().getID() + "'");
+		Query q = session.createQuery("update Product_mon_wholesale_VO set "+vo.getProduct()+" = '" +vo.getMon()+"' where wvo = (select wvo from Wholesale_product_VO where productid='"+vo.getProductid()+"')");
 		Transaction tr = session.beginTransaction();
 		// session.update(q);
 		q.executeUpdate();
@@ -91,8 +91,9 @@ public class Sun_mon_product_DAO {
 
 	public void update(Product_sun_wholesale_VO svo, Wholesale_product_VO vo) {
 		Session session = sessionFactory.openSession();
-		Query q = session.createQuery("update Product_sun_wholesale_VO set " + vo.getProduct() + "='" + vo.getSun()
-				+ "' where wvo_ID='" + svo.getWvo().getID() + "'");
+		/*Query q = session.createQuery("update Product_sun_wholesale_VO set " + vo.getProduct() + "='" + vo.getSun()
+				+ "' where wvo_ID='" + svo.getWvo().getID() + "'");*/
+		Query q = session.createQuery("update Product_sun_wholesale_VO set "+vo.getProduct()+" = '" +vo.getSun()+"' where wvo = (select wvo from Wholesale_product_VO where productid='"+vo.getProductid()+"')");
 		Transaction tr = session.beginTransaction();
 		// session.update(q);
 		q.executeUpdate();
@@ -103,8 +104,8 @@ public class Sun_mon_product_DAO {
 
 	public void edit(Product_mon_retail_VO mvo, Retail_product_VO vo) {
 		Session session = sessionFactory.openSession();
-		Query q = session.createQuery("update Product_mon_retail_VO set " + vo.getProduct() + "='" + vo.getMon()
-				+ "' where rvo_ID='" + mvo.getRvo().getID() + "'");
+		//Query q = session.createQuery("update Product_mon_retail_VO set "+vo.getProduct()+" = '" +vo.getMon()+"' where rvo_ID='" + mvo.getRvo().getID() + "'");
+		Query q = session.createQuery("update Product_mon_retail_VO set "+vo.getProduct()+" = '" +vo.getMon()+"' where rvo = (select rvo from Retail_product_VO where productid='"+vo.getProductid()+"')");
 		Transaction tr = session.beginTransaction();
 		q.executeUpdate();
 		tr.commit();
@@ -114,8 +115,7 @@ public class Sun_mon_product_DAO {
 
 	public void edit1(Product_sun_retail_VO svo, Retail_product_VO vo) {
 		Session session = sessionFactory.openSession();
-		Query q = session.createQuery("update Product_sun_retail_VO set " + vo.getProduct() + "='" + vo.getSun()
-				+ "' where rvo_ID='" + svo.getRvo().getID() + "'");
+		Query q = session.createQuery("update Product_sun_retail_VO set " + vo.getProduct() + " = '"+vo.getSun()+"' where rvo = (select rvo from Retail_product_VO where productid='"+vo.getProductid()+"')");
 		Transaction tr = session.beginTransaction();
 		q.executeUpdate();
 		tr.commit();
