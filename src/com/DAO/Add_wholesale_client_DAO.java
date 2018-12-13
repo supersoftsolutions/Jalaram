@@ -178,17 +178,17 @@ public class Add_wholesale_client_DAO {
 
 	}*/
 
-	public void delete(Product_sun_wholesale_VO svo, Wholesale_product_VO vo,String s) {
+	/*public void delete(Product_sun_wholesale_VO svo, Wholesale_product_VO vo,String s) {
 		Session session = sessionFactory.openSession();
 		//Query q = session.createQuery("update Product_sun_wholesale_VO set " + s + "='0' where wvo_ID='"+ vo.getWvo() + "'");
-		Query q = session.createQuery("update Product_sun_wholesale_VO set "+s+" = '0' where wvo = (select wvo from Wholesale_product_VO where productid='"+vo.getProductid()+"')");
+		Query q = session.createQuery("update Product_sun_wholesale_VO set "+s+" = '0' where wvo_ID = (select wvo_ID from Wholesale_product_VO where productid='"+vo.getProductid()+"')");
 		Transaction tr = session.beginTransaction();
 		 //session.update(q);
 		q.executeUpdate();
 		tr.commit();
 		session.close();
 
-	}
+	}*/
 	
 	
 	public String get(Wholesale_product_VO vo) {
@@ -202,10 +202,10 @@ public class Add_wholesale_client_DAO {
 		return i;
 	}
 	
-	/*public String get1(Wholesale_product_VO vo) {
+	/*public String get1(Wholesale_product_VO vo,Add_wholesale_client_VO vo) {
 		
 		Session session = sessionFactory.openSession();
-		Query q1 = session.createQuery("select product from Wholesale_product_VO where productid='"+vo.getProductid()+"'");
+		Query q1 = session.createQuery("select wholesale_client.ID from wholesale_client join wholesale_product on wholesale_client.ID=wholesale_product.wvo_ID where productid='"+vo.getProductid()+"'");
 		 String i1= (String)q1.uniqueResult();
 		 Transaction tr = session.beginTransaction();
 		tr.commit();
