@@ -181,7 +181,7 @@ public class Add_wholesale_client_DAO {
 	public void delete(Product_sun_wholesale_VO svo, Wholesale_product_VO vo,String s) {
 		Session session = sessionFactory.openSession();
 		//Query q = session.createQuery("update Product_sun_wholesale_VO set " + s + "='0' where wvo_ID='"+ vo.getWvo() + "'");
-		Query q = session.createQuery("update Product_sun_wholesale_VO set "+s+" = '0' where wvo = (select wvo from Wholesale_product_VO where productid='"+vo.getProductid()+"')");
+		Query q = session.createQuery("update Product_sun_wholesale_VO set "+s+" = '0' where wvo_ID in (select wvo_ID from Wholesale_product_VO where productid='"+vo.getProductid()+"')");
 		Transaction tr = session.beginTransaction();
 		 //session.update(q);
 		q.executeUpdate();
