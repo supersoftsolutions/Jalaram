@@ -63,28 +63,15 @@ public class Wholesale_product {
 	public ModelAndView delete(@RequestParam("id") int id, Wholesale_product_VO vo) {
 		Product_sun_wholesale_VO svo = new Product_sun_wholesale_VO();
 		Product_mon_wholesale_VO mvo = new Product_mon_wholesale_VO();
-		Add_wholesale_client_VO avo=new Add_wholesale_client_VO();
-
+		
 		vo.setProductid(id);
 
-		System.out.println(id);
-		//mvo.getProductid();
-
-		//svo.setWvo(vo.getWvo());
-		//mvo.setWvo(vo.getWvo());
-		//dao.delete(mvo, vo);
-		//dao.delete(svo, vo);
-		String m=dao.get(vo);
-		//String m1=dao.get1(vo,avo);
-dao.delete(svo, vo, m);
-		System.out.println(m);
-		//System.out.println(m1);
-		//dao.delete(svo, vo, m);
-		//dao.delete(vo);
-
-		/*
-		 * mvo.setProductid(id); svo.setProductid(id);
-		 */
+		String m=sdao.get(vo);
+		
+		sdao.delete(svo, vo, m);
+		sdao.delete(mvo, vo, m);
+		
+		dao.delete(vo);
 
 		return new ModelAndView("redirect:View_wholesale_product.html");
 	}
