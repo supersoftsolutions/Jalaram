@@ -64,21 +64,27 @@ public class Wholesale_product {
 		Product_mon_wholesale_VO mvo = new Product_mon_wholesale_VO();
 
 		vo.setProductid(id);
-		mvo.getProductid();
 
-		svo.setWvo(vo.getWvo());
-		mvo.setWvo(vo.getWvo());
-		dao.delete(mvo, vo);
-		dao.delete(svo, vo);
+		System.out.println(id);
+		//mvo.getProductid();
 
-		dao.delete(vo);
+		//svo.setWvo(vo.getWvo());
+		//mvo.setWvo(vo.getWvo());
+		//dao.delete(mvo, vo);
+		//dao.delete(svo, vo);
+		String m=dao.get(vo);
+		//String m1=dao.get1(vo);
+
+		System.out.println(m);
+		//System.out.println(m1);
+		dao.delete(svo, vo, m);
+		//dao.delete(vo);
 
 		/*
 		 * mvo.setProductid(id); svo.setProductid(id);
 		 */
 
 		return new ModelAndView("redirect:View_wholesale_product.html");
-
 	}
 
 	@RequestMapping(value = "edit_wholesale_product.html", method = RequestMethod.GET)
