@@ -68,24 +68,10 @@ public class Retail_product {
 		Product_mon_retail_VO mvo=new Product_mon_retail_VO();
 		Product_sun_retail_VO svo=new Product_sun_retail_VO();
 
-		/*String s=sdao.get1(vo.getProductid());
-		String s1=sdao.get1(vo.getProductid());*/
-
-		//vo.setRvo(s);
-
-		/*svo.setRvo(vo.getRvo());
-		mvo.setRvo(vo.getRvo());
-		*/
-		/*sdao.dlt(mvo, vo,s,s1);
-		sdao.dlt1(svo, vo,s,s1);
-		*/
-		System.out.println(vo);
-		String ls=sdao.get(vo);
-		String ls1=sdao.get1(vo);
+		String m=sdao.get(vo);
 		
-		System.out.println(ls);
-		sdao.dlt(mvo, vo,ls,ls1);
-		sdao.dlt1(svo, vo,ls,ls1);
+		sdao.delete(svo, vo, m);
+		sdao.delete(mvo, vo, m);
 		
 		dao.delete(vo);
 		return new ModelAndView("redirect:View_retail_product.html");

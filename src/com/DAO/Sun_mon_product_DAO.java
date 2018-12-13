@@ -122,72 +122,74 @@ public class Sun_mon_product_DAO {
 
 	}
 
-	public void delete(Product_mon_wholesale_VO mvo, Wholesale_product_VO vo) {
+
+
+
+
+	public void delete(Product_sun_wholesale_VO svo, Wholesale_product_VO vo,String s) {
 		Session session = sessionFactory.openSession();
-		Query q = session.createQuery("update Product_mon_wholesale_VO set " + vo.getProduct() + "='0' where wvo_ID='"
-				+ vo.getWvo().getID() + "'");
+		//Query q = session.createQuery("update Product_sun_wholesale_VO set " + s + "='0' where wvo_ID='"+ vo.getWvo() + "'");
+		Query q = session.createQuery("update Product_sun_wholesale_VO set "+s+" = '0' where wvo = (select wvo from Wholesale_product_VO where productid='"+vo.getProductid()+"')");
 		Transaction tr = session.beginTransaction();
-		// session.update(q);
+		 //session.update(q);
 		q.executeUpdate();
 		tr.commit();
 		session.close();
-
 	}
-
-	public void delete(Product_sun_wholesale_VO svo, Wholesale_product_VO vo) {
+	
+	public void delete(Product_mon_wholesale_VO mvo, Wholesale_product_VO vo,String s) {
 		Session session = sessionFactory.openSession();
-		Query q = session.createQuery("update Product_sun_wholesale_VO set " + vo.getProduct() + "='0' where wvo_ID='"
-				+ vo.getWvo().getID() + "'");
-		Transaction tr = session.beginTransaction();
-		// session.update(q);
-		q.executeUpdate();
-		tr.commit();
-		session.close();
-
-	}
-
-	public void dlt(Product_mon_retail_VO mvo, Retail_product_VO vo, String object, String object2) {
-		Session session = sessionFactory.openSession();
-		Query q = session
-				.createQuery("update Product_mon_retail_VO set " + object2 + "='0' where rvo_ID='" + object + "'");
+		Query q = session.createQuery("update Product_mon_wholesale_VO set "+s+" = '0' where wvo = (select wvo from Wholesale_product_VO where productid='"+vo.getProductid()+"')");
 		Transaction tr = session.beginTransaction();
 		q.executeUpdate();
 		tr.commit();
 		session.close();
-
 	}
+	
+	
+	public String get(Wholesale_product_VO vo) {
 
-	public void dlt1(Product_sun_retail_VO svo, Retail_product_VO vo, String object, String object2) {
 		Session session = sessionFactory.openSession();
-		Query q = session
-				.createQuery("update Product_sun_wholesale_VO set " + object2 + "='0' where rvo_ID='" + object + "'");
+		Query q1 = session.createQuery("select product from Wholesale_product_VO where productid='"+vo.getProductid()+"'");
+		String i= (String)q1.uniqueResult();
 		Transaction tr = session.beginTransaction();
-		// session.update(q);
-		q.executeUpdate();
 		tr.commit();
 		session.close();
-
+		return i;
 	}
-
+	
 	public String get(Retail_product_VO vo) {
+
 		Session session = sessionFactory.openSession();
-		Query q = session
-				.createQuery("SELECT rvo_ID FROM Retail_product_VO where productid='" + vo.getProductid() + "'");
-		 ((SQLQuery) q).addEntity( Retail_product_VO.class);
-		//	List<Retail_product_VO> ls = q.list();
-	//Object id = null;
-	//	q.setParameter("rvo_ID",id);  
-		String s = (String) q.uniqueResult();
-		// session.close();
-		return s;
+		Query q1 = session.createQuery("select product from Retail_product_VO where productid='"+vo.getProductid()+"'");
+		String i= (String)q1.uniqueResult();
+		Transaction tr = session.beginTransaction();
+		tr.commit();
+		session.close();
+		return i;
 	}
 
-	public String get1(Retail_product_VO vo) {
+
+	public void delete(Product_sun_retail_VO rvo, Retail_product_VO vo,String s) {
 		Session session = sessionFactory.openSession();
-		Query q = session
-				.createQuery("select product from Retail_product_VO where productid='" + vo.getProductid() + "'");
-		String s = (String) q.uniqueResult();
-		// session.close();
-		return s;
+		//Query q = session.createQuery("update Product_sun_wholesale_VO set " + s + "='0' where wvo_ID='"+ vo.getWvo() + "'");
+		Query q = session.createQuery("update Product_sun_retail_VO set "+s+" = '0' where rvo = (select rvo from Retail_product_VO where productid='"+vo.getProductid()+"')");
+		Transaction tr = session.beginTransaction();
+		 //session.update(q);
+		q.executeUpdate();
+		tr.commit();
+		session.close();
 	}
+	
+	public void delete(Product_mon_retail_VO mvo, Retail_product_VO vo,String s) {
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery("update Product_mon_retail_VO set "+s+" = '0' where rvo = (select rvo from Retail_product_VO where productid='"+vo.getProductid()+"')");
+		Transaction tr = session.beginTransaction();
+		q.executeUpdate();
+		tr.commit();
+		session.close();
+	}
+	
+
+	
 }
