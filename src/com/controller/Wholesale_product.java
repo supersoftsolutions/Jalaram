@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.DAO.Add_wholesale_client_DAO;
 import com.DAO.Sun_mon_product_DAO;
+import com.VO.Add_wholesale_client_VO;
 import com.VO.Product_mon_retail_VO;
 import com.VO.Product_mon_wholesale_VO;
 import com.VO.Product_sun_retail_VO;
@@ -62,6 +63,7 @@ public class Wholesale_product {
 	public ModelAndView delete(@RequestParam("id") int id, Wholesale_product_VO vo) {
 		Product_sun_wholesale_VO svo = new Product_sun_wholesale_VO();
 		Product_mon_wholesale_VO mvo = new Product_mon_wholesale_VO();
+		Add_wholesale_client_VO avo=new Add_wholesale_client_VO();
 
 		vo.setProductid(id);
 
@@ -73,11 +75,11 @@ public class Wholesale_product {
 		//dao.delete(mvo, vo);
 		//dao.delete(svo, vo);
 		String m=dao.get(vo);
-		//String m1=dao.get1(vo);
-
+		//String m1=dao.get1(vo,avo);
+dao.delete(svo, vo, m);
 		System.out.println(m);
 		//System.out.println(m1);
-		dao.delete(svo, vo, m);
+		//dao.delete(svo, vo, m);
 		//dao.delete(vo);
 
 		/*
