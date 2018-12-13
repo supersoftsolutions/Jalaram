@@ -132,6 +132,7 @@ $( ".selector" ).datepicker({
             </th> -->
             <th>ID</th> 
              <th>Name</th>
+             <th>Date</th>
              <th>idada</th>
              <th>Khaman</th>
              <th>Khandvi</th>
@@ -141,6 +142,7 @@ $( ".selector" ).datepicker({
              <th>Sandwich_dhokla</th>
              <th>Sp_patra</th>
              <th>Priority</th>
+             <th>Total</th>
              
              
            	
@@ -152,12 +154,11 @@ $( ".selector" ).datepicker({
                                         <c:forEach items="${list}" var="x">
                                         <tr>
                                     <td>${x.ID}</td>
-                                            <td>${x.name}</td>
-                                            <td>${x.mobile}</td>
-                                            <td>${x.address1}</td>
+                                            <td>${x.wmvo.name}</td>
+                                          <%--   <td>${datepicker-3}</td>
+                                            <td>${x.wmvo.idada/wsvo.name}</td>
                                             <td>${x.balance}</td>
-                                            
-       <td height="30px" width="30px"> <a href="editwholesale.html?id=${x.ID}">Edit/</a> <a href="deletewholesale.html?id=${x.ID}">Delete</a></td>
+                                             --%>
                        </tr>                      
                             
                                                
