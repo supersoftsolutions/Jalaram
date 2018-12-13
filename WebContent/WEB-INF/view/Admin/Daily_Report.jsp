@@ -156,10 +156,21 @@ $( ".selector" ).datepicker({
                                   		  <td>${x.productid}</td>
                                             <td>${x.rvo.name}</td>
                                             
-                                          <%--   <td>${datepicker-3}</td>
-                                            <td>${x.wmvo.idada/wsvo.name}</td>
-                                            <td>${x.balance}</td>
-                                             --%>
+                                            <td>${datepicker-3}</td>
+                                            
+                                            <td>${x.rvo.idada}</td>
+                                            <td>${x.rvo.khaman}</td>
+                                              <td>${x.rvo.khandvi}</td>
+                                            
+                                            <td>${x.rvo.nylon}</td>
+                                            <td>${x.rvo.patra}</td>
+                                            <td>${x.rvo.samosa}</td>
+                                            <td>${x.rvo.sandwich_dhokla}</td>
+                                             <td>${x.rvo.sp_patra}</td>
+                                            <td>${x.rvo.priority}</td>
+                                      
+                                      
+                                      
                        </tr>                      
                             
                                                

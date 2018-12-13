@@ -36,9 +36,7 @@ public class Daily_report_Controller {
 	public ModelAndView index12(@ModelAttribute Product_mon_retail_VO vo)
 
 	{
-
 		List ls = dao.search();
-		List ls1 = dao.search();
 		return new ModelAndView("Admin/Daily_Report", "list" ,ls);
 	}
 
