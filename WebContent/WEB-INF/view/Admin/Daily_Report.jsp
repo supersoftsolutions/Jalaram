@@ -4,35 +4,41 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-  <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
-  <%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
 <!DOCTYPE html>
 <head>
 <title>Jalaram</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+<meta name="keywords"
+	content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- bootstrap-css -->
-<link rel="stylesheet" href="AdminResources/css/bootstrap.min.css" >
+<link rel="stylesheet" href="AdminResources/css/bootstrap.min.css">
 <!-- //bootstrap-css -->
 <!-- Custom CSS -->
-<link href="AdminResources/css/style.css" rel='stylesheet' type='text/css' />
-<link href="AdminResources/css/style-responsive.css" rel="stylesheet"/>
+<link href="AdminResources/css/style.css" rel='stylesheet'
+	type='text/css' />
+<link href="AdminResources/css/style-responsive.css" rel="stylesheet" />
 <!-- font CSS -->
-<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<link
+	href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic'
+	rel='stylesheet' type='text/css'>
 <!-- font-awesome icons -->
-<link rel="stylesheet" href="AdminResources/css/font.css" type="text/css"/>
-<link href="AdminResources/css/font-awesome.css" rel="stylesheet"> 
+<link rel="stylesheet" href="AdminResources/css/font.css"
+	type="text/css" />
+<link href="AdminResources/css/font-awesome.css" rel="stylesheet">
 <!-- //font-awesome icons -->
 <script src="AdminResources/js/jquery2.0.3.min.js"></script>
-  <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
-         rel = "stylesheet">
-      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
-      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-      
- <!--  <script>
+<link
+	href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+	rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+<!--  <script>
   $(function() {  
        $( "#datepicker" ).datepicker();  
       $( "#datepicker" ).datepicker("setDate", "1");  
@@ -40,7 +46,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     	  dayNamesShort: [ "sun", "mon", "tue", "wen", "Thu", "Fri", "Sat" ] */
    });  
   </script> -->
-   <script>
+<script>
          $(function() {
             $( "#datepicker-3" ).datepicker({
 
@@ -55,11 +61,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
          }); 
 
       </script>
- <!-- <script>
+<!-- <script>
 $( ".selector" ).datepicker({
   dayNamesShort: [ "sun", "mon", "tue", "wen", "Thu", "Fri", "Sat" ]
 }); -->
-</script> 
+</script>
 <script type="text/javascript">
        function Search_Gridview(strKey, strGV) {
            var strData = strKey.value.toLowerCase().split(" ");
@@ -82,120 +88,111 @@ $( ".selector" ).datepicker({
    </script>
 </head>
 <body>
-<section id="container">
-<!--header start-->
-<jsp:include page="Header.jsp"></jsp:include>
-<!--sidebar end-->
-<!--main content start-->
-<section id="main-content">
-	<section class="">
-		<div class="table-agile-info">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-   Daily Report
-    </div>
-    <div class="row w3-res-tb">
-     <div class="col-sm-2">
-       
-        <button type="button" class="btn btn-primary">Generate</button>                
-      </div> 
-      <div class="col-sm-3">
-       
- 
-          <input type="text" class="input-sm form-control" placeholder="Search" onkeyup="Search_Gridview(this,'id1')">
-        <!--  <span class="input-group-btn">
+	<section id="container">
+		<!--header start-->
+		<jsp:include page="Header.jsp"></jsp:include>
+		<!--sidebar end-->
+		<!--main content start-->
+		<section id="main-content">
+			<section class="">
+				<div class="table-agile-info">
+					<div class="panel panel-default">
+						<div class="panel-heading">Daily Report</div>
+						<div class="row w3-res-tb">
+							<div class="col-sm-2">
+
+								<button type="button" class="btn btn-primary">Generate</button>
+							</div>
+							<div class="col-sm-3">
+
+
+								<input type="text" class="input-sm form-control"
+									placeholder="Search" onkeyup="Search_Gridview(this,'id1')">
+								<!--  <span class="input-group-btn">
             <button class="btn btn-sm btn-default" type="button">Go!</button>
           </span> -->
-           </div> 
-      <div class="col-sm-2">
-     	 <input  type="text" readonly="true" id="datepicker-4" size="10" maxlength="10" />		
-     
-      </div>
-          <div class="col-sm-3">
-              <input  type="text" id="datepicker-3" size="10" maxlength="10"/>
-      
-      </div>
-      <div class="col-sm-2">
-      <div class="input-group">
-                <button type="button" class="btn btn-primary">Update</button>                
-  </div> 
-      </div>
-    </div>
-    <div class="table-responsive">
-      <table class="table table-striped b-t b-light" id="id1">
-        <thead>
-          <tr>
-          <!--   <th style="width:20px;">
+							</div>
+							<div class="col-sm-2">
+								<input type="text" readonly="true" id="datepicker-4" size="10"
+									maxlength="10" />
+
+							</div>
+							<div class="col-sm-3">
+								        <input type="text" id="datepicker-3" size="10"
+									maxlength="10" />
+
+							</div>
+							<div class="col-sm-2">
+								<div class="input-group">
+									<button type="button" class="btn btn-primary">Update</button>
+								</div>
+							</div>
+						</div>
+						<div class="table-responsive">
+							<table class="table table-striped b-t b-light" id="id1">
+								<thead>
+									<tr>
+										<!--   <th style="width:20px;">
               <label class="i-checks m-b-none">
                 <input type="checkbox"><i></i>
               </label>
             </th> -->
-            <th>ID</th> 
-             <th>Name</th>
-             <th>Date</th>
-             <th>idada</th>
-             <th>Khaman</th>
-             <th>Khandvi</th>
-              <th>Nylon</th> 
-             <th>Patra</th>
-             <th>Samosa</th>
-             <th>Sandwich_dhokla</th>
-             <th>Sp_patra</th>
-             <th>Priority</th>
-             <th>Total</th>
-             
-             
-           	
-            
-            <th style="width:30px;"></th>
-          </tr>
-        </thead>
-         <tbody>
-                                        <c:forEach items="${list}" var="x">
-                                        <tr>
-                                  		  <td>${x.productid}</td>
-                                            <td>${x.rvo.name}</td>
-                                            
-                                            <td>${datepicker-3}</td>
-                                            
-                                            <td>${x.rvo.idada}</td>
-                                            <td>${x.rvo.khaman}</td>
-                                              <td>${x.rvo.khandvi}</td>
-                                            
-                                            <td>${x.rvo.nylon}</td>
-                                            <td>${x.rvo.patra}</td>
-                                            <td>${x.rvo.samosa}</td>
-                                            <td>${x.rvo.sandwich_dhokla}</td>
-                                             <td>${x.rvo.sp_patra}</td>
-                                            <td>${x.rvo.priority}</td>
-                                      
-                                      
-                                      
-                       </tr>                      
-                            
-                                               
-                                        </c:forEach> 
-                                      </tbody>
+										<th>ID</th>
+										<th>Name</th>
+										<th>Date</th>
+										<th>idada</th>
+										<th>Khaman</th>
+										<th>Khandvi</th>
+										<th>Nylon</th>
+										<th>Patra</th>
+										<th>Samosa</th>
+										<th>Sandwich_dhokla</th>
+										<th>Sp_patra</th>
+										<th>Priority</th>
+										<th>Total</th>
 
-      </table>
-    </div>
-    
-  </div>
-</div>
-</section>
-<jsp:include page="Footer.jsp"></jsp:include>
-  <!-- / footer -->
-</section>
+										<th style="width: 30px;"></th>
+									</tr>
+								</thead>
+								<tbody>
+										<c:forEach items="${list}" var="x">
+										<tr>
+											<td>${x.ID}</td>
+											<td>${x.name}</td>
+											<td>${x.date}</td>
+											<td><f:input class=" form-control" id="idada" path="idada" type="text" required="required"/></td>
+											<td>${x.khaman}</td>
+											<td>${x.khandvi}</td>
+											<td>${x.nylon}</td>
+											<td>${x.patra}</td>
+											<td>${x.samosa}</td>
+											<td>${x.sandwich_dhokla}</td>
+											<td>${x.sp_patra}</td>
+											<td>${x.priority}</td>
+											<td>${x.total}</td>
+										</tr>
+									</c:forEach>
+								</tbody>
 
-<!--main content end-->
-</section>
-<script src="AdminResources/js/bootstrap.js"></script>
-<script src="AdminResources/js/jquery.dcjqaccordion.2.7.js"></script>
-<script src="AdminResources/js/scripts.js"></script>
-<script src="AdminResources/js/jquery.slimscroll.js"></script>
-<script src="AdminResources/js/jquery.nicescroll.js"></script>
-<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
-<script src="AdminResources/js/jquery.scrollTo.js"></script>
+							</table>
+						</div>
+
+					</div>
+				</div>
+			</section>
+			<jsp:include page="Footer.jsp"></jsp:include>
+			<!-- / footer -->
+		</section>
+
+		<!--main content end-->
+	</section>
+	<script src="AdminResources/js/bootstrap.js"></script>
+	<script src="AdminResources/js/jquery.dcjqaccordion.2.7.js"></script>
+	<script src="AdminResources/js/scripts.js"></script>
+	<script src="AdminResources/js/jquery.slimscroll.js"></script>
+	<script src="AdminResources/js/jquery.nicescroll.js"></script>
+	<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
+	<script src="AdminResources/js/jquery.scrollTo.js"></script>
 
 </body>
 </html>

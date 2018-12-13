@@ -21,9 +21,9 @@ public class Daily_report_VO {
 	private int ID;
 	
 	@Column
+	private String name;
+	@Column
 	private String Date;
-	
-	
 	
 	@Column
 	private String patra;
@@ -41,6 +41,8 @@ public class Daily_report_VO {
 	private String sp_patra;
 	@Column
 	private String samosa;
+	@Column
+	private String priority;
 	@Column
 	private String total;
 	
@@ -112,6 +114,18 @@ public class Daily_report_VO {
 	}
 	public void setTotal(String total) {
 		this.total = total;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getPriority() {
+		return priority;
+	}
+	public void setPriority(String priority) {
+		this.priority = priority;
 	}
 	
 	
