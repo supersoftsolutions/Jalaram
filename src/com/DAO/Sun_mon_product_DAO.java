@@ -10,6 +10,7 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.VO.Add_wholesale_client_VO;
 import com.VO.Product_mon_retail_VO;
 import com.VO.Product_mon_wholesale_VO;
 import com.VO.Product_sun_retail_VO;
@@ -190,6 +191,60 @@ public class Sun_mon_product_DAO {
 		session.close();
 	}
 	
+	public void delete(Retail_client_VO vo, Retail_product_VO svo) {
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery("delete from Retail_product_VO where rvo='"+vo.getID()+"'");
+		Transaction tr = session.beginTransaction();
+		q.executeUpdate();
+		tr.commit();
+		session.close();
+	}
+	
+	public void delete(Retail_client_VO vo, Product_sun_retail_VO svo) {
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery("delete from Product_sun_retail_VO where rvo='"+vo.getID()+"'");
+		Transaction tr = session.beginTransaction();
+		q.executeUpdate();
+		tr.commit();
+		session.close();
+	}
+	
+	public void delete(Retail_client_VO vo, Product_mon_retail_VO svo) {
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery("delete from Product_mon_retail_VO where rvo='"+vo.getID()+"'");
+		Transaction tr = session.beginTransaction();
+		q.executeUpdate();
+		tr.commit();
+		session.close();
+	}
+	
+	
+	public void delete(Add_wholesale_client_VO vo, Wholesale_product_VO svo) {
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery("delete from Wholesale_product_VO where wvo='"+vo.getID()+"'");
+		Transaction tr = session.beginTransaction();
+		q.executeUpdate();
+		tr.commit();
+		session.close();
+	}
+	
+	public void delete(Add_wholesale_client_VO vo, Product_sun_wholesale_VO svo) {
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery("delete from Product_sun_wholesale_VO where wvo='"+vo.getID()+"'");
+		Transaction tr = session.beginTransaction();
+		q.executeUpdate();
+		tr.commit();
+		session.close();
+	}
+	
+	public void delete(Add_wholesale_client_VO vo, Product_mon_wholesale_VO svo) {
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery("delete from Product_mon_wholesale_VO where wvo='"+vo.getID()+"'");
+		Transaction tr = session.beginTransaction();
+		q.executeUpdate();
+		tr.commit();
+		session.close();
+	}
 
 	
 }

@@ -18,8 +18,12 @@ import com.DAO.LoginDAO;
 import com.DAO.Sun_mon_product_DAO;
 import com.VO.Add_wholesale_client_VO;
 import com.VO.LoginVO;
+import com.VO.Product_mon_retail_VO;
 import com.VO.Product_mon_wholesale_VO;
+import com.VO.Product_sun_retail_VO;
 import com.VO.Product_sun_wholesale_VO;
+import com.VO.Retail_product_VO;
+import com.VO.Wholesale_product_VO;
 
 @Controller
 public class Wholesale_client {
@@ -148,10 +152,19 @@ public class Wholesale_client {
 	@RequestMapping(value = "deletewholesale.html", method = RequestMethod.GET)
 	public ModelAndView delete(@RequestParam("id") int id, Add_wholesale_client_VO vo, LoginVO lvo) {
 
-		lvo.setLoginId(id);
+		Product_mon_wholesale_VO mvo=new Product_mon_wholesale_VO();
+		Product_sun_wholesale_VO svo=new Product_sun_wholesale_VO();
+		Wholesale_product_VO pvo=new Wholesale_product_VO();
+		
+		//lvo.setLoginId(id);
 		vo.setID(id);
+		String m=dao.get(vo);
+		sdao.delete(vo, svo);
+		sdao.delete(vo, mvo);
+		sdao.delete(vo, pvo);
 		dao.delete(vo);
-		dao.delete(lvo);
+		dao.delete(lvo,vo,m);
+		
 		return new ModelAndView("redirect:View_wholesale_client.html");
 	}
 
