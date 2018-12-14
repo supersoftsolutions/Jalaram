@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,8 +42,9 @@ public class Daily_report_Controller {
 	Daily_report_DAO dao;
 	
 	@RequestMapping(value = "Daily_report.html", method = RequestMethod.GET)
-	public ModelAndView index12(@ModelAttribute Product_mon_retail_VO vo)
+	public ModelAndView index12(@ModelAttribute Product_mon_retail_VO vo,Model model)
 	{
+		
 		Product_mon_retail_VO mrvo =new Product_mon_retail_VO();
 		Product_sun_retail_VO srvo =new Product_sun_retail_VO();
 		Product_mon_wholesale_VO mwvo =new Product_mon_wholesale_VO();
@@ -58,11 +60,10 @@ public class Daily_report_Controller {
 	       DateFormat dateFormat1 = new SimpleDateFormat("EEE");
 	       cal.add(Calendar.DATE, 1);
 	       String s = dateFormat.format(cal.getTime());
+	       
 	       String m = dateFormat1.format(cal.getTime());
 		
 		dao.delete();
-		//System.out.println(dvo.getDay());
-		//String m=dvo.getDay();
 		
 		if(m.equals("sun"))
 		{
@@ -79,6 +80,11 @@ public class Daily_report_Controller {
 		list.get();*/
 		
 		List ls = dao.search();
+		//return new ModelAndView("Admin/Daily_Report", "list" ,ls,s);
+		
+		model.addAttribute("list1", s);
+		model.addAttribute("list2", m);
+		
 		return new ModelAndView("Admin/Daily_Report", "list" ,ls);
 		
 	}

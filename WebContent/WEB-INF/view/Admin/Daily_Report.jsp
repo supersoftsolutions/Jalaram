@@ -48,7 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   </script> -->
 <script>
          $(function() {
-            $( "#datepicker-3" ).datepicker({
+            $( "#date" ).datepicker({
 
          
 /*                   defaultDate:+1	,
@@ -56,7 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                altField: "#day",
                altFormat: "D"
             });
-            $( "#datepicker-3" ).datepicker("setDate", "1");  
+           // $( "#datepicker-3" ).datepicker("setDate", "1");  
 
          }); 
 
@@ -85,6 +85,8 @@ $( ".selector" ).datepicker({
                tblData.rows[i].style.display = styleDisplay;
            }
        }
+       
+       
    </script>
 </head>
 <body>
@@ -114,12 +116,14 @@ $( ".selector" ).datepicker({
 							</div>
 							<div class="col-sm-2">
 								<input type="text" readonly="true" id="day" size="10" 
-									maxlength="10" />
+									maxlength="10" value="${list2 }" />
+
 
 							</div>
+
+
 							<div class="col-sm-3">
-								        <input type="text" id="datepicker-3" size="10"
-									maxlength="10" />
+								        <input type="text" id="date" size="10" value="${list1}" maxlength="10" />
 
 							</div>
 							<div class="col-sm-2">
