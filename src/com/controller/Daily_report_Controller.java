@@ -52,17 +52,25 @@ public class Daily_report_Controller {
 		Add_wholesale_client_VO wvo=new Add_wholesale_client_VO();
 		
 		
-		dao.delete();
+		Calendar cal = Calendar.getInstance();
+	       Date d = null;
+	       DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	       DateFormat dateFormat1 = new SimpleDateFormat("EEE");
+	       cal.add(Calendar.DATE, 1);
+	       String s = dateFormat.format(cal.getTime());
+	       String m = dateFormat1.format(cal.getTime());
 		
-		String m="sun";
+		dao.delete();
+		//System.out.println(dvo.getDay());
+		//String m=dvo.getDay();
 		
 		if(m.equals("sun"))
 		{
-			dao.insert(dvo, srvo, wvo,swvo);
+			dao.insert(dvo, srvo, wvo,swvo,s);
 		}
 		else
 		{
-			dao.insert(dvo, mrvo, cvo,mwvo);
+			dao.insert(dvo, mrvo, cvo,mwvo,s);
 		}
 		
 		//return new ModelAndView("Admin/Daily_Report");

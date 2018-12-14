@@ -43,25 +43,29 @@ public class Daily_report_DAO {
 		
 	}
 	
-	public void insert(Daily_report_VO vo,Product_mon_retail_VO mrvo,Retail_client_VO cvo,Product_mon_wholesale_VO mwvo) {
+	public void insert(Daily_report_VO vo,Product_mon_retail_VO mrvo,Retail_client_VO cvo,Product_mon_wholesale_VO mwvo,String s) {
 		Session session = sessionFactory.openSession();
-		Query q = session.createQuery("insert into Daily_report_VO (idada,khaman,khandvi,nylon,patra,samosa,sandwich_dhokla,sp_patra,name,priority,Date,total) select idada,khaman,khandvi,nylon,patra,samosa,sandwich_dhokla,sp_patra,rvo.name,rvo.priority,'2018-12-14',((rvo.idada*idada)+(rvo.khaman*khaman)+(rvo.khandvi*khandvi)+(rvo.nylon*nylon)+(rvo.patra*patra)+(rvo.sandwich_dhokla*sandwich_dhokla)+(rvo.sp_patra*sp_patra)) from Product_mon_retail_VO");
-		Query q1 = session.createQuery("insert into Daily_report_VO (idada,khaman,khandvi,nylon,patra,samosa,sandwich_dhokla,sp_patra,name,priority,Date,total) select idada,khaman,khandvi,nylon,patra,samosa,sandwich_dhokla,sp_patra,wvo.name,wvo.priority,'2018-12-14',((wvo.idada*idada)+(wvo.khaman*khaman)+(wvo.khandvi*khandvi)+(wvo.nylon*nylon)+(wvo.patra*patra)+(wvo.sandwich_dhokla*sandwich_dhokla)+(wvo.sp_patra*sp_patra)) from Product_mon_wholesale_VO");
+		Query q = session.createQuery("insert into Daily_report_VO (idada,khaman,khandvi,nylon,patra,samosa,sandwich_dhokla,sp_patra,name,priority,total) select idada,khaman,khandvi,nylon,patra,samosa,sandwich_dhokla,sp_patra,rvo.name,rvo.priority,((rvo.idada*idada)+(rvo.khaman*khaman)+(rvo.khandvi*khandvi)+(rvo.nylon*nylon)+(rvo.patra*patra)+(rvo.sandwich_dhokla*sandwich_dhokla)+(rvo.sp_patra*sp_patra)) from Product_mon_retail_VO");
+		Query q1 = session.createQuery("insert into Daily_report_VO (idada,khaman,khandvi,nylon,patra,samosa,sandwich_dhokla,sp_patra,name,priority,total) select idada,khaman,khandvi,nylon,patra,samosa,sandwich_dhokla,sp_patra,wvo.name,wvo.priority,((wvo.idada*idada)+(wvo.khaman*khaman)+(wvo.khandvi*khandvi)+(wvo.nylon*nylon)+(wvo.patra*patra)+(wvo.sandwich_dhokla*sandwich_dhokla)+(wvo.sp_patra*sp_patra)) from Product_mon_wholesale_VO");
+		Query q2 = session.createQuery("update Daily_report_VO set Date='"+s+"'");
 		Transaction tr = session.beginTransaction();
 		q.executeUpdate();
 		q1.executeUpdate();
+		q2.executeUpdate();
 		tr.commit();
 		session.close();
 		
 	}
 	
-	public void insert(Daily_report_VO vo,Product_sun_retail_VO srvo,Add_wholesale_client_VO wvo,Product_sun_wholesale_VO swvo) {
+	public void insert(Daily_report_VO vo,Product_sun_retail_VO srvo,Add_wholesale_client_VO wvo,Product_sun_wholesale_VO swvo,String s) {
 		Session session = sessionFactory.openSession();
-		Query q = session.createQuery("insert into Daily_report_VO (idada,khaman,khandvi,nylon,patra,samosa,sandwich_dhokla,sp_patra,name,priority,Date,total) select idada,khaman,khandvi,nylon,patra,samosa,sandwich_dhokla,sp_patra,rvo.name,rvo.priority,'2018-12-14',((rvo.idada*idada)+(rvo.khaman*khaman)+(rvo.khandvi*khandvi)+(rvo.nylon*nylon)+(rvo.patra*patra)+(rvo.sandwich_dhokla*sandwich_dhokla)+(rvo.sp_patra*sp_patra)) from Product_sun_retail_VO");
-		Query q1 = session.createQuery("insert into Daily_report_VO (idada,khaman,khandvi,nylon,patra,samosa,sandwich_dhokla,sp_patra,name,priority,Date,total) select idada,khaman,khandvi,nylon,patra,samosa,sandwich_dhokla,sp_patra,wvo.name,wvo.priority,'2018-12-14',((wvo.idada*idada)+(wvo.khaman*khaman)+(wvo.khandvi*khandvi)+(wvo.nylon*nylon)+(wvo.patra*patra)+(wvo.sandwich_dhokla*sandwich_dhokla)+(wvo.sp_patra*sp_patra)) from Product_sun_wholesale_VO");
+		Query q = session.createQuery("insert into Daily_report_VO (idada,khaman,khandvi,nylon,patra,samosa,sandwich_dhokla,sp_patra,name,priority,total) select idada,khaman,khandvi,nylon,patra,samosa,sandwich_dhokla,sp_patra,rvo.name,rvo.priority,((rvo.idada*idada)+(rvo.khaman*khaman)+(rvo.khandvi*khandvi)+(rvo.nylon*nylon)+(rvo.patra*patra)+(rvo.sandwich_dhokla*sandwich_dhokla)+(rvo.sp_patra*sp_patra)) from Product_sun_retail_VO");
+		Query q1 = session.createQuery("insert into Daily_report_VO (idada,khaman,khandvi,nylon,patra,samosa,sandwich_dhokla,sp_patra,name,priority,total) select idada,khaman,khandvi,nylon,patra,samosa,sandwich_dhokla,sp_patra,wvo.name,wvo.priority,((wvo.idada*idada)+(wvo.khaman*khaman)+(wvo.khandvi*khandvi)+(wvo.nylon*nylon)+(wvo.patra*patra)+(wvo.sandwich_dhokla*sandwich_dhokla)+(wvo.sp_patra*sp_patra)) from Product_sun_wholesale_VO");
+		Query q2 = session.createQuery("update Daily_report_VO set Date='"+s+"'");
 		Transaction tr = session.beginTransaction();
 		q.executeUpdate();
 		q1.executeUpdate();
+		q2.executeUpdate();
 		tr.commit();
 		session.close();
 		

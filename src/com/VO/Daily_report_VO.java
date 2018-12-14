@@ -45,7 +45,15 @@ public class Daily_report_VO {
 	private String priority;
 	@Column
 	private String total;
+	@Column
+	private String day;
 	
+	public String getDay() {
+		return day;
+	}
+	public void setDay(String day) {
+		this.day = day;
+	}
 	public int getID() {
 		return ID;
 	}
@@ -127,6 +135,8 @@ public class Daily_report_VO {
 	public void setPriority(String priority) {
 		this.priority = priority;
 	}
+	
+	
 	
 	
 
