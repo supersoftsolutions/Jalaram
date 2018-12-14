@@ -160,14 +160,14 @@ $( ".selector" ).datepicker({
 											<td>${x.ID}</td>
 											<td>${x.name}</td>
 											<td>${x.date}</td>
-											<td><f:input class=" form-control" id="idada" path="idada" type="text" required="required"/></td>
-											<td>${x.khaman}</td>
-											<td>${x.khandvi}</td>
-											<td>${x.nylon}</td>
-											<td>${x.patra}</td>
-											<td>${x.samosa}</td>
-											<td>${x.sandwich_dhokla}</td>
-											<td>${x.sp_patra}</td>
+											<td><input class=" form-control" id="idada" value="${x.idada} " type="text"  required="required"/></td>
+											<td><input class=" form-control" id="khaman" value="${x.khaman} " type="text" required="required"/></td>
+											<td><input class=" form-control" id="khandvi" value="${x.khandvi} " type="text" required="required"/></td>
+											<td><input class=" form-control" id="nylon" value="${x.nylon} " type="text" required="required"/></td>
+											<td><input class=" form-control" id="patra" value="${x.patra} " type="text" required="required"/></td>
+											<td><input class=" form-control" id="samosa" value="${x.samosa} " type="text" required="required"/></td>
+											<td><input class=" form-control" id="sandwich_dhokla" value="${x.sandwich_dhokla} " type="text" required="required"/></td>
+											<td><input class=" form-control" id="sp_patra" type="text" value="${x.sp_patra} " required="required"/></td>
 											<td>${x.priority}</td>
 											<td>${x.total}</td>
 										</tr>
