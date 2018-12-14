@@ -115,15 +115,12 @@ $( ".selector" ).datepicker({
           </span> -->
 							</div>
 							<div class="col-sm-2">
-								<input type="text" readonly="true" id="day" size="10" 
-									maxlength="10" value="${list2 }" />
-
-
+								<input type="text" readonly="true" id="day" size="10" maxlength="10" value="${list2}" />
 							</div>
 
 
 							<div class="col-sm-3">
-								        <input type="text" id="date" size="10" value="${list1}" maxlength="10" />
+								        <input type="text" id="date" size="10" value="${list1}" maxlength="10"  onchange="<c:url value = "Daily_report.html"/>"/>
 
 							</div>
 							<div class="col-sm-2">
