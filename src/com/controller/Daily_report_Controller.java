@@ -10,8 +10,11 @@ import java.util.List;
 import java.util.Random;
 
 import javax.servlet.http.HttpSession;
+import javax.ws.rs.core.Request;
 
+import org.apache.catalina.Session;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,7 +33,6 @@ import com.VO.Product_sun_wholesale_VO;
 import com.VO.Retail_client_VO;
 
 
-
 @Controller
 
 
@@ -40,11 +42,22 @@ public class Daily_report_Controller {
 	
 	@Autowired
 	Daily_report_DAO dao;
+
+	public static boolean empty(final String s) {
+		return s == null || s.trim().isEmpty();
+	}
 	
+	@Scope("session")
 	@RequestMapping(value = "Daily_report.html", method = RequestMethod.GET)
-	public ModelAndView index12(@ModelAttribute Product_mon_retail_VO vo,Model model)
+	public ModelAndView index12(@ModelAttribute Product_mon_retail_VO vo,Model model,HttpSession session)
 	{
 		
+		//System.out.println(sessionStorage.getItem("lastname"));
+		//var myVal = '<%= session.getAttribute("ShowMessage") %>';
+		
+		
+		//System.out.println((String) session.getAttribute("lastname"));
+
 		Product_mon_retail_VO mrvo =new Product_mon_retail_VO();
 		Product_sun_retail_VO srvo =new Product_sun_retail_VO();
 		Product_mon_wholesale_VO mwvo =new Product_mon_wholesale_VO();
@@ -59,12 +72,35 @@ public class Daily_report_Controller {
 	       DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	       DateFormat dateFormat1 = new SimpleDateFormat("EEE");
 	       cal.add(Calendar.DATE, 1);
-	       String s = dateFormat.format(cal.getTime());
 	       
-	       String m = dateFormat1.format(cal.getTime());
 		
-		dao.delete();
-		
+	       String s=null,m=null;
+
+	      // String m1=(String) session.getValue("lastname");
+	       //String m1=(String) session.getAttribute("lastname");
+	       String m1=(String) session.getAttribute("lastname");
+
+//System.out.println(session.getAttribute("sa"));
+	       System.out.println(m1);
+
+	       //if(empty((String) session.getAttribute("lastname"))||(String) session.getAttribute("lastname")==null)
+	       if(empty(m1)||m1==null)
+	       {
+	    	   s = dateFormat.format(cal.getTime());
+
+		       m = dateFormat1.format(cal.getTime());
+		   }
+	       else
+	       {
+				//String cart = (String) session.getAttribute("lastname");
+				s = dateFormat.format(m1);
+
+			    m = dateFormat1.format(m1);
+	       }
+
+	    dao.delete();
+
+		//System.out.println(s);
 		if(m.equals("sun"))
 		{
 			dao.insert(dvo, srvo, wvo,swvo,s);
@@ -73,9 +109,9 @@ public class Daily_report_Controller {
 		{
 			dao.insert(dvo, mrvo, cvo,mwvo,s);
 		}
-		
+
 		//return new ModelAndView("Admin/Daily_Report");
-		
+
 		/*ArrayList<Daily_report1_VO> list = new ArrayList<>();
 		list.get();*/
 		
@@ -88,6 +124,8 @@ public class Daily_report_Controller {
 		return new ModelAndView("Admin/Daily_Report", "list" ,ls);
 		
 	}
-
-
+	
+	
 }
+
+

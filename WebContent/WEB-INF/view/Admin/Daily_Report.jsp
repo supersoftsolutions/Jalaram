@@ -61,13 +61,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
          }); 
          
          
-         $(document).ready(function(){
+          /* $(document).ready(function(){
         	  $("#date").blur(function(){
         	    //alert("You entered p1!");
+        	    
+        	    var two=document.getElementById("date").value;
+        	    sessionStorage.setItem("lastname", two);
         		  location.reload();
-        	  });
-        	});
+        	  }); 
+        	   */
+        	  /* $( window ).load(function() {
+        		  //document.getElementById("date").innerHTML = sessionStorage.getItem("lastname");
+        		  alert(sessionStorage.getItem("lastname"));
+        		});
+        	}); */
 
+      </script>
+      <script>
+      /* $(document).ready(function(){
+    	  $("#date").click(function(){
+    	    alert("You entered p1!");
+    	    
+    	    var two=document.getElementById("date").value;
+    	    sessionStorage.setItem("lastname", two);
+    		  location.reload();
+    	  });  */
+    	  
+    	  $(document).ready(function(){
+    		  $("#date").change(function(){
+    		    	var two=document.getElementById("date").value;
+    	    	    //sessionStorage.setItem("lastname", two);
+    	    	    sessionStorage.setItem("lastname",two);
+    	    	   	alert(sessionStorage.getItem("lastname"));
+    		    	location.reload();
+    		  });
+    		});
+      
       </script>
 <!-- <script>
 $( ".selector" ).datepicker({
