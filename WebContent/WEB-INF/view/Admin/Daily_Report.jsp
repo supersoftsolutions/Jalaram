@@ -87,13 +87,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     		  location.reload();
     	  });  */
     	  
+    	 
+    	  
     	  $(document).ready(function(){
     		  $("#date").change(function(){
-    		    	var two=document.getElementById("date").value;
+    		    	//String name=document.getElementById("date").value;
     	    	    //sessionStorage.setItem("lastname", two);
-    	    	    sessionStorage.setItem("lastname",two);
-    	    	   	alert(sessionStorage.getItem("lastname"));
-    		    	location.reload();
+    	    	    /*sessionStorage.setItem("lastname",two);
+    	    	   	alert(sessionStorage.getItem("lastname")); */
+    	    	   	//String name = request.getParameter("date88");
+    	      	 	//session.setAttribute("lastname", "2018-12-22");  
+					//alert(name);
+    	      	 	location.reload();	 
+    	    	   	<%-- <%
+    	    	   	var two=document.getElementById("date").value;
+    	    	    //String name = request.getParameter( "username" );
+    	    	    //session.setAttribute( "theName", two );
+    	    	    session.setAttribute("lastname", two);
+    	    	 %> --%>
+
+    	    	 //object sad=document.getElementById("date").value;
+    	 <%--  <%
+  	 	String name = request.getParameter( "date88" );
+  	 	session.setAttribute("lastname", name);
+  	 	//alert(session.getAttribute("lastname"));
+  	 	//response.sendRedirect("Daily_report.html");
+  	 	//response.setIntHeader("Refresh", 1);
+  	 	//response.sendRedirect("Daily_report.html");
+  	 %>   	  --%>
+    		//location.reload();
     		  });
     		});
       
@@ -157,7 +179,7 @@ $( ".selector" ).datepicker({
 
 
 							<div class="col-sm-3">
-								        <input type="text" id="date" size="10" value="${list1}" maxlength="10"  "/>
+								        <input type="text" id="date" size="10",name="date88", value="${list1}" maxlength="10"  "/>
 </div>
 							<div class="col-sm-2">
 								<div class="input-group">
