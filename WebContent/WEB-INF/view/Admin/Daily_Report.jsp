@@ -59,6 +59,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
            // $( "#datepicker-3" ).datepicker("setDate", "1");  
 
          }); 
+         
+         
+         $(document).ready(function(){
+        	  $("#date").blur(function(){
+        	    //alert("You entered p1!");
+        		  location.reload();
+        	  });
+        	});
 
       </script>
 <!-- <script>
@@ -120,9 +128,8 @@ $( ".selector" ).datepicker({
 
 
 							<div class="col-sm-3">
-								        <input type="text" id="date" size="10" value="${list1}" maxlength="10"  onchange="<c:url value = "Daily_report.html"/>"/>
-
-							</div>
+								        <input type="text" id="date" size="10" value="${list1}" maxlength="10"  "/>
+</div>
 							<div class="col-sm-2">
 								<div class="input-group">
 									<button type="button" class="btn btn-primary">Update</button>
