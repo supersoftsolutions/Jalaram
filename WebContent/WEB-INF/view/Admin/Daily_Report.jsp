@@ -77,7 +77,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         	}); */
 
       </script>
-      <script>
+     <%--  <script>
       /* $(document).ready(function(){
     	  $("#date").click(function(){
     	    alert("You entered p1!");
@@ -99,31 +99,96 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     	      	 	//session.setAttribute("lastname", "2018-12-22");  
 					//alert(name);
     	      	 	location.reload();	 
-    	    	   	<%-- <%
+    	    	   	<%
     	    	   	var two=document.getElementById("date").value;
     	    	    //String name = request.getParameter( "username" );
     	    	    //session.setAttribute( "theName", two );
     	    	    session.setAttribute("lastname", two);
-    	    	 %> --%>
+    	    	 %>
 
     	    	 //object sad=document.getElementById("date").value;
-    	 <%--  <%
+    	  <%
   	 	String name = request.getParameter( "date88" );
   	 	session.setAttribute("lastname", name);
   	 	//alert(session.getAttribute("lastname"));
   	 	//response.sendRedirect("Daily_report.html");
   	 	//response.setIntHeader("Refresh", 1);
   	 	//response.sendRedirect("Daily_report.html");
-  	 %>   	  --%>
+  	 %>   	 
     		//location.reload();
     		  });
     		});
       
-      </script>
+      </script> --%>
 <!-- <script>
 $( ".selector" ).datepicker({
   dayNamesShort: [ "sun", "mon", "tue", "wen", "Thu", "Fri", "Sat" ]
 }); -->
+</script>
+
+
+<script>
+
+    /* $(function onPageSizeChange() {
+        $('#date').change(function () {
+            var selectedValue = $(this).val();
+            $('#date').val(selectedValue);
+           // $.post("/Route/SaveEntry", selectedValue);
+           //Daily_report.html
+			$.post("/Admin/Daily_report.html", selectedValue);
+            //alert(selectedValue);
+            $('form').submit(); 
+
+        });
+    });
+
+    }   */  
+    
+    /* $(function () {
+        $("#date").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "/Daily_report.html",
+                data: '{lastname: "' + $("#date").val() + '" }',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    alert("Hello: " + response.date88);
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            }); */
+            $(document).ready(function(){
+            	$("#date").change(function(){
+            		//alert("demo1");
+            		var date=$('#date').val();
+
+            		//alert('demo1.html');
+            		//alert(date);
+            		$.ajax({
+            			type:'GET',
+            			
+            			url:'demo1.html',
+            			data:{date:date},
+            			//url:'demo1.html/'+date
+            			
+            			
+            			success:function(result){
+            				alert(result);
+            			}
+            			
+            		});
+            		
+            	});
+            	
+            });
+            
+            
+        
 </script>
 <script type="text/javascript">
        function Search_Gridview(strKey, strGV) {
@@ -179,7 +244,8 @@ $( ".selector" ).datepicker({
 
 
 							<div class="col-sm-3">
-								        <input type="text" id="date" size="10",name="date88", value="${list1}" maxlength="10"  "/>
+								        <input type="text" id="date" size="10" name="date" value="${list1}"   maxlength="10"  "/>
+								<span id="fnr"></span>
 </div>
 							<div class="col-sm-2">
 								<div class="input-group">
