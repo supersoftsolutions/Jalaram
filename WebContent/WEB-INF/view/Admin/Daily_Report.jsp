@@ -178,6 +178,8 @@ $( ".selector" ).datepicker({
             			
             			
             			success:function(result){
+            				
+            				alert("success");
             				alert(result);
             			}
             			

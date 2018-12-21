@@ -34,6 +34,7 @@ import com.VO.Product_mon_wholesale_VO;
 import com.VO.Product_sun_retail_VO;
 import com.VO.Product_sun_wholesale_VO;
 import com.VO.Retail_client_VO;
+import com.mysql.fabric.Response;
 
 
 @Controller
@@ -51,6 +52,7 @@ public class Daily_report_Controller {
 	@RequestMapping(value = "Daily_report.html", method = RequestMethod.GET)
 	public ModelAndView index12(@ModelAttribute Product_mon_retail_VO vo,Model model,HttpSession session)
 	{
+		//System.out.println(model);
 		//System.out.println(sessionStorage.getItem("lastname"));
 		//var myVal = '<%= session.getAttribute("ShowMessage") %>';
 
@@ -97,7 +99,7 @@ public class Daily_report_Controller {
 	    dao.delete();
 
 		//System.out.println(s);
-		if(m.equals("sun"))
+		if(m.equals("Sun"))
 		{
 			dao.insert(dvo, srvo, wvo,swvo,s);
 		}
@@ -116,16 +118,19 @@ public class Daily_report_Controller {
 
 		model.addAttribute("list1", s);
 		model.addAttribute("list2", m);
+		model.addAttribute("list", ls);
 
-		return new ModelAndView("Admin/Daily_Report", "list" ,ls);
+		//return new ModelAndView("Admin/Daily_Report", "list" ,ls);
+		return new ModelAndView("Admin/Daily_Report");
 	}
 	
 	@RequestMapping(value = "demo1.html", method = RequestMethod.GET)
 	@ResponseBody
-	public ModelAndView demo1(@RequestParam("date") String date,Model model)
+	public ModelAndView demo1(@RequestParam("date") String date,@ModelAttribute Daily_report_VO vo,Model model1)
 	{
+		//product_mon_retail_VO
 		
-		 
+		
 		//date="2018-12-12";
 		//System.out.println(date);
 		//return "hi "+date;
@@ -150,7 +155,6 @@ public class Daily_report_Controller {
 	       try {
 			date1=new SimpleDateFormat("yyyy-MM-dd").parse(date);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -162,7 +166,7 @@ public class Daily_report_Controller {
 		dao.delete();
 
 		//System.out.println(s);
-		if(m.equals("sun"))
+		if(m.equals("Sun"))
 		{
 			dao.insert(dvo, srvo, wvo,swvo,date);
 		}
@@ -170,12 +174,15 @@ public class Daily_report_Controller {
 		{
 			dao.insert(dvo, mrvo, cvo,mwvo,date);
 		}
-		
+
 		List ls = dao.search();
 		//return new ModelAndView("Admin/Daily_Report", "list" ,ls,s);
 
-		model.addAttribute("list1", date);
-		model.addAttribute("list2", m);
+		model1.addAttribute("list1", date);
+		model1.addAttribute("list2", m);
+		model1.addAttribute("list", ls);
 		return new ModelAndView("Admin/Daily_Report", "list" ,ls);
+		
+		//return date;
 	}
 }	
