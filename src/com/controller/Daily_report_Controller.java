@@ -119,6 +119,7 @@ public class Daily_report_Controller {
 		model.addAttribute("list1", s);
 		model.addAttribute("list2", m);
 		model.addAttribute("list", ls);
+		
 
 		//return new ModelAndView("Admin/Daily_Report", "list" ,ls);
 		return new ModelAndView("Admin/Daily_Report");
@@ -126,10 +127,10 @@ public class Daily_report_Controller {
 	
 	@RequestMapping(value = "demo1.html", method = RequestMethod.GET)
 	@ResponseBody
-	public ModelAndView demo1(@RequestParam("date") String date,@ModelAttribute Daily_report_VO vo,Model model1)
+	//public List demo1(@RequestParam("date") String date,@ModelAttribute Daily_report_VO vo,Model model1)
+	public List<String> demo1(@RequestParam("date") String date,@ModelAttribute Daily_report_VO vo,Model model1)
 	{
 		//product_mon_retail_VO
-		
 		
 		//date="2018-12-12";
 		//System.out.println(date);
@@ -167,22 +168,24 @@ public class Daily_report_Controller {
 
 		//System.out.println(s);
 		if(m.equals("Sun"))
-		{
+		{	
 			dao.insert(dvo, srvo, wvo,swvo,date);
 		}
 		else
 		{
 			dao.insert(dvo, mrvo, cvo,mwvo,date);
 		}
-
-		List ls = dao.search();
+		List <String> ls = null;
+		ls = dao.search();
 		//return new ModelAndView("Admin/Daily_Report", "list" ,ls,s);
 
-		model1.addAttribute("list1", date);
+		/*model1.addAttribute("list1", date);
 		model1.addAttribute("list2", m);
-		model1.addAttribute("list", ls);
-		return new ModelAndView("Admin/Daily_Report", "list" ,ls);
-		
+		model1.addAttribute("list", ls);*/
+		//return new ModelAndView("Admin/Daily_Report", "list" ,ls);
+		System.out.println(ls);
 		//return date;
+		
+		return ls;
 	}
 }	

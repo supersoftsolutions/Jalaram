@@ -179,8 +179,24 @@ $( ".selector" ).datepicker({
             			
             			success:function(result){
             				
-            				alert("success");
+            				//alert("success");
             				alert(result);
+            				
+            				var tableBody = $('#id1 tbody');
+            				
+            				tableBody.empty();
+            				
+            				var m=""
+            				
+            				$(result.data).each(function (index, element) {
+                               // tableBody.append('<tr><td>'+element.ID+'</td><td>'+element.name+'</td><td>'+element.date+'</td><td><input class=" form-control" id="idada" value='+element.idada+' type="text"  required="required"/></td><td><input class=" form-control" id="khaman" value='+element.khaman+' type="text"  required="required"/></td><td><input class=" form-control" id="khandvi" value='+element.khandvi+' type="text"  required="required"/></td><td><input class=" form-control" id="nylon" value='+element.nylon+' type="text"  required="required"/></td><td><input class=" form-control" id="patra" value='+element.patra+' type="text"  required="required"/></td><td><input class=" form-control" id="samosa" value='+element.samosa+' type="text"  required="required"/></td><td><input class=" form-control" id="sandwich_dhokla" value='+element.sandwich_dhokla+' type="text"  required="required"/></td><td><input class=" form-control" id="sp_patra" value='+element.sp_patra+' type="text"  required="required"/></td><td>'+element.priority+'</td><td>'+element.total+'</td></tr>');
+            					 m += ('<tr><td>'+element.ID+'</td><td>'+element.name+'</td><td>'+element.date+'</td><td><input class=" form-control" id="idada" value='+element.idada+' type="text"  required="required"/></td><td><input class=" form-control" id="khaman" value='+element.khaman+' type="text"  required="required"/></td><td><input class=" form-control" id="khandvi" value='+element.khandvi+' type="text"  required="required"/></td><td><input class=" form-control" id="nylon" value='+element.nylon+' type="text"  required="required"/></td><td><input class=" form-control" id="patra" value='+element.patra+' type="text"  required="required"/></td><td><input class=" form-control" id="samosa" value='+element.samosa+' type="text"  required="required"/></td><td><input class=" form-control" id="sandwich_dhokla" value='+element.sandwich_dhokla+' type="text"  required="required"/></td><td><input class=" form-control" id="sp_patra" value='+element.sp_patra+' type="text"  required="required"/></td><td>'+element.priority+'</td><td>'+element.total+'</td></tr>');
+            					 
+                            })
+                            alert(m);
+                            document.getElementById(tableBody1).innerHTML = m;
+                            
+                            reset();
             			}
             			
             		});
@@ -281,7 +297,7 @@ $( ".selector" ).datepicker({
 										<th style="width: 30px;"></th>
 									</tr>
 								</thead>
-								<tbody>
+								<tbody id="tableBody1">
 										<c:forEach items="${list}" var="x">
 										<tr>
 											<td>${x.ID}</td>
