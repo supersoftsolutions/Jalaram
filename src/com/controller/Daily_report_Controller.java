@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -127,14 +128,16 @@ public class Daily_report_Controller {
 	
 	@RequestMapping(value = "demo1.html", method = RequestMethod.GET)
 	@ResponseBody
-	//public List demo1(@RequestParam("date") String date,@ModelAttribute Daily_report_VO vo,Model model1)
-	public List<String> demo1(@RequestParam("date") String date,@ModelAttribute Daily_report_VO vo,Model model1)
+	public String demo1(@RequestParam("date") String date,Model model1,@ModelAttribute Daily_report_VO vo)
+	//public String demo1(@RequestParam("date") String date)
 	{
 		//product_mon_retail_VO
 		
 		//date="2018-12-12";
 		//System.out.println(date);
 		//return "hi "+date;
+		
+		
 		
 		Product_mon_retail_VO mrvo =new Product_mon_retail_VO();
 		Product_sun_retail_VO srvo =new Product_sun_retail_VO();
@@ -145,11 +148,11 @@ public class Daily_report_Controller {
 		Add_wholesale_client_VO wvo=new Add_wholesale_client_VO();
 		
 		String s=null,m=null;
-		
+
 		 DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	       DateFormat dateFormat1 = new SimpleDateFormat("EEE");
-	       
-	       
+
+
 	      // System.out.println(date);
 	       //s = dateFormat.format(date);
 	       Date date1 = null;
@@ -175,17 +178,18 @@ public class Daily_report_Controller {
 		{
 			dao.insert(dvo, mrvo, cvo,mwvo,date);
 		}
-		List <String> ls = null;
+		List ls = null;
 		ls = dao.search();
 		//return new ModelAndView("Admin/Daily_Report", "list" ,ls,s);
 
 		/*model1.addAttribute("list1", date);
-		model1.addAttribute("list2", m);
-		model1.addAttribute("list", ls);*/
+		model1.addAttribute("list2", m);*/
+		(	 (Model) model1).addAttribute("list99", ls);
 		//return new ModelAndView("Admin/Daily_Report", "list" ,ls);
 		System.out.println(ls);
 		//return date;
 		
-		return ls;
+		return date;
+		//return new ModelAndView("Admin/Daily_Report");
 	}
 }	

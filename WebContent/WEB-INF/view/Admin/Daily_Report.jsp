@@ -180,24 +180,64 @@ $( ".selector" ).datepicker({
             			success:function(result){
             				
             				//alert("success");
-            				alert(result);
+            				//alert(result);
             				
-            				var tableBody = $('#id1 tbody');
             				
-            				tableBody.empty();
-            				
-            				var m=""
-            				
-            				$(result.data).each(function (index, element) {
-                               // tableBody.append('<tr><td>'+element.ID+'</td><td>'+element.name+'</td><td>'+element.date+'</td><td><input class=" form-control" id="idada" value='+element.idada+' type="text"  required="required"/></td><td><input class=" form-control" id="khaman" value='+element.khaman+' type="text"  required="required"/></td><td><input class=" form-control" id="khandvi" value='+element.khandvi+' type="text"  required="required"/></td><td><input class=" form-control" id="nylon" value='+element.nylon+' type="text"  required="required"/></td><td><input class=" form-control" id="patra" value='+element.patra+' type="text"  required="required"/></td><td><input class=" form-control" id="samosa" value='+element.samosa+' type="text"  required="required"/></td><td><input class=" form-control" id="sandwich_dhokla" value='+element.sandwich_dhokla+' type="text"  required="required"/></td><td><input class=" form-control" id="sp_patra" value='+element.sp_patra+' type="text"  required="required"/></td><td>'+element.priority+'</td><td>'+element.total+'</td></tr>');
-            					 m += ('<tr><td>'+element.ID+'</td><td>'+element.name+'</td><td>'+element.date+'</td><td><input class=" form-control" id="idada" value='+element.idada+' type="text"  required="required"/></td><td><input class=" form-control" id="khaman" value='+element.khaman+' type="text"  required="required"/></td><td><input class=" form-control" id="khandvi" value='+element.khandvi+' type="text"  required="required"/></td><td><input class=" form-control" id="nylon" value='+element.nylon+' type="text"  required="required"/></td><td><input class=" form-control" id="patra" value='+element.patra+' type="text"  required="required"/></td><td><input class=" form-control" id="samosa" value='+element.samosa+' type="text"  required="required"/></td><td><input class=" form-control" id="sandwich_dhokla" value='+element.sandwich_dhokla+' type="text"  required="required"/></td><td><input class=" form-control" id="sp_patra" value='+element.sp_patra+' type="text"  required="required"/></td><td>'+element.priority+'</td><td>'+element.total+'</td></tr>');
-            					 
-                            })
-                            alert(m);
-                            document.getElementById(tableBody1).innerHTML = m;
+            				/* var m=""
+                                m=m+'<table class="table table-striped b-t b-light" id="id1">';
+                            m=m+'<thead>';
+                            m=m+'<tr>';
+                            m=m+'<th>ID</th>';
+                            m=m+'<th>Name</th>';
+                            m=m+'<th>Date</th>';
+                            m=m+'<th>idada</th>';
+                            m=m+'<th>khaman</th>';
+                            m=m+'<th>khandvi</th>';
+                            m=m+'<th>nylon</th>';
+                            m=m+'<th>patra</th>';
+                            m=m+'<th>samosa</th>';
+                            m=m+'<th>Sandwich_dhokla</th>';
+                            m=m+'<th>Sp_patra</th>';
+                            m=m+'<th>priority</th>';
+                            m=m+'<th>Total</th>';
+                            m=m+'</thead>';
+                            m=m+'</tr>';
+                            m=m+'<tbody>';
+
+                            m=m+'<tr>'; */
+                           //alert(${list99});
+//                            alert(${list99});
+
+							alert('<c:forEach items="${list99}" var="x">${x.ID}</c:forEach>');
+                            var m="";
                             
-                            reset();
-            			}
+                            m=m+'<tbody id="tableBody1">';
+                            m=m+'<c:forEach items="${list99}" var="x">';
+                            m=m+'<tr>';
+                            	m=m+'<td>${x.ID}</td>';
+                            	m=m+'<td>${x.name}</td>';
+                            	m=m+'<td>${x.date}</td>';
+                            	m=m+'<td><input class=" form-control" id="idada" value="${x.idada} " type="text"  required="required"/></td>';
+                            	m=m+'<td><input class=" form-control" id="khaman" value="${x.khaman} " type="text"  required="required"/></td>';
+                            	m=m+'<td><input class=" form-control" id="khandvi" value="${x.khandvi} " type="text"  required="required"/></td>';
+                            	m=m+'<td><input class=" form-control" id="nylon" value="${x.nylon} " type="text"  required="required"/></td>';
+                            	m=m+'<td><input class=" form-control" id="patra" value="${x.patra} " type="text"  required="required"/></td>';
+                            	m=m+'<td><input class=" form-control" id="samosa" value="${x.samosa} " type="text"  required="required"/></td>';
+                            	m=m+'<td><input class=" form-control" id="sandwich_dhokla" value="${x.sandwich_dhokla} " type="text"  required="required"/></td>';
+                            	m=m+'<td><input class=" form-control" id="sp_patra" value="${x.sp_patra} " type="text"  required="required"/></td>';
+                            	m=m+'<td>${x.priority}</td>';
+                            	m=m+'<td>${x.total}</td>';
+                            m=m+'</tr>';
+                            m=m+'</c:forEach>';
+                            m=m+'</tbody>';
+                            
+                            //tableBody1
+                           //console.log(m);
+                            document.getElementById(tableBody1).innerHTML = m;
+            			},
+            			error: function() {
+            			     alert("some error");
+            			  }
             			
             		});
             		

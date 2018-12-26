@@ -46,6 +46,28 @@ public class Daily_report_VO {
 	@Column
 	private String total;
 	
+	public Daily_report_VO() {
+		
+	}
+	
+	
+	public Daily_report_VO(int iD, String name, String date, String patra, String khaman, String nylon, String idada,
+			String khandvi, String sandwich_dhokla, String sp_patra, String samosa, String priority, String total) {
+		super();
+		ID = iD;
+		this.name = name;
+		Date = date;
+		this.patra = patra;
+		this.khaman = khaman;
+		this.nylon = nylon;
+		this.idada = idada;
+		this.khandvi = khandvi;
+		this.sandwich_dhokla = sandwich_dhokla;
+		this.sp_patra = sp_patra;
+		this.samosa = samosa;
+		this.priority = priority;
+		this.total = total;
+	}
 	public int getID() {
 		return ID;
 	}
