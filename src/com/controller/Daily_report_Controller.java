@@ -30,6 +30,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.DAO.Daily_report_DAO;
 import com.VO.Add_wholesale_client_VO;
+import com.VO.ContactForm;
 import com.VO.Daily_report1_VO;
 import com.VO.Daily_report_VO;
 import com.VO.Product_mon_retail_VO;
@@ -44,6 +45,7 @@ import com.mysql.fabric.Response;
 
 public class Daily_report_Controller {
 
+	
 	@Autowired
 	Daily_report_DAO dao;
 
@@ -55,7 +57,7 @@ public class Daily_report_Controller {
 	@RequestMapping(value = "Daily_report.html", method = RequestMethod.GET)
 	public ModelAndView index12(@ModelAttribute Product_mon_retail_VO vo,Model model,HttpSession session,@RequestParam(value="date", required = false) String id)
 	{
-		System.out.println(id);
+		//System.out.println(id);
 		//System.out.println(model);
 		//System.out.println(sessionStorage.getItem("lastname"));
 		//var myVal = '<%= session.getAttribute("ShowMessage") %>';
@@ -134,16 +136,71 @@ public class Daily_report_Controller {
 		/*ArrayList<Daily_report1_VO> list = new ArrayList<>();
 		list.get();*/
 
-		List<String> ls = dao.search();
+		List<Daily_report_VO> ls = dao.search();
 		//return new ModelAndView("Admin/Daily_Report", "list" ,ls,s);
-
+		
+		ContactForm contactForm = new ContactForm();
+		contactForm.setContacts(ls);
+		
+		
 		model.addAttribute("list1", s);
 		model.addAttribute("list2", m);
-		model.addAttribute("list", ls);
+		//model.addAttribute("list", ls);
 		
 
 		//return new ModelAndView("Admin/Daily_Report", "list" ,ls);
-		return new ModelAndView("Admin/Daily_Report");
+		return new ModelAndView("Admin/Daily_Report", "contactForm", contactForm);
+	}
+	
+	@Scope("session")
+	@RequestMapping(value = "update.html", method = RequestMethod.GET)
+	public ModelAndView index123(@ModelAttribute("contactForm") ContactForm contactForm,Model model)
+	{
+		
+		Calendar cal = Calendar.getInstance();
+	       Date d = null;
+	       DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	       DateFormat dateFormat1 = new SimpleDateFormat("EEE");
+	       cal.add(Calendar.DATE, 1);
+
+		   String s=null,m=null,m1=null;
+		   
+		   if(empty(m1)||m1==null)
+	       {
+	    	   s = dateFormat.format(cal.getTime());
+
+		       m = dateFormat1.format(cal.getTime());
+		   }
+	       else
+	       {
+	    	   s = dateFormat.format(m1);
+
+			   m = dateFormat1.format(m1);
+	       }
+		   
+    	  // List<Daily_report_VO> ls = dao.search();
+   		//return new ModelAndView("Admin/Daily_Report", "list" ,ls,s);
+   		System.out.println(contactForm);
+    	   List<Daily_report_VO> contacts = contactForm.getContacts();
+    	   System.out.println(contacts);
+    	   if(null != contacts && contacts.size() > 0) {
+   			for (Daily_report_VO contact : contacts) {
+   				System.out.println( contact.getName());
+   			}
+   		}
+    	   
+    	   
+   		//contactForm.setContacts(ls);
+   		
+   		
+   		
+
+    	   model.addAttribute("list1", s);
+   		model.addAttribute("list2", m);
+   		//model.addAttribute("list", ls);
+
+		//return new ModelAndView("Admin/Daily_Report", "list" ,ls);
+   		return new ModelAndView("Admin/Daily_Report");
 	}
 	
 	

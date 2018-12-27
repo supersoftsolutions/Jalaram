@@ -1,7 +1,7 @@
 package com.VO;
 
 import java.sql.Date;
-
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -47,14 +47,29 @@ public class Daily_report_VO {
 	private String total;
 	
 	
-	@Override
+	/*@Override
     public String toString() {
         return "Daily_report_VO [name=" + name + ", Date=" + Date + ", patra=" + patra + ", khaman=" + khaman + ", nylon=" + nylon + ", idada=" + idada + ", khandvi=" + khandvi + ", sandwich_dhokla=" + sandwich_dhokla + ", sp_patra=" + sp_patra + ", samosa=" + samosa + ", priority=" + priority + ", total=" + total + "]";
-    }
+    }*/
+	
+	
+	/*private List<String> contacts;
+	
+	
+	
+	public List<String> getContacts() {
+		return contacts;
+	}
+
+	public void setContacts(List<String> ls) {
+		this.contacts = ls;
+	}*/
+	
 	
 	/*public Daily_report_VO() {
 		
 	}*/
+	
 	
 	
 	/*public Daily_report_VO(int iD, String name, String date, String patra, String khaman, String nylon, String idada,
@@ -74,6 +89,32 @@ public class Daily_report_VO {
 		this.priority = priority;
 		this.total = total;
 	}*/
+	
+	
+	
+	
+	public Daily_report_VO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Daily_report_VO(int iD, String name, String date, String patra, String khaman, String nylon, String idada,
+			String khandvi, String sandwich_dhokla, String sp_patra, String samosa, String priority, String total) {
+		super();
+		ID = iD;
+		this.name = name;
+		Date = date;
+		this.patra = patra;
+		this.khaman = khaman;
+		this.nylon = nylon;
+		this.idada = idada;
+		this.khandvi = khandvi;
+		this.sandwich_dhokla = sandwich_dhokla;
+		this.sp_patra = sp_patra;
+		this.samosa = samosa;
+		this.priority = priority;
+		this.total = total;
+	}
+
 	public int getID() {
 		return ID;
 	}
@@ -155,9 +196,4 @@ public class Daily_report_VO {
 	public void setPriority(String priority) {
 		this.priority = priority;
 	}
-	
-	
-	
-	
-
 }
