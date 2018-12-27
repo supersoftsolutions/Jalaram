@@ -1,5 +1,6 @@
 package com.controller;
 
+import java.awt.PageAttributes.MediaType;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -18,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -114,7 +116,7 @@ public class Daily_report_Controller {
 		/*ArrayList<Daily_report1_VO> list = new ArrayList<>();
 		list.get();*/
 
-		List ls = dao.search();
+		List<String> ls = dao.search();
 		//return new ModelAndView("Admin/Daily_Report", "list" ,ls,s);
 
 		model.addAttribute("list1", s);
@@ -126,7 +128,7 @@ public class Daily_report_Controller {
 		return new ModelAndView("Admin/Daily_Report");
 	}
 	
-	@RequestMapping(value = "demo1.html", method = RequestMethod.GET)
+	@RequestMapping(value = "demo1.html", method = RequestMethod.GET,produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public String demo1(@RequestParam("date") String date,Model model1,@ModelAttribute Daily_report_VO vo)
 	//public String demo1(@RequestParam("date") String date)
@@ -136,9 +138,7 @@ public class Daily_report_Controller {
 		//date="2018-12-12";
 		//System.out.println(date);
 		//return "hi "+date;
-		
-		
-		
+
 		Product_mon_retail_VO mrvo =new Product_mon_retail_VO();
 		Product_sun_retail_VO srvo =new Product_sun_retail_VO();
 		Product_mon_wholesale_VO mwvo =new Product_mon_wholesale_VO();
@@ -163,10 +163,10 @@ public class Daily_report_Controller {
 		}
 
 		    m = dateFormat1.format(date1);
-		    
+
 		    System.out.println(m);
 		    System.out.println(date1);
-		
+
 		dao.delete();
 
 		//System.out.println(s);
@@ -178,13 +178,14 @@ public class Daily_report_Controller {
 		{
 			dao.insert(dvo, mrvo, cvo,mwvo,date);
 		}
-		List ls = null;
-		ls = dao.search();
+		List<String> ls = dao.search();
 		//return new ModelAndView("Admin/Daily_Report", "list" ,ls,s);
 
 		/*model1.addAttribute("list1", date);
 		model1.addAttribute("list2", m);*/
-		(	 (Model) model1).addAttribute("list99", ls);
+		//model1.addAttribute("list99", ls);
+		model1.addAttribute("list99", ls);
+		System.out.println((model1).addAttribute("list99", ls));
 		//return new ModelAndView("Admin/Daily_Report", "list" ,ls);
 		System.out.println(ls);
 		//return date;

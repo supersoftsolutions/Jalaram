@@ -46,12 +46,18 @@ public class Daily_report_VO {
 	@Column
 	private String total;
 	
-	public Daily_report_VO() {
+	
+	@Override
+    public String toString() {
+        return "Daily_report_VO [name=" + name + ", Date=" + Date + ", patra=" + patra + ", khaman=" + khaman + ", nylon=" + nylon + ", idada=" + idada + ", khandvi=" + khandvi + ", sandwich_dhokla=" + sandwich_dhokla + ", sp_patra=" + sp_patra + ", samosa=" + samosa + ", priority=" + priority + ", total=" + total + "]";
+    }
+	
+	/*public Daily_report_VO() {
 		
-	}
+	}*/
 	
 	
-	public Daily_report_VO(int iD, String name, String date, String patra, String khaman, String nylon, String idada,
+	/*public Daily_report_VO(int iD, String name, String date, String patra, String khaman, String nylon, String idada,
 			String khandvi, String sandwich_dhokla, String sp_patra, String samosa, String priority, String total) {
 		super();
 		ID = iD;
@@ -67,7 +73,7 @@ public class Daily_report_VO {
 		this.samosa = samosa;
 		this.priority = priority;
 		this.total = total;
-	}
+	}*/
 	public int getID() {
 		return ID;
 	}

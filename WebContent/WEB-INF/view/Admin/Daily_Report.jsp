@@ -205,10 +205,39 @@ $( ".selector" ).datepicker({
                             m=m+'<tbody>';
 
                             m=m+'<tr>'; */
-                           //alert(${list99});
-//                            alert(${list99});
+                           alert("${list}");
+                           // alert(${list99});
+							alert('${list99}');
+							
+							/* var tags = @Html.Raw(Json.Encode(Model.list99));
+							for (var i = 0; i < tags.length; i++) {
+    							alert(tags[i]);
+							} */
 
-							alert('<c:forEach items="${list99}" var="x">${x.ID}</c:forEach>');
+							/*  var paramOne =<c:out value="${list99}"/>
+							alert(paramOne);  */
+
+							/* var listForJavascript = [];
+							<c:forEach items="${list99}" var="listItem">
+							  var arr = [];
+
+							  arr.push("<c:out value="${listItem.ID}" />");
+							  arr.push("<c:out value="${listItem.date}" />");
+
+							  listForJavascript.push(arr);
+							</c:forEach>
+							
+							alert(listForJavascript); */
+							
+							/* var schoolList=${list99};
+							for(var i=0;i<schoolList.length;i++) {
+							  alert(schoolList[i].ID);
+							} */
+							
+							/* var modelAttributeValue = ${list99};
+							console.log(modelAttributeValue); */
+							//alert(modelAttributeValue);
+							//alert('<c:forEach items="${list99}" var="x">${x.ID}</c:forEach>');
                             var m="";
                             
                             m=m+'<tbody id="tableBody1">';
@@ -232,7 +261,7 @@ $( ".selector" ).datepicker({
                             m=m+'</tbody>';
                             
                             //tableBody1
-                           //console.log(m);
+                           console.log(m);
                             document.getElementById(tableBody1).innerHTML = m;
             			},
             			error: function() {
