@@ -53,8 +53,9 @@ public class Daily_report_Controller {
 
 	@Scope("session")
 	@RequestMapping(value = "Daily_report.html", method = RequestMethod.GET)
-	public ModelAndView index12(@ModelAttribute Product_mon_retail_VO vo,Model model,HttpSession session)
+	public ModelAndView index12(@ModelAttribute Product_mon_retail_VO vo,Model model,HttpSession session,@RequestParam(value="date", required = false) String id)
 	{
+		System.out.println(id);
 		//System.out.println(model);
 		//System.out.println(sessionStorage.getItem("lastname"));
 		//var myVal = '<%= session.getAttribute("ShowMessage") %>';
@@ -84,20 +85,37 @@ public class Daily_report_Controller {
 	        //System.out.println(session.getAttribute("sa"));
 	       System.out.println(m1);
 
-	       //if(empty((String) session.getAttribute("lastname"))||(String) session.getAttribute("lastname")==null)
-	       if(empty(m1)||m1==null)
+	       if(empty(id))
 	       {
-	    	   s = dateFormat.format(cal.getTime());
+	    	   if(empty(m1)||m1==null)
+		       {
+		    	   s = dateFormat.format(cal.getTime());
 
-		       m = dateFormat1.format(cal.getTime());
-		   }
+			       m = dateFormat1.format(cal.getTime());
+			   }
+		       else
+		       {
+					//String cart = (String) session.getAttribute("lastname");
+					s = dateFormat.format(m1);
+
+				    m = dateFormat1.format(m1);
+		       }   
+	       }
 	       else
 	       {
-				//String cart = (String) session.getAttribute("lastname");
-				s = dateFormat.format(m1);
-
-			    m = dateFormat1.format(m1);
+	    	   s=id;
+	    	   
+	    	   Date date1 = null;
+		       try {
+				date1=new SimpleDateFormat("yyyy-MM-dd").parse(id);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+	    	   m=dateFormat1.format(date1);
 	       }
+	       
+	       //if(empty((String) session.getAttribute("lastname"))||(String) session.getAttribute("lastname")==null)
+	       
 
 	    dao.delete();
 
@@ -128,69 +146,6 @@ public class Daily_report_Controller {
 		return new ModelAndView("Admin/Daily_Report");
 	}
 	
-	@RequestMapping(value = "demo1.html", method = RequestMethod.GET,produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
-	@ResponseBody
-	public String demo1(@RequestParam("date") String date,Model model1,@ModelAttribute Daily_report_VO vo)
-	//public String demo1(@RequestParam("date") String date)
-	{
-		//product_mon_retail_VO
-		
-		//date="2018-12-12";
-		//System.out.println(date);
-		//return "hi "+date;
-
-		Product_mon_retail_VO mrvo =new Product_mon_retail_VO();
-		Product_sun_retail_VO srvo =new Product_sun_retail_VO();
-		Product_mon_wholesale_VO mwvo =new Product_mon_wholesale_VO();
-		Product_sun_wholesale_VO swvo =new Product_sun_wholesale_VO();
-		Retail_client_VO cvo=new Retail_client_VO();
-		Daily_report_VO dvo=new Daily_report_VO();
-		Add_wholesale_client_VO wvo=new Add_wholesale_client_VO();
-		
-		String s=null,m=null;
-
-		 DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-	       DateFormat dateFormat1 = new SimpleDateFormat("EEE");
-
-
-	      // System.out.println(date);
-	       //s = dateFormat.format(date);
-	       Date date1 = null;
-	       try {
-			date1=new SimpleDateFormat("yyyy-MM-dd").parse(date);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-
-		    m = dateFormat1.format(date1);
-
-		    System.out.println(m);
-		    System.out.println(date1);
-
-		dao.delete();
-
-		//System.out.println(s);
-		if(m.equals("Sun"))
-		{	
-			dao.insert(dvo, srvo, wvo,swvo,date);
-		}
-		else
-		{
-			dao.insert(dvo, mrvo, cvo,mwvo,date);
-		}
-		List<String> ls = dao.search();
-		//return new ModelAndView("Admin/Daily_Report", "list" ,ls,s);
-
-		/*model1.addAttribute("list1", date);
-		model1.addAttribute("list2", m);*/
-		//model1.addAttribute("list99", ls);
-		model1.addAttribute("list99", ls);
-		System.out.println((model1).addAttribute("list99", ls));
-		//return new ModelAndView("Admin/Daily_Report", "list" ,ls);
-		System.out.println(ls);
-		//return date;
-		
-		return date;
-		//return new ModelAndView("Admin/Daily_Report");
-	}
+	
+	
 }	

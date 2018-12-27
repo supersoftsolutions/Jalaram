@@ -162,117 +162,17 @@ $( ".selector" ).datepicker({
                     alert(response.responseText);
                 }
             }); */
+            
             $(document).ready(function(){
             	$("#date").change(function(){
-            		//alert("demo1");
             		var date=$('#date').val();
-
-            		//alert('demo1.html');
-            		//alert(date);
-            		$.ajax({
-            			type:'GET',
-            			
-            			url:'demo1.html',
-            			data:{date:date},
-            			//url:'demo1.html/'+date
-            			
-            			
-            			success:function(result){
-            				
-            				//alert("success");
-            				//alert(result);
-            				
-            				
-            				/* var m=""
-                                m=m+'<table class="table table-striped b-t b-light" id="id1">';
-                            m=m+'<thead>';
-                            m=m+'<tr>';
-                            m=m+'<th>ID</th>';
-                            m=m+'<th>Name</th>';
-                            m=m+'<th>Date</th>';
-                            m=m+'<th>idada</th>';
-                            m=m+'<th>khaman</th>';
-                            m=m+'<th>khandvi</th>';
-                            m=m+'<th>nylon</th>';
-                            m=m+'<th>patra</th>';
-                            m=m+'<th>samosa</th>';
-                            m=m+'<th>Sandwich_dhokla</th>';
-                            m=m+'<th>Sp_patra</th>';
-                            m=m+'<th>priority</th>';
-                            m=m+'<th>Total</th>';
-                            m=m+'</thead>';
-                            m=m+'</tr>';
-                            m=m+'<tbody>';
-
-                            m=m+'<tr>'; */
-                           alert("${list}");
-                           // alert(${list99});
-							alert('${list99}');
-							
-							/* var tags = @Html.Raw(Json.Encode(Model.list99));
-							for (var i = 0; i < tags.length; i++) {
-    							alert(tags[i]);
-							} */
-
-							/*  var paramOne =<c:out value="${list99}"/>
-							alert(paramOne);  */
-
-							/* var listForJavascript = [];
-							<c:forEach items="${list99}" var="listItem">
-							  var arr = [];
-
-							  arr.push("<c:out value="${listItem.ID}" />");
-							  arr.push("<c:out value="${listItem.date}" />");
-
-							  listForJavascript.push(arr);
-							</c:forEach>
-							
-							alert(listForJavascript); */
-							
-							/* var schoolList=${list99};
-							for(var i=0;i<schoolList.length;i++) {
-							  alert(schoolList[i].ID);
-							} */
-							
-							/* var modelAttributeValue = ${list99};
-							console.log(modelAttributeValue); */
-							//alert(modelAttributeValue);
-							//alert('<c:forEach items="${list99}" var="x">${x.ID}</c:forEach>');
-                            var m="";
-                            
-                            m=m+'<tbody id="tableBody1">';
-                            m=m+'<c:forEach items="${list99}" var="x">';
-                            m=m+'<tr>';
-                            	m=m+'<td>${x.ID}</td>';
-                            	m=m+'<td>${x.name}</td>';
-                            	m=m+'<td>${x.date}</td>';
-                            	m=m+'<td><input class=" form-control" id="idada" value="${x.idada} " type="text"  required="required"/></td>';
-                            	m=m+'<td><input class=" form-control" id="khaman" value="${x.khaman} " type="text"  required="required"/></td>';
-                            	m=m+'<td><input class=" form-control" id="khandvi" value="${x.khandvi} " type="text"  required="required"/></td>';
-                            	m=m+'<td><input class=" form-control" id="nylon" value="${x.nylon} " type="text"  required="required"/></td>';
-                            	m=m+'<td><input class=" form-control" id="patra" value="${x.patra} " type="text"  required="required"/></td>';
-                            	m=m+'<td><input class=" form-control" id="samosa" value="${x.samosa} " type="text"  required="required"/></td>';
-                            	m=m+'<td><input class=" form-control" id="sandwich_dhokla" value="${x.sandwich_dhokla} " type="text"  required="required"/></td>';
-                            	m=m+'<td><input class=" form-control" id="sp_patra" value="${x.sp_patra} " type="text"  required="required"/></td>';
-                            	m=m+'<td>${x.priority}</td>';
-                            	m=m+'<td>${x.total}</td>';
-                            m=m+'</tr>';
-                            m=m+'</c:forEach>';
-                            m=m+'</tbody>';
-                            
-                            //tableBody1
-                           console.log(m);
-                            document.getElementById(tableBody1).innerHTML = m;
-            			},
-            			error: function() {
-            			     alert("some error");
-            			  }
-            			
-            		});
             		
+            		window.location.href =  "Daily_report.html?date="+date;
+            		//alert(window.location.href + "?date="+date);
             	});
             	
             });
+            
             
             
         
