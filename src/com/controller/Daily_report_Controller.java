@@ -10,7 +10,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
-
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.Request;
 
@@ -92,7 +91,6 @@ public class Daily_report_Controller {
 	    	   if(empty(m1)||m1==null)
 		       {
 		    	   s = dateFormat.format(cal.getTime());
-
 			       m = dateFormat1.format(cal.getTime());
 			   }
 		       else
@@ -142,67 +140,85 @@ public class Daily_report_Controller {
 		ContactForm contactForm = new ContactForm();
 		contactForm.setContacts(ls);
 		
-		
 		model.addAttribute("list1", s);
 		model.addAttribute("list2", m);
-		//model.addAttribute("list", ls);
-		
-
-		//return new ModelAndView("Admin/Daily_Report", "list" ,ls);
+		model.addAttribute("list", ls);
+			//return new ModelAndView("Admin/Daily_Report", "list" ,ls);
 		return new ModelAndView("Admin/Daily_Report", "contactForm", contactForm);
 	}
 	
 	@Scope("session")
 	@RequestMapping(value = "update.html", method = RequestMethod.GET)
-	public ModelAndView index123(@ModelAttribute("contactForm") ContactForm contactForm,Model model)
+	public ModelAndView index123(Model model,HttpSession session,@RequestParam(value="date", required = false) String id)
 	{
-		
-		Calendar cal = Calendar.getInstance();
+
+		Product_mon_retail_VO mrvo =new Product_mon_retail_VO();
+		Product_sun_retail_VO srvo =new Product_sun_retail_VO();
+		Product_mon_wholesale_VO mwvo =new Product_mon_wholesale_VO();
+		Product_sun_wholesale_VO swvo =new Product_sun_wholesale_VO();
+		Retail_client_VO cvo=new Retail_client_VO();
+		Daily_report_VO dvo=new Daily_report_VO();
+		Add_wholesale_client_VO wvo=new Add_wholesale_client_VO();
+
+			Calendar cal = Calendar.getInstance();
 	       Date d = null;
 	       DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	       DateFormat dateFormat1 = new SimpleDateFormat("EEE");
 	       cal.add(Calendar.DATE, 1);
 
 		   String s=null,m=null,m1=null;
-		   
-		   if(empty(m1)||m1==null)
-	       {
-	    	   s = dateFormat.format(cal.getTime());
 
-		       m = dateFormat1.format(cal.getTime());
-		   }
+	    
+	        m1= (String) session.getAttribute("lastname");
+
+	       System.out.println(m1);
+
+	       if(empty(id))
+	       {
+	    	   if(empty(m1)||m1==null)
+		       {
+		    	   s = dateFormat.format(cal.getTime());
+
+			       m = dateFormat1.format(cal.getTime());
+			   }
+		       else
+		       {
+					//String cart = (String) session.getAttribute("lastname");
+					s = dateFormat.format(m1);
+					
+				    m = dateFormat1.format(m1);
+		       }   
+	       }
 	       else
 	       {
-	    	   s = dateFormat.format(m1);
-
-			   m = dateFormat1.format(m1);
+	    	   s=id;
+	    	   
+	    	   Date date1 = null;
+		       try {
+				date1=new SimpleDateFormat("yyyy-MM-dd").parse(id);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+	    	   m=dateFormat1.format(date1);
 	       }
-		   
-    	  // List<Daily_report_VO> ls = dao.search();
-   		//return new ModelAndView("Admin/Daily_Report", "list" ,ls,s);
-   		System.out.println(contactForm);
-    	   List<Daily_report_VO> contacts = contactForm.getContacts();
-    	   System.out.println(contacts);
-    	   if(null != contacts && contacts.size() > 0) {
-   			for (Daily_report_VO contact : contacts) {
-   				System.out.println( contact.getName());
-   			}
-   		}
-    	   
-    	   
-   		//contactForm.setContacts(ls);
-   		
-   		
-   		
+	       
+		 //   dao.delete(); 
 
-    	   model.addAttribute("list1", s);
-   		model.addAttribute("list2", m);
-   		//model.addAttribute("list", ls);
+			dao.get(dvo);
 
-		//return new ModelAndView("Admin/Daily_Report", "list" ,ls);
-   		return new ModelAndView("Admin/Daily_Report");
+			dao.insert3(dvo,s);
+		
+
+	
+		List<Daily_report_VO> ls = dao.search1();
+		
+		
+		
+		model.addAttribute("list1", s);
+		model.addAttribute("list2", m);
+		model.addAttribute("list", ls);
+			//return new ModelAndView("Admin/Daily_Report", "list" ,ls);
+		return new ModelAndView("Admin/Daily_Report");
 	}
-	
-	
 	
 }	

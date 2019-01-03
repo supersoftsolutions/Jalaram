@@ -13,12 +13,6 @@ public class ContactForm {
 	public void setContacts(List<Daily_report_VO> contacts) {
 		this.contacts = contacts;
 	}
-	
-	/*public List<Daily_report_VO> getContacts() {
-		return contacts;
-	}
 
-	public void setContacts(List<Daily_report_VO> contacts) {
-		this.contacts = contacts;	
-	}*/
+	
 }

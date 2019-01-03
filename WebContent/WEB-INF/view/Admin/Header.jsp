@@ -41,7 +41,7 @@
         <div class="leftside-navigation">
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
-                    <a class="active" href="index.html">
+                    <a class="active" href="admin.html">
                         <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
@@ -100,26 +100,31 @@
                     </a>
                     <ul class="sub">
                         <li><a href="Daily_report.html">Daily Report</a></li>
-                        <li><a href="mail_compose.html">Compose Mail</a></li>
+<!--                         <li><a href="mail_compose.html">Compose Mail</a></li>
+ -->                    </ul>
+                </li>
+                
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class=" fa fa-bar-chart-o"></i>
+                        <span>Row Material</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="row_material.html">Add Row_Material</a></li>
+                        <li><a href="View_row_material.html">View Row Material</a></li>
+                         <li><a href="purchase_row_material.html">Add Row Material Purchase</a></li>
+                        <li><a href="View_row_material_purchase.html">View Row Material Purchase</a></li>
+                        
+                        
                     </ul>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class=" fa fa-bar-chart-o"></i>
-                        <span>Charts</span>
+                        <span>Live Product</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="chartjs.html">Chart js</a></li>
-                        <li><a href="flot_chart.html">Flot Charts</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class=" fa fa-bar-chart-o"></i>
-                        <span>Maps</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="google_map.html">Google Map</a></li>
+                        <li><a href="Add_product.html">Add Product</a></li>
                         <li><a href="vector_map.html">Vector Map</a></li>
                     </ul>
                 </li>
@@ -135,7 +140,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="login.html">
+                    <a href="index.html">
                         <i class="fa fa-user"></i>
                         <span>Login Page</span>
                     </a>

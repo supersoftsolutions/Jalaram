@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@taglib uri="http://www.springframework.org/tags/form" prefix="f" %>
 <!DOCTYPE html>
 <head>
-<title>Jalaram1</title>
+<title>Jalaram</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -27,6 +28,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="AdminResources/js/jquery2.0.3.min.js"></script>
 <script src="AdminResources/js/raphael-min.js"></script>
 <script src="AdminResources/js/morris.js"></script>
+<link
+	href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+	rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+<script>
+         $(function() {
+            $( "#date" ).datepicker({
+
+         
+/*                   defaultDate:+1	,
+ */               dateFormat:"yy-mm-dd",
+               altField: "#day",
+               altFormat: "D"
+            });
+           // $( "#datepicker-3" ).datepicker("setDate", "1");  
+
+         }); 
+         </script>
 </head>
 <body>
 <!--sidebar end-->
@@ -34,68 +55,65 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <jsp:include page="Header.jsp"></jsp:include>
 <section id="main-content">
 
-<div class="market-updates">
-			<div class="col-md-3 market-update-gd">
-				<div class="market-update-block clr-block-2">
-					<div class="col-md-4 market-update-right">
-						<i class="fa fa-eye"> </i>
-					</div>
-					 <div class="col-md-8 market-update-left">
-					 <h4>Visitors</h4>
-					<h3>${sessionScope.pList }</h3>
-					<p>Other hand, we denounce</p>
-				  </div>
-				  <div class="clearfix"> </div>
-				</div>
-			</div>
-			<div class="col-md-3 market-update-gd">
-				<div class="market-update-block clr-block-1">
-					<div class="col-md-4 market-update-right">
-						<i class="fa fa-users" ></i>
-					</div>
-					<div class="col-md-8 market-update-left">
-					<h4>Users</h4>
-						<h3>${sessionScope.cList }</h3>
-						<p>Other hand, we denounce</p>
-					</div>
-				  <div class="clearfix"> </div>
-				</div>
-			</div>
-			<div class="col-md-3 market-update-gd">
-				<div class="market-update-block clr-block-3">
-					<div class="col-md-4 market-update-right">
-						<i class="fa fa-usd"></i>
-					</div>
-					<div class="col-md-8 market-update-left">
-						<h4>Sales</h4>
-						<h3>1,500</h3>
-						<p>Other hand, we denounce</p>
-					</div>
-				  <div class="clearfix"> </div>
-				</div>
-			</div>
-			<div class="col-md-3 market-update-gd">
-				<div class="market-update-block clr-block-4">
-					<div class="col-md-4 market-update-right">
-						<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-					</div>
-					<div class="col-md-8 market-update-left">
-						<h4>Orders</h4>
-						<h3>1,500</h3>
-						<p>Other hand, we denounce</p>
-					</div>
-				  <div class="clearfix"> </div>
-				</div>
-			</div>
-		   <div class="clearfix"> </div>
-		</div>	
-	
+
+<div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            Add Row Material Purchase
+                            
+                        </header>
+                        <div class="panel-body">
+                            <div class="form">
+                                <f:form class="cmxform form-horizontal " modelAttribute="data" id="signupForm" method="post" action="insert_row_material_purchase.html" novalidate="">
+                                      <div class="form-group ">
+                                        <label for="priority" class="control-label col-lg-3">Name</label>
+                                        <div class="col-lg-6">
+                                            <!--  <input class=" form-control" id="address1" name="address1" type="text">-->
+                                        <f:select path="wvo.ID" class="custom-select form-control" required="">
+                                    <f:options items="${list}" itemLabel="Product_name" itemValue="ID"/>
+
+                                            </f:select>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                      <div class="form-group ">
+                                        <label for="mon" class="control-label col-lg-3">Date</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="date" name="date" type="text" required="required">
+                                        </div>
+                                    </div>
+                                    
+                                
+                                    
+                                    <div class="form-group ">
+                                        <label for="mon" class="control-label col-lg-3">Stock</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="stock" name="stock" type="text" required="required">
+                                        </div>
+                                    </div>
+                                    
+                                  
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-5 col-lg-6">
+                                            <button class="btn btn-primary" type="submit">Save</button>
+                                        </div>
+                                    </div>
+                                   
+                                </f:form>
+                            </div>
+
+	</div>
+	</section>
+	</div>
+	</div>
  <!-- footer -->
 	<jsp:include page="Footer.jsp"></jsp:include>	  
   <!-- / footer -->
-</section>
-<!--main content end-->
 
+<!--main content end-->
+</section>
 <script src="AdminResources/js/bootstrap.js"></script>
 <script src="AdminResources/js/jquery.dcjqaccordion.2.7.js"></script>
 <script src="AdminResources/js/scripts.js"></script>

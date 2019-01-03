@@ -24,7 +24,6 @@ public class Daily_report_VO {
 	private String name;
 	@Column
 	private String Date;
-	
 	@Column
 	private String patra;
 	@Column
@@ -95,7 +94,6 @@ public class Daily_report_VO {
 	
 	public Daily_report_VO() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public Daily_report_VO(int iD, String name, String date, String patra, String khaman, String nylon, String idada,
 			String khandvi, String sandwich_dhokla, String sp_patra, String samosa, String priority, String total) {
@@ -196,4 +194,5 @@ public class Daily_report_VO {
 	public void setPriority(String priority) {
 		this.priority = priority;
 	}
+	
 }

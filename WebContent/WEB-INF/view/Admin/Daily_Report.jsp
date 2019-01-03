@@ -175,7 +175,8 @@ $( ".selector" ).datepicker({
             
             $(document).ready(function(){
             	$("#update").click(function(){
-            		
+            	
+//
             		var date=$('#date').val();
             		
             		window.location.href =  "update.html?date="+date;
@@ -184,6 +185,20 @@ $( ".selector" ).datepicker({
             	
             });
 </script>
+<!-- <script type="text/javascript">
+$(document).ready(function(){
+	$("#update").click(function(){
+		
+       // var id = document.getElementById(ID);
+	
+		var date=$('#ID').val();
+		
+		window.location.href =  "update.html?id="+id;
+		
+	});
+	
+});
+</script> -->
 <script type="text/javascript">
        function Search_Gridview(strKey, strGV) {
            var strData = strKey.value.toLowerCase().split(" ");
@@ -220,7 +235,7 @@ $( ".selector" ).datepicker({
 						<div class="panel-heading">Daily Report</div>
 						<div class="row w3-res-tb">
 							<div class="col-sm-2">
-
+								
 								<button type="button" class="btn btn-primary" id="update">Generate</button>
 							</div>
 							<div class="col-sm-3">
@@ -238,17 +253,17 @@ $( ".selector" ).datepicker({
 
 
 							<div class="col-sm-3">
-								        <input type="text" id="date" size="10" name="date" value="${list1}"   maxlength="10"  "/>
+								        <input type="text" id="date" size="10" name="date" value="${list1}"   maxlength="10"/>
 								<span id="fnr"></span>
 </div>
 							<!-- <div class="col-sm-2">
 								<div class="input-group">
+				  <input type="text" id="date" size="10" name="date" value="${list1}"   maxlength="10"/>
 									<button type="button" class="btn btn-primary" id="update">Update</button>
 								</div>
 							</div> -->
 						</div>
 						<div class="table-responsive">
-						<form:form method="post"  modelAttribute="contactForm">
 							<table class="table table-striped b-t b-light" id="id1">
 								<thead>
 									<tr>
@@ -275,30 +290,28 @@ $( ".selector" ).datepicker({
 									</tr>
 								</thead>
 								<tbody id="tableBody1">
-										<c:forEach items="${contactForm.contacts}" var="x" varStatus="status">
+										<c:forEach items="${list}" var="x" varStatus="status">
 										<tr id ="contacts[${status.index}]">
 											<%-- <td>${status.count}</td> --%>
 											<td>${x.ID}</td>
-											<td><label path="contacts[${status.index}].name">${x.name}</label></td>
-											<td><label path="contacts[${status.index}].date">${x.date}</label></td>
-											<td><input path="contacts[${status.index}].idada" class=" form-control" id="idada" value="${x.idada} " type="text"  required="required"/></td>
-											<td><input path="contacts[${status.index}].khaman"class=" form-control" id="khaman" value="${x.khaman} " type="text" required="required"/></td>
-											<td><input path="contacts[${status.index}].khandvi" class=" form-control" id="khandvi" value="${x.khandvi} " type="text" required="required"/></td>
-											<td><input path="contacts[${status.index}].nylon" class=" form-control" id="nylon" value="${x.nylon} " type="text" required="required"/></td>
-											<td><input path="contacts[${status.index}].patra"class=" form-control" id="patra" value="${x.patra} " type="text" required="required"/></td>
-											<td><input path="contacts[${status.index}].samosa" class=" form-control" id="samosa" value="${x.samosa} " type="text" required="required"/></td>
-											<td><input path="contacts[${status.index}].sandwich_dhokla" class=" form-control" id="sandwich_dhokla" value="${x.sandwich_dhokla} " type="text" required="required"/></td>
-											<td><input path="contacts[${status.index}].sp_patra" class=" form-control" id="sp_patra" type="text" value="${x.sp_patra} " required="required"/></td>
-											<td><label path="contacts[${status.index}].priority">${x.priority}</label></td>
-											<td><label path="contacts[${status.index}].total">${x.total}</label></td>
+											<td><label>${x.name}</label></td>
+											<td><label>${x.date}</label></td>
+											<td><input name="contacts[${status.index}].idada" class=" form-control" value="${x.idada} " type="text"  required="required"/></td>
+											<td><input name="contacts[${status.index}].khaman"class=" form-control" id="khaman" value="${x.khaman} " type="text" required="required"/></td>
+											<td><input name="contacts[${status.index}].khandvi" class=" form-control" id="khandvi" value="${x.khandvi} " type="text" required="required"/></td>
+											<td><input name="contacts[${status.index}].nylon" class=" form-control" id="nylon" value="${x.nylon} " type="text" required="required"/></td>
+											<td><input name="contacts[${status.index}].patra"class=" form-control" id="patra" value="${x.patra} " type="text" required="required"/></td>
+											<td><input name="contacts[${status.index}].samosa" class=" form-control" id="samosa" value="${x.samosa} " type="text" required="required"/></td>
+											<td><input name="contacts[${status.index}].sandwich_dhokla" class=" form-control" id="sandwich_dhokla" value="${x.sandwich_dhokla} " type="text" required="required"/></td>
+											<td><input name="contacts[${status.index}].sp_patra" class=" form-control" id="sp_patra" type="text" value="${x.sp_patra} " required="required"/></td>
+											<td><label>${x.priority}</label></td>
+											<td><label>${x.total}</label></td>
 										</tr>
 									</c:forEach>
 								</tbody>
-
-							</table>
-							</form:form>
+	+						</table>
+					
 						</div>
-
 					</div>
 				</div>
 			</section>

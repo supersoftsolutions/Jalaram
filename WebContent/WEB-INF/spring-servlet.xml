@@ -35,7 +35,10 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
                                  <value>com.VO.Product_mon_retail_VO</value>
                                  <value>com.VO.Daily_report_VO</value>
                                  <value>com.VO.Daily_report1_VO</value>
-                 
+                                 <value>com.VO.ContactForm</value>
+                                 <value>com.VO.Row_Material_VO</value>
+                 				<value>com.VO.Row_Material_purchase_VO</value>
+                 				<value>com.VO.ProductVO</value>
 			</list>
         </property>
         <property name="hibernateProperties">

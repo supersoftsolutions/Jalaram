@@ -1,7 +1,7 @@
 package com.VO;
 
 import java.sql.Date;
-
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,64 +15,118 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "Daily_report")
 
-
 public class Daily_report1_VO {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int ID;
 	
-	@ManyToOne
-	private Product_mon_retail_VO rmvo;
+	@Column
+	private String name;
+	@Column
+	private String Date;
 	
-	@ManyToOne
-	private Product_sun_retail_VO rsvo;
-	
-	@ManyToOne
-	private Product_mon_wholesale_VO wmvo;
-	
-	@ManyToOne
-	private Product_sun_wholesale_VO wmsvo;
-
+	@Column
+	private String patra;
+	@Column
+	private String khaman;
+	@Column
+	private String nylon;
+	@Column
+	private String idada;
+	@Column
+	private String khandvi;
+	@Column
+	private String sandwich_dhokla;
+	@Column
+	private String sp_patra;
+	@Column
+	private String samosa;
+	@Column
+	private String priority;
+	@Column
+	private String total;
 	public int getID() {
 		return ID;
 	}
-
 	public void setID(int iD) {
 		ID = iD;
 	}
-
-	public Product_mon_retail_VO getRmvo() {
-		return rmvo;
+	public String getName() {
+		return name;
 	}
-
-	public void setRmvo(Product_mon_retail_VO rmvo) {
-		this.rmvo = rmvo;
+	public void setName(String name) {
+		this.name = name;
 	}
-
-	public Product_sun_retail_VO getRsvo() {
-		return rsvo;
+	public String getDate() {
+		return Date;
 	}
-
-	public void setRsvo(Product_sun_retail_VO rsvo) {
-		this.rsvo = rsvo;
+	public void setDate(String date) {
+		Date = date;
 	}
-
-	public Product_mon_wholesale_VO getWmvo() {
-		return wmvo;
+	public String getPatra() {
+		return patra;
 	}
-
-	public void setWmvo(Product_mon_wholesale_VO wmvo) {
-		this.wmvo = wmvo;
+	public void setPatra(String patra) {
+		this.patra = patra;
 	}
-
-	public Product_sun_wholesale_VO getWmsvo() {
-		return wmsvo;
+	public String getKhaman() {
+		return khaman;
 	}
-
-	public void setWmsvo(Product_sun_wholesale_VO wmsvo) {
-		this.wmsvo = wmsvo;
+	public void setKhaman(String khaman) {
+		this.khaman = khaman;
 	}
+	public String getNylon() {
+		return nylon;
+	}
+	public void setNylon(String nylon) {
+		this.nylon = nylon;
+	}
+	public String getIdada() {
+		return idada;
+	}
+	public void setIdada(String idada) {
+		this.idada = idada;
+	}
+	public String getKhandvi() {
+		return khandvi;
+	}
+	public void setKhandvi(String khandvi) {
+		this.khandvi = khandvi;
+	}
+	public String getSandwich_dhokla() {
+		return sandwich_dhokla;
+	}
+	public void setSandwich_dhokla(String sandwich_dhokla) {
+		this.sandwich_dhokla = sandwich_dhokla;
+	}
+	public String getSp_patra() {
+		return sp_patra;
+	}
+	public void setSp_patra(String sp_patra) {
+		this.sp_patra = sp_patra;
+	}
+	public String getSamosa() {
+		return samosa;
+	}
+	public void setSamosa(String samosa) {
+		this.samosa = samosa;
+	}
+	public String getPriority() {
+		return priority;
+	}
+	public void setPriority(String priority) {
+		this.priority = priority;
+	}
+	public String getTotal() {
+		return total;
+	}
+	public void setTotal(String total) {
+		this.total = total;
+	}
+	
+	
+
+	
 	
 	
 

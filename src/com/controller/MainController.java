@@ -1,5 +1,6 @@
 package com.controller;
 
+import java.util.List;
 import java.util.Random;
 
 import javax.servlet.http.HttpSession;
@@ -30,12 +31,20 @@ public class MainController {
 	
 	@RequestMapping(value = { "/", "index.html" }, method = RequestMethod.GET)
 	public ModelAndView index() {
+		
 		return new ModelAndView("Admin/Login");
+		
 	}
 	            
 	@RequestMapping(value = "/admin.html", method = RequestMethod.GET)
 	public String admin(HttpSession session,Model model) {
 		
+		/*List pls = 	this.ldao.serchProduct();	
+	    session.setAttribute("pList", pls.size());
+	    
+	    List cls = 	this.ldao.serchclient();	
+	    session.setAttribute("cList", pls.size());*/
+	
 		return "Admin/Welcome";
 	}
 	
