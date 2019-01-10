@@ -75,5 +75,30 @@ public class ProductDAO {
 		return ls;
 	}
 
+	public void delete(StaffVO vo) {
+		Session session = sessionFactory.openSession();
+		Transaction tr = session.beginTransaction();
+		session.delete(vo);
+		tr.commit();
+		session.close();
+	}
+
+	public List edit(StaffVO vo) {
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery("from StaffVO where staffid='" + vo.getStaffid() + "'");
+		List ls = q.list();
+		session.close();
+		return ls;
+	}
+
+	public void update1(StaffVO vo) {
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery("update StaffVO set Address='"+vo.getAddress()+"',Mobile='"+vo.getMobile()+"',Salary='"+vo.getSalary()+"' where staffid='"+vo.getStaffid()+"'");
+		Transaction tr = session.beginTransaction();
+		q.executeUpdate();
+		tr.commit();
+		session.close();		
+	}
+
 
 }

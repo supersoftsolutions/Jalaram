@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.DAO.ProductDAO;
 import com.VO.ProductVO;
+import com.VO.Product_creditor_VO;
 import com.VO.Row_Material_VO;
 import com.VO.StaffVO;
 
@@ -85,5 +86,37 @@ public class ProductController {
 		
 		List ls = dao.search1();
 		return new ModelAndView("Admin/View_staff", "list", ls);
+	}
+	
+	@RequestMapping(value="delete_staff.html",method=RequestMethod.GET)
+	public ModelAndView delete1(@RequestParam("id") int id, StaffVO vo)
+	{
+			vo.setStaffid(id);
+			dao.delete(vo);
+			return new ModelAndView("redirect:view_staff.html");
+	}
+	
+	@RequestMapping(value = "edit_staff.html", method = RequestMethod.GET)
+	public ModelAndView edit(@RequestParam("id") int id, StaffVO vo) {
+
+		List ls = dao.search1();
+		vo.setStaffid(id);
+		List ls1 = dao.edit(vo);
+		return new ModelAndView("Admin/Edit_staff", "data", (StaffVO) ls1.get(0));
+				
+	}
+
+	@RequestMapping(value = "update_staff.html", method = RequestMethod.POST)
+	public ModelAndView update(@ModelAttribute StaffVO vo) {
+
+		
+		
+		/*svo.setWvo(vo.getWvo());
+		mvo.setWvo(vo.getWvo());*/
+		
+		
+		dao.update1(vo);
+		return new ModelAndView("redirect:view_staff.html");
+
 	}
 }
