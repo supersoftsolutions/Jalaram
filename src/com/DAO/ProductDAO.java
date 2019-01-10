@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.VO.ProductVO;
 import com.VO.Row_Material_VO;
+import com.VO.StaffVO;
 
 @Repository
 
@@ -49,6 +50,29 @@ public class ProductDAO {
 		tr.commit();
 		session.close();
 		
+	}
+
+	public void insert(StaffVO vo) {
+		try{
+			Session session = sessionFactory.openSession();
+			Transaction tr = session.beginTransaction();
+			session.saveOrUpdate(vo);
+			tr.commit();
+			session.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}	
+		
+		
+	}
+
+	public List search1() {
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery("from StaffVO");
+		List ls = q.list();
+		// System.out.println(ls.get(0));
+		session.close();
+		return ls;
 	}
 
 

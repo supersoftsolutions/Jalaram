@@ -163,23 +163,24 @@
                     </ul>
                 </li>
              
-                <li>
-                    <a href="index.html">
-                        <i class="fa fa-user"></i>
-                        <span>Login Page</span>
-                    </a>
-                </li>
+             
                 
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-glass"></i>
-                        <span>Extra</span>
+                        <span>Staff</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="gallery.html">Gallery</a></li>
-						<li><a href="404.html">404 Error</a></li>
-                        <li><a href="registration.html">Registration</a></li>
+                        <li><a href="Add_staff.html">Add Staff</a></li>
+						<li><a href="view_staff.html">View Staff</a></li>
                     </ul>
+                </li>
+                
+                   <li>
+                    <a href="index.html">
+                        <i class="fa fa-user"></i>
+                        <span>Login Page</span>
+                    </a>
                 </li>
                 
             </ul>            </div>

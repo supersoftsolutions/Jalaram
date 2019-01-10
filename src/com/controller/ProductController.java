@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.DAO.ProductDAO;
 import com.VO.ProductVO;
 import com.VO.Row_Material_VO;
+import com.VO.StaffVO;
 
 
 @Controller
@@ -60,5 +61,29 @@ public class ProductController {
 			dao.delete(vo);
 			return new ModelAndView("redirect:View_product.html");
 	}
+	
 
+	@RequestMapping(value = { "/", "Add_staff.html" }, method = RequestMethod.GET)
+	public ModelAndView index1() {
+		
+		return new ModelAndView("Admin/Add_staff", "data", new StaffVO());
+		
+	}
+	@RequestMapping(value = "insert_staff.html", method = RequestMethod.POST)
+	public ModelAndView insert1(@ModelAttribute StaffVO vo, HttpSession session) {
+		
+		vo.setBalance("0");
+		this.dao.insert(vo);
+	//	svo.setIdada("0");
+
+
+		return new ModelAndView("redirect:Add_staff.html");
+	}
+	
+	@RequestMapping(value = "view_staff.html", method = RequestMethod.GET)
+	public ModelAndView search1() {
+		
+		List ls = dao.search1();
+		return new ModelAndView("Admin/View_staff", "list", ls);
+	}
 }
