@@ -128,6 +128,48 @@
                         <li><a href="View_product.html">View Product</a></li>
                     </ul>
                 </li>
+                 <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-glass"></i>
+                        <span>Creditor</span>
+                    </a>
+                    
+                    <ul class="sub">
+                        <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-glass"></i>
+                        <span>Product Creditor</span>
+                    </a>
+                    
+                    <ul class="sub">
+                        <li><a href="Add_product_creditor.html">Add Creditor</a></li>
+						<li><a href="View_product_creditor.html">View Creditor</a></li>
+						
+                    </ul>
+                    </li>
+                    </ul>
+                       <ul class="sub">
+                        <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-glass"></i>
+                        <span>Material Creditor</span>
+                    </a>
+                    
+                    <ul class="sub">
+                        <li><a href="Add_material_creditor.html">Add Creditor</a></li>
+						<li><a href="View_material_creditor.html">View Creditor</a></li>
+                    </ul>
+                    </li>
+                    </ul>
+                </li>
+             
+                <li>
+                    <a href="index.html">
+                        <i class="fa fa-user"></i>
+                        <span>Login Page</span>
+                    </a>
+                </li>
+                
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-glass"></i>
@@ -139,12 +181,7 @@
                         <li><a href="registration.html">Registration</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="index.html">
-                        <i class="fa fa-user"></i>
-                        <span>Login Page</span>
-                    </a>
-                </li>
+                
             </ul>            </div>
         <!-- sidebar menu end-->
     </div>
