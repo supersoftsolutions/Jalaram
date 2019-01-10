@@ -66,13 +66,16 @@ public class Sun_mon_product_DAO {
 
 	public void mon_retail(Product_mon_retail_VO mvo) {
 		// TODO Auto-generated method stub
-		try {
+		try 
+		{
 			Session session = sessionFactory.openSession();
 			Transaction tr = session.beginTransaction();
 			session.saveOrUpdate(mvo);
 			tr.commit();
 			session.close();
-		} catch (Exception e) {
+		}
+		catch (Exception e) 
+		{
 			e.printStackTrace();
 		}
 	}

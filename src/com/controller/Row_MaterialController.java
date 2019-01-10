@@ -102,10 +102,12 @@ public class Row_MaterialController {
 		Row_Material_VO rvo = new Row_Material_VO();
 
 			vo.setPurchaseid(id);
-			
-			String m=dao.get(vo);
 
-			dao.update1(rvo, vo, m);
+			String m=dao.get(vo);
+			
+
+			
+			dao.update1(rvo, vo, m,id);
 
 			dao.delete(vo);
 			return new ModelAndView("redirect:View_row_material_purchase.html");
