@@ -45,5 +45,20 @@ public class ProductController {
 
 		return new ModelAndView("redirect:Add_product.html");
 	}
+	
+	@RequestMapping(value = "View_product.html", method = RequestMethod.GET)
+	public ModelAndView search() {
+		
+		List ls = dao.search();
+		return new ModelAndView("Admin/View_product", "list", ls);
+	}
+	
+	@RequestMapping(value="delete_product.html",method=RequestMethod.GET)
+	public ModelAndView delete(@RequestParam("id") int id, ProductVO vo)
+	{
+			vo.setID(id);
+			dao.delete(vo);
+			return new ModelAndView("redirect:View_product.html");
+	}
 
 }

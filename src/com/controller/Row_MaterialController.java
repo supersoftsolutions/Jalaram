@@ -40,8 +40,9 @@ public class Row_MaterialController {
 	@RequestMapping(value = "insert_row_material.html", method = RequestMethod.POST)
 	public ModelAndView insert(@ModelAttribute Row_Material_VO vo, HttpSession session) {
 		
-
+      vo.setStock("0");
 		this.dao.insert(vo);
+		
 	//	svo.setIdada("0");
 
 
