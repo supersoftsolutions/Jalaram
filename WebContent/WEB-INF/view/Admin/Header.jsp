@@ -125,7 +125,7 @@
                     </a>
                     <ul class="sub">
                         <li><a href="Add_product.html">Add Product</a></li>
-                        <li><a href="vector_map.html">Vector Map</a></li>
+                        <li><a href="View_product.html">View Product</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
