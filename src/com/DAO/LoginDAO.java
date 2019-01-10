@@ -118,16 +118,16 @@ public class LoginDAO {
 				
 	}
 
-	public void update1(Row_Material_VO rvo, Row_Material_purchase_VO vo,String m) {
+	public void update1(Row_Material_VO rvo, Row_Material_purchase_VO vo,String m,int id) {
 		Session session = sessionFactory.openSession();
-		Query q = session.createQuery("update Row_Material_VO set Stock=Stock-'"+m+"' where ID='"+vo.getWvo().getID()+"'");
+		//Query q = session.createQuery("update Row_Material_VO set Stock=Stock-'"+m+"' where ID='"+vo.getWvo().getID()+"'");
+		Query q = session.createQuery("update Row_Material_VO set Stock=Stock-'"+m+"' where ID = (select wvo from Row_Material_purchase_VO where purchaseid='"+id+"')");
 		Transaction tr = session.beginTransaction();
 		q.executeUpdate();
 		tr.commit();
 		session.close();
-		
 	}
-	
+
 	public String get(Row_Material_purchase_VO vo) {
 
 		Session session = sessionFactory.openSession();
@@ -138,6 +138,17 @@ public class LoginDAO {
 		session.close();
 		return i;
 	}
+	
+	/*public String get1(Row_Material_purchase_VO vo) {
+
+		Session session = sessionFactory.openSession();
+		Query q1 = session.createQuery("select wvo from Row_Material_purchase_VO where purchaseid='"+vo.getPurchaseid()+"'");
+		String i= (String)q1.uniqueResult();
+		Transaction tr = session.beginTransaction();
+		tr.commit();
+		session.close();
+		return i;
+	}*/
 	}
 	
 
