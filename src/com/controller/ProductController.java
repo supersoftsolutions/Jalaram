@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.DAO.ProductDAO;
+import com.VO.CaterersVO;
 import com.VO.ProductVO;
 import com.VO.Product_creditor_VO;
 import com.VO.Row_Material_VO;
@@ -119,4 +120,61 @@ public class ProductController {
 		return new ModelAndView("redirect:view_staff.html");
 
 	}
+	
+	@RequestMapping(value = { "/", "Add_caterers.html" }, method = RequestMethod.GET)
+	public ModelAndView index2() {
+		
+		return new ModelAndView("Admin/Add_caterers", "data", new CaterersVO());
+		
+	}
+	
+	@RequestMapping(value = "insert_caterers.html", method = RequestMethod.POST)
+	public ModelAndView insert1(@ModelAttribute CaterersVO vo, HttpSession session) {
+		
+		vo.setBalance("0");
+
+		this.dao.insert(vo);
+	
+		return new ModelAndView("redirect:Add_caterers.html");
+	}
+	
+	@RequestMapping(value = "view_caterers.html", method = RequestMethod.GET)
+	public ModelAndView search2() {
+		
+		List ls = dao.search2();
+		return new ModelAndView("Admin/View_caterers", "list", ls);
+	}
+	
+	@RequestMapping(value="delete_caterers.html",method=RequestMethod.GET)
+	public ModelAndView delete12(@RequestParam("id") int id, CaterersVO vo)
+	{
+			vo.setCaterersid(id);
+			dao.delete(vo);
+			return new ModelAndView("redirect:view_staff.html");
+	}
+	
+	@RequestMapping(value = "edit_caterers.html", method = RequestMethod.GET)
+	public ModelAndView edit1(@RequestParam("id") int id, CaterersVO vo) {
+
+		List ls = dao.search2();
+		vo.setCaterersid(id);
+		List ls1 = dao.edit(vo);
+		return new ModelAndView("Admin/Edit_caterers", "data", (CaterersVO) ls1.get(0));
+				
+	}
+
+	@RequestMapping(value = "update_caterers.html", method = RequestMethod.POST)
+	public ModelAndView update1(@ModelAttribute CaterersVO vo) {
+
+		
+		
+		/*svo.setWvo(vo.getWvo());
+		mvo.setWvo(vo.getWvo());*/
+		
+		
+		dao.update1(vo);
+		return new ModelAndView("redirect:view_caterers.html");
+
+	}
+	
 }

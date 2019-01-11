@@ -176,6 +176,17 @@
                     </ul>
                 </li>
                 
+                 <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-glass"></i>
+                        <span>Caterers</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="Add_caterers.html">Add Caterers</a></li>
+						<li><a href="view_caterers.html">View Caterers</a></li>
+                    </ul>
+                </li>
+                
                    <li>
                     <a href="index.html">
                         <i class="fa fa-user"></i>
