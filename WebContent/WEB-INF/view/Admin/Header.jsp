@@ -173,6 +173,26 @@
                     <ul class="sub">
                         <li><a href="Add_staff.html">Add Staff</a></li>
 						<li><a href="view_staff.html">View Staff</a></li>
+						 <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-glass"></i>
+                        <span>Staff Leave</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="Add_staff_leave.html">Add Staff Leave</a></li>
+						<li><a href="view_staff_leave.html">View Staff Leave</a></li>
+                    </ul>
+                </li>
+                 <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-glass"></i>
+                        <span>Extra Hours</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="Add_extra_hours.html">Add Extra Hours</a></li>
+						<li><a href="view_extra_hours.html">View Extra Hours</a></li>
+                    </ul>
+                </li>
                     </ul>
                 </li>
                 
@@ -230,7 +250,16 @@
 						<li><a href="view_account.html">View Account</a></li>
                     </ul>
                 </li>
-                
+                     <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-glass"></i>
+                        <span>miscellaneous</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="Add_miscellaneous.html">Add miscellaneous</a></li>
+						<li><a href="view_miscellaneous.html">View miscellaneous</a></li>
+                    </ul>
+                </li>
                 
                 
                    <li>

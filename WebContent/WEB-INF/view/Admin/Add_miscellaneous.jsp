@@ -40,27 +40,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Add Expense
+                            Add Miscellaneous
                             
                         </header>
                         <div class="panel-body">
                             <div class="form">
-                                <f:form class="cmxform form-horizontal " modelAttribute="data" id="signupForm" method="post" action="insert_expense.html" novalidate="">
+                                <f:form class="cmxform form-horizontal " modelAttribute="data" id="signupForm" method="post" action="insert_miscellaneous.html" novalidate="">
                                      
                                    
                                 
                                     
                                     <div class="form-group ">
-                                        <label for="mon" class="control-label col-lg-3">Expense</label>
+                                        <label for="mon" class="control-label col-lg-3">Name</label>
                                         <div class="col-lg-6">
-                                            <f:input class=" form-control" path="Expense" name="Expense" type="text" required="required"/>
+                                            <f:input class=" form-control" path="name" name="name" type="text" required="required"/>
                                         </div>
                                     </div>
                                     
-                                    <div class="form-group ">
-                                        <label for="mon" class="control-label col-lg-3">Remark</label>
+                                     <div class="form-group ">
+                                        <label for="mon" class="control-label col-lg-3">Address</label>
                                         <div class="col-lg-6">
-                                            <f:input class=" form-control" path="Remark" name="Remark" type="text" required="required"/>
+                                            <f:input class=" form-control" path="address" name="address" type="text" required="required"/>
+                                        </div>
+                                    </div>
+                                    
+                                     <div class="form-group ">
+                                        <label for="mon" class="control-label col-lg-3">Description</label>
+                                        <div class="col-lg-6">
+                                            <f:input class=" form-control" path="description" name="description" type="text" required="required"/>
                                         </div>
                                     </div>
                                     

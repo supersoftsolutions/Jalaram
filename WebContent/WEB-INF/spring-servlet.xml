@@ -47,7 +47,11 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
                  				<value>com.VO.TransportVO</value>
                  				<value>com.VO.ExpenseVO</value>
                  				<value>com.VO.AccountVO</value>
+                 				<value>com.VO.Staff_leaveVO</value>
+                 				<value>com.VO.Extra_hoursVO</value>
+                 				<value>com.VO.MiscellaneousVO</value>
 			</list>
+			
         </property>
         <property name="hibernateProperties">
             <props>

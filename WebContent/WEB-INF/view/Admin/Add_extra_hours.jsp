@@ -28,6 +28,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="AdminResources/js/jquery2.0.3.min.js"></script>
 <script src="AdminResources/js/raphael-min.js"></script>
 <script src="AdminResources/js/morris.js"></script>
+<link
+	href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+	rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+<script>
+         $(function() {
+            $( "#date" ).datepicker({
+
+         
+/*                   defaultDate:+1	,
+ */               dateFormat:"yy-mm-dd",
+               altField: "#day",
+               altFormat: "D"
+            });
+           // $( "#datepicker-3" ).datepicker("setDate", "1");  
+
+         }); 
+         </script>
+
 </head>
 <body>
 <!--sidebar end-->
@@ -40,31 +61,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Add Expense
+                            Add Extra Hours
                             
                         </header>
                         <div class="panel-body">
                             <div class="form">
-                                <f:form class="cmxform form-horizontal " modelAttribute="data" id="signupForm" method="post" action="insert_expense.html" novalidate="">
-                                     
-                                   
-                                
-                                    
-                                    <div class="form-group ">
-                                        <label for="mon" class="control-label col-lg-3">Expense</label>
-                                        <div class="col-lg-6">
-                                            <f:input class=" form-control" path="Expense" name="Expense" type="text" required="required"/>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group ">
-                                        <label for="mon" class="control-label col-lg-3">Remark</label>
-                                        <div class="col-lg-6">
-                                            <f:input class=" form-control" path="Remark" name="Remark" type="text" required="required"/>
-                                        </div>
-                                    </div>
-                                    
+                                <f:form class="cmxform form-horizontal " modelAttribute="data" id="signupForm" method="post" action="insert_extra_hours.html" novalidate="">
                                  
+                                  <div class="form-group ">
+                                        <label for="priority" class="control-label col-lg-3">Name</label>
+                                        <div class="col-lg-6">
+                                            <!--  <input class=" form-control" id="address1" name="address1" type="text">-->
+                                        <f:select path="svo.staffid" class="custom-select form-control" required="">
+                                    <f:options items="${list}" itemLabel="Name" itemValue="staffid"/>
+
+                                            </f:select>
+                                        </div>
+                                    </div>
+                                    
+                                        <div class="form-group ">
+                                        <label for="mon" class="control-label col-lg-3">Date</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="date" name="date" type="text" required="required"/>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group ">
+                                        <label for="mon" class="control-label col-lg-3">Amount</label>
+                                        <div class="col-lg-6">
+                                            <f:input class=" form-control" path="amount" name="amount" type="text" required="required"/>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                     
+                                       
                                     <div class="form-group">
                                         <div class="col-lg-offset-5 col-lg-6">
                                             <button class="btn btn-primary" type="submit">Save</button>
