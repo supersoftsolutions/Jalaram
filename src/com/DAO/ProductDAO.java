@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.VO.CaterersVO;
+import com.VO.ExpenseVO;
 import com.VO.ProductVO;
 import com.VO.Row_Material_VO;
 import com.VO.StaffVO;
@@ -148,6 +149,36 @@ public class ProductDAO {
 		q.executeUpdate();
 		tr.commit();
 		session.close();
+	}
+
+	public void insert(ExpenseVO vo) {
+		try{
+			Session session = sessionFactory.openSession();
+			Transaction tr = session.beginTransaction();
+			session.saveOrUpdate(vo);
+			tr.commit();
+			session.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}			
+	}
+
+	public List search12() {
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery("from ExpenseVO");
+		List ls = q.list();
+		// System.out.println(ls.get(0));
+		session.close();
+		return ls;
+	}
+
+	public void delete(ExpenseVO vo) {
+		Session session = sessionFactory.openSession();
+		Transaction tr = session.beginTransaction();
+		session.delete(vo);
+		tr.commit();
+		session.close();
+		
 	}
 
 

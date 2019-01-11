@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.DAO.LabourDAO;
+import com.VO.AccountVO;
 import com.VO.LabourVO;
-import com.VO.Product_creditor_VO;
 import com.VO.TransportVO;
 
 
@@ -145,6 +145,65 @@ public class LabourController {
 		return new ModelAndView("redirect:view_transport.html");
 
 	}
+	
+	@RequestMapping(value = { "/", "Add_account.html" }, method = RequestMethod.GET)
+	public ModelAndView index12() {
+		
+		return new ModelAndView("Admin/Add_account", "data", new AccountVO());
+		
+	}
+	
+	@RequestMapping(value = "insert_account.html", method = RequestMethod.POST)
+	public ModelAndView insert11(@ModelAttribute AccountVO vo, HttpSession session) {
+		
+		this.dao.insert(vo);
+		
+	//	svo.setIdada("0");
+
+
+		return new ModelAndView("redirect:Add_account.html");
+	
+	}
+	
+	@RequestMapping(value = "view_account.html", method = RequestMethod.GET)
+	public ModelAndView search12() {
+		List ls = dao.search12();
+		return new ModelAndView("Admin/View_account", "list", ls);
+	}
+	
+	@RequestMapping(value = "delete_account.html", method = RequestMethod.GET)
+	public ModelAndView delete12(@RequestParam("id") int id, AccountVO vo) {
+		
+		
+		vo.setAccountid(id);
+
+		
+		dao.delete(vo);
+
+		return new ModelAndView("redirect:view_account.html");
+	}
+	
+	@RequestMapping(value = "edit_account.html", method = RequestMethod.GET)
+	public ModelAndView edit12(@RequestParam("id") int id, AccountVO vo) {
+
+		List ls = dao.search12();
+		vo.setAccountid(id);		
+		List ls1 = dao.edit(vo);
+		return new ModelAndView("Admin/Edit_account", "data", (AccountVO) ls1.get(0));
+				
+	}
+
+	@RequestMapping(value = "update_account.html", method = RequestMethod.POST)
+	public ModelAndView update12(@ModelAttribute AccountVO vo) {
+
+		/*svo.setWvo(vo.getWvo());
+		mvo.setWvo(vo.getWvo());*/
+		
+		dao.update1(vo);
+		return new ModelAndView("redirect:view_account.html");
+
+	}
+	
 	
 
 }

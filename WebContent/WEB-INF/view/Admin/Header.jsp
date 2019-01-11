@@ -209,6 +209,29 @@
                     </ul>
                 </li>
                 
+                  <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-glass"></i>
+                        <span>Expense</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="Add_expense.html">Add Expense</a></li>
+						<li><a href="view_expense.html">View Expense</a></li>
+                    </ul>
+                </li>
+                
+                  <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-glass"></i>
+                        <span>Bank Account</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="Add_account.html">Add Account</a></li>
+						<li><a href="view_account.html">View Account</a></li>
+                    </ul>
+                </li>
+                
+                
                 
                    <li>
                     <a href="index.html">

@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.DAO.ProductDAO;
 import com.VO.CaterersVO;
+import com.VO.ExpenseVO;
 import com.VO.ProductVO;
 import com.VO.Product_creditor_VO;
 import com.VO.Row_Material_VO;
@@ -175,6 +176,38 @@ public class ProductController {
 		dao.update1(vo);
 		return new ModelAndView("redirect:view_caterers.html");
 
+	}
+	
+	@RequestMapping(value = { "/", "Add_expense.html" }, method = RequestMethod.GET)
+	public ModelAndView index21() {
+		
+		return new ModelAndView("Admin/Add_Expense", "data", new ExpenseVO());
+		
+	}
+	@RequestMapping(value = "insert_expense.html", method = RequestMethod.POST)
+	public ModelAndView insert12(@ModelAttribute ExpenseVO vo, HttpSession session) {
+		
+		vo.setBalance("0");
+		this.dao.insert(vo);
+	//	svo.setIdada("0");
+
+
+		return new ModelAndView("redirect:Add_expense.html");
+	}
+	
+	@RequestMapping(value = "view_expense.html", method = RequestMethod.GET)
+	public ModelAndView search12() {
+		
+		List ls = dao.search12();
+		return new ModelAndView("Admin/View_expense", "list", ls);
+	}
+	
+	@RequestMapping(value="delete_expense.html",method=RequestMethod.GET)
+	public ModelAndView delete12(@RequestParam("id") int id, ExpenseVO vo)
+	{
+			vo.setID(id);
+			dao.delete(vo);
+			return new ModelAndView("redirect:view_expense.html");
 	}
 	
 }

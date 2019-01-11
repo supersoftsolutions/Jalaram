@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.VO.AccountVO;
 import com.VO.LabourVO;
 import com.VO.TransportVO;
 
@@ -113,6 +114,52 @@ public class LabourDAO {
 		q.executeUpdate();
 		tr.commit();
 		session.close();		
+	}
+
+	public void insert(AccountVO vo) {
+		try{
+			Session session = sessionFactory.openSession();
+			Transaction tr = session.beginTransaction();
+			session.saveOrUpdate(vo);
+			tr.commit();
+			session.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}					
+	}
+
+	public List search12() {
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery("from AccountVO");
+		List ls = q.list();
+		// System.out.println(ls.get(0));
+		session.close();
+		return ls;
+	}
+
+	public void delete(AccountVO vo) {
+		Session session = sessionFactory.openSession();
+		Transaction tr = session.beginTransaction();
+		session.delete(vo);
+		tr.commit();
+		session.close();				
+	}
+
+	public List edit(AccountVO vo) {
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery("from AccountVO where accountid='" + vo.getAccountid() + "'");
+		List ls = q.list();
+		session.close();
+		return ls;
+	}
+
+	public void update1(AccountVO vo) {
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery("update AccountVO set No='"+vo.getNo()+"',B_name='"+vo.getB_name()+"',IFSC='"+vo.getIFSC()+"',Balance='"+vo.getBalance()+"' where accountid='"+vo.getAccountid()+"'");
+		Transaction tr = session.beginTransaction();
+		q.executeUpdate();
+		tr.commit();
+		session.close();				
 	}
 
 }
