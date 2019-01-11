@@ -187,6 +187,29 @@
                     </ul>
                 </li>
                 
+                  <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-glass"></i>
+                        <span>Labour</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="Add_labour.html">Add Labour</a></li>
+						<li><a href="view_labour.html">View Labour</a></li>
+                    </ul>
+                </li>
+                
+                  <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-glass"></i>
+                        <span>Transport</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="Add_transport.html">Add Transport</a></li>
+						<li><a href="view_transport.html">View Transport</a></li>
+                    </ul>
+                </li>
+                
+                
                    <li>
                     <a href="index.html">
                         <i class="fa fa-user"></i>
