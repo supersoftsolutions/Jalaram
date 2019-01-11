@@ -41,6 +41,8 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
                  				<value>com.VO.ProductVO</value>
                  				<value>com.VO.Product_creditor_VO</value>
                  				<value>com.VO.Material_creditor_VO</value>
+                 				<value>com.VO.StaffVO</value>
+                 				<value>com.VO.CaterersVO</value>
 			</list>
         </property>
         <property name="hibernateProperties">
