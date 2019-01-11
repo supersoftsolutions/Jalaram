@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.DAO.ProductDAO;
 import com.DAO.StaffDAO;
 import com.VO.Extra_hoursVO;
+import com.VO.Material_creditor_VO;
 import com.VO.MiscellaneousVO;
 import com.VO.Row_Material_VO;
 import com.VO.Row_Material_purchase_VO;
@@ -156,5 +157,30 @@ public class StaffController {
 			dao.delete(vo);
 			return new ModelAndView("redirect:view_miscellaneous.html");
 	}
+	
+	@RequestMapping(value = "edit_miscellaneous.html", method = RequestMethod.GET)
+	public ModelAndView edit1(@RequestParam("id") int id, MiscellaneousVO vo) {
+
+		List ls = dao.search2();
+		vo.setId(id);
+		List ls1 = dao.edit(vo);
+		return new ModelAndView("Admin/Edit_miscellaneous", "data", (MiscellaneousVO) ls1.get(0));
+				
+	}
+	
+	@RequestMapping(value = "update_miscellaneous.html", method = RequestMethod.POST)
+	public ModelAndView update1(@ModelAttribute MiscellaneousVO vo) {
+
+		
+		
+		/*svo.setWvo(vo.getWvo());
+		mvo.setWvo(vo.getWvo());*/
+		
+		
+		dao.update1(vo);
+		return new ModelAndView("redirect:view_miscellaneous.html");
+
+	}
+
 	
 }

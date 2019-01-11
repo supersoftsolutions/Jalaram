@@ -144,5 +144,22 @@ public class StaffDAO {
 		tr.commit();
 		session.close();			
 	}
+
+	public List edit(MiscellaneousVO vo) {
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery("from MiscellaneousVO where id='" + vo.getId() + "'");
+		List ls = q.list();
+		session.close();
+		return ls;
+	}
+
+	public void update1(MiscellaneousVO vo) {
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery("update MiscellaneousVO set Address='"+vo.getAddress()+"',Description='"+vo.getDescription()+"' where id='"+vo.getId()+"'");
+		Transaction tr = session.beginTransaction();
+		q.executeUpdate();
+		tr.commit();
+		session.close();		
+	}
 	
 }
