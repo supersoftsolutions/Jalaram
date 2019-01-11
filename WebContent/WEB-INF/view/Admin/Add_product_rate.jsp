@@ -28,26 +28,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="AdminResources/js/jquery2.0.3.min.js"></script>
 <script src="AdminResources/js/raphael-min.js"></script>
 <script src="AdminResources/js/morris.js"></script>
-<link
-	href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
-	rel="stylesheet">
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-
-<script>
-         $(function() {
-            $( "#date" ).datepicker({
-
-         
-/*                   defaultDate:+1	,
- */               dateFormat:"yy-mm-dd",
-               altField: "#day",
-               altFormat: "D"
-            });
-           // $( "#datepicker-3" ).datepicker("setDate", "1");  
-
-         }); 
-         </script>
 
 </head>
 <body>
@@ -61,42 +41,52 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Add Extra Hours
+                            Add Product Rate
                             
                         </header>
                         <div class="panel-body">
                             <div class="form">
-                                <f:form class="cmxform form-horizontal " modelAttribute="data" id="signupForm" method="post" action="insert_extra_hours.html" novalidate="">
-                                 
+                                <f:form class="cmxform form-horizontal " modelAttribute="data" id="signupForm" method="post" action="insert_product_rate.html" novalidate="">
+                                  
                                   <div class="form-group ">
-                                        <label for="priority" class="control-label col-lg-3">Name</label>
+                                        <label for="priority" class="control-label col-lg-3">Caterers Name</label>
                                         <div class="col-lg-6">
                                             <!--  <input class=" form-control" id="address1" name="address1" type="text">-->
-                                        <f:select path="svo.staffid" class="custom-select form-control" required="">
-                                    <f:options items="${list}" itemLabel="Name" itemValue="staffid"/>
+                                        <f:select path="cvo.caterersid" class="custom-select form-control" required="">
+                                    <f:options items="${plist}" itemLabel="Name" itemValue="caterersid"/>
 
                                             </f:select>
                                         </div>
                                     </div>
-                                    
-                                    
-                                    
-                                        <div class="form-group ">
-                                        <label for="mon" class="control-label col-lg-3">Date</label>
-                                        <div class="col-lg-6">
-                                            <input class=" form-control" id="date" name="date" type="text" required="required"/>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group ">
-                                        <label for="mon" class="control-label col-lg-3">Amount</label>
-                                        <div class="col-lg-6">
-                                            <f:input class=" form-control" path="amount" name="amount" type="text" required="required"/>
-                                        </div>
-                                    </div>
-                                    
-                                    
                                      
+                                    
+                                      <div class="form-group ">
+                                        <label for="priority" class="control-label col-lg-3">Product Name</label>
+                                        <div class="col-lg-6">
+                                            <!--  <input class=" form-control" id="address1" name="address1" type="text">-->
+     							<f:select path="product" class="custom-select form-control" required="">
+     							        <f:options items="${list}" itemLabel="Product_name" itemValue="Product_name"/>
+                                     			<f:option value="patra">Patra</f:option>
+                                            	<f:option value="khaman">Khaman</f:option>
+                                            	<f:option value="nylon">Nylon</f:option>
+                                            	<f:option value="idada">Idada</f:option>
+                                            	<f:option value="khandvi">Khandvi</f:option>
+                                            	<f:option value="Sandwich Dhokla">Sandwich Dhokla</f:option>
+                                            	<f:option value="SP Patra">SP Patra</f:option>
+                                            		<f:option value="Samosa">Samosa</f:option> 
+                                            		
+                                            </f:select>
+                                        </div>
+                                    </div>
+                                  
+                                    <div class="form-group ">
+                                        <label for="mon" class="control-label col-lg-3">Rate</label>
+                                        <div class="col-lg-6">
+                                            <f:input class=" form-control" path="rate" name="Rate" type="text" required="required"/>
+                                        </div>
+                                    </div>
+                                    
+                                    
                                        
                                     <div class="form-group">
                                         <div class="col-lg-offset-5 col-lg-6">

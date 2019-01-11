@@ -61,24 +61,51 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Add Extra Hours
+                            Add Regular Order
                             
                         </header>
                         <div class="panel-body">
                             <div class="form">
-                                <f:form class="cmxform form-horizontal " modelAttribute="data" id="signupForm" method="post" action="insert_extra_hours.html" novalidate="">
-                                 
-                                  <div class="form-group ">
-                                        <label for="priority" class="control-label col-lg-3">Name</label>
+                                <f:form class="cmxform form-horizontal " modelAttribute="data" id="signupForm" method="post" action="insert_material_creditor.html" novalidate="">
+                                    <div class="form-group ">
+                                        <label for="mon" class="control-label col-lg-3">Caterers Name</label>
                                         <div class="col-lg-6">
-                                            <!--  <input class=" form-control" id="address1" name="address1" type="text">-->
-                                        <f:select path="svo.staffid" class="custom-select form-control" required="">
-                                    <f:options items="${list}" itemLabel="Name" itemValue="staffid"/>
-
-                                            </f:select>
+                                            <f:input class=" form-control" path="caterers_name" name="Caterers_name" type="text" required="required"/>
                                         </div>
                                     </div>
                                     
+                                       <div class="form-group ">
+                                        <label for="mon" class="control-label col-lg-3">Mobile No</label>
+                                        <div class="col-lg-6">
+                                            <f:input class=" form-control" path="mobile" name="Mobile" type="text" required="required"/>
+                                        </div>
+                                    </div>
+                                    
+                                       <div class="form-group ">
+                                        <label for="mon" class="control-label col-lg-3">Address</label>
+                                        <div class="col-lg-6">
+                                            <f:input class=" form-control" path="address" name="Address" type="text" required="required"/>
+                                        </div>
+                                    </div>
+                                    
+                                     <div class="form-group ">
+                                        <label for="priority" class="control-label col-lg-3">Product Name</label>
+                                        <div class="col-lg-6">
+                                            <!--  <input class=" form-control" id="address1" name="address1" type="text">-->
+     							<f:select path="product" class="custom-select form-control" required="">
+     							        <f:options items="${list}" itemLabel="Product_name" itemValue="Product_name"/>
+                                     			<f:option value="patra">Patra</f:option>
+                                            	<f:option value="khaman">Khaman</f:option>
+                                            	<f:option value="nylon">Nylon</f:option>
+                                            	<f:option value="idada">Idada</f:option>
+                                            	<f:option value="khandvi">Khandvi</f:option>
+                                            	<f:option value="Sandwich Dhokla">Sandwich Dhokla</f:option>
+                                            	<f:option value="SP Patra">SP Patra</f:option>
+                                            		<f:option value="Samosa">Samosa</f:option> 
+                                            		
+                                            </f:select>
+                                        </div>
+                                    </div>
                                     
                                     
                                         <div class="form-group ">
@@ -88,13 +115,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         </div>
                                     </div>
                                     
-                                    <div class="form-group ">
-                                        <label for="mon" class="control-label col-lg-3">Amount</label>
+                                        <div class="form-group ">
+                                        <label for="mon" class="control-label col-lg-3">Kg</label>
                                         <div class="col-lg-6">
-                                            <f:input class=" form-control" path="amount" name="amount" type="text" required="required"/>
+                                            <f:input class=" form-control" path="kg" name="Kg" type="text" required="required"/>
                                         </div>
                                     </div>
                                     
+                                       <div class="form-group ">
+                                        <label for="mon" class="control-label col-lg-3">Rate</label>
+                                        <div class="col-lg-6">
+                                            <f:input class=" form-control" path="rate" name="rate" type="text" required="required"/>
+                                        </div>
+                                    </div>
+                                    
+                                       <div class="form-group ">
+                                        <label for="mon" class="control-label col-lg-3">Total</label>
+                                        <div class="col-lg-6">
+                                            <f:input class=" form-control" path="total" name="total" readonly="true" type="text" required="required"/>
+                                        </div>
+                                    </div>
                                     
                                      
                                        

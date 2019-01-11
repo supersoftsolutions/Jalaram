@@ -196,6 +196,38 @@
                     </ul>
                 </li>
                 
+                   <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-glass"></i>
+                        <span>Live Counter</span>
+                    </a>
+                  
+                    <ul class="sub">
+                        <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-glass"></i>
+                        <span>Product Rate</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="Add_product_rate.html">Add Product Rate</a></li>
+						<li><a href="view_product_rate.html">View Product Rate</a></li>
+                    </ul>
+                </li>  
+                
+                  <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-glass"></i>
+                        <span>Regular Order</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="Add_regular_order.html">Add Regular Order</a></li>
+						<li><a href="view_regular_order.html">View Regular Order</a></li>
+                    </ul>
+                </li>  
+                    </ul>
+                </li>
+                
+                
                  <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-glass"></i>
@@ -260,8 +292,6 @@
 						<li><a href="view_miscellaneous.html">View miscellaneous</a></li>
                     </ul>
                 </li>
-                
-                
                    <li>
                     <a href="index.html">
                         <i class="fa fa-user"></i>
