@@ -3,6 +3,7 @@ package com.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+import javax.swing.JOptionPane;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -146,7 +147,7 @@ public class LivecounterController {
 			if(dao.insert1(vo).equals("Complete"))
 			{
 				System.out.println("hi");
-				model.addAttribute("list1", "You cannot delete this order");
+				JOptionPane.showMessageDialog(null, "You can not Delete This Order");
 			}
 			else
 			{
