@@ -48,6 +48,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
          }); 
          </script>
+         
+         <script>
+function myFunction() {
+  var x = document.getElementById("rate");
+  var y = document.getElementById("kg");
+  
+  var t=x.value*y.value;
+  document.getElementById("total").value =t;
+}
+</script>
 
 </head>
 <body>
@@ -66,7 +76,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </header>
                         <div class="panel-body">
                             <div class="form">
-                                <f:form class="cmxform form-horizontal " modelAttribute="data" id="signupForm" method="post" action="insert_material_creditor.html" novalidate="">
+                                <f:form class="cmxform form-horizontal " modelAttribute="data" id="signupForm" method="post" action="insert_regular_order.html" novalidate="">
                                     <div class="form-group ">
                                         <label for="mon" class="control-label col-lg-3">Caterers Name</label>
                                         <div class="col-lg-6">
@@ -118,21 +128,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <div class="form-group ">
                                         <label for="mon" class="control-label col-lg-3">Kg</label>
                                         <div class="col-lg-6">
-                                            <f:input class=" form-control" path="kg" name="Kg" type="text" required="required"/>
+                                            <f:input class=" form-control" path="kg" name="Kg" type="text" required="required" id="kg" onkeyup="myFunction()"/>
                                         </div>
                                     </div>
                                     
                                        <div class="form-group ">
                                         <label for="mon" class="control-label col-lg-3">Rate</label>
                                         <div class="col-lg-6">
-                                            <f:input class=" form-control" path="rate" name="rate" type="text" required="required"/>
+                                            <f:input class=" form-control" path="rate" name="rate" type="text" required="required" id="rate" onkeyup="myFunction()"/>
                                         </div>
                                     </div>
                                     
                                        <div class="form-group ">
                                         <label for="mon" class="control-label col-lg-3">Total</label>
                                         <div class="col-lg-6">
-                                            <f:input class=" form-control" path="total" name="total" readonly="true" type="text" required="required"/>
+                                            <f:input class=" form-control" path="total" name="total" readonly="true" type="text" required="required" id="total"/>
                                         </div>
                                     </div>
                                     

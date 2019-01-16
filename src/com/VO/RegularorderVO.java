@@ -40,6 +40,23 @@ public class RegularorderVO {
 	
 	@Column
 	private String Total;
+	
+	@Column
+	private String Status;
+	
+	@Column
+	private String Transport_name;
+	
+	@Column
+	private String Transport_charge;
+	
+	@Column
+	private String Labour_charge;
+	
+	@Column
+	private String Transport_type;
+	
+	
 
 	public int getRegular_orderid() {
 		return regular_orderid;
@@ -113,5 +130,46 @@ public class RegularorderVO {
 		Total = total;
 	}
 
+	public String getStatus() {
+		return Status;
+	}
+
+	public void setStatus(String status) {
+		Status = status;
+	}
+
+	public String getTransport_name() {
+		return Transport_name;
+	}
+
+	public void setTransport_name(String transport_name) {
+		Transport_name = transport_name;
+	}
+
+	public String getTransport_charge() {
+		return Transport_charge;
+	}
+
+	public void setTransport_charge(String transport_charge) {
+		Transport_charge = transport_charge;
+	}
+
+	public String getLabour_charge() {
+		return Labour_charge;
+	}
+
+	public void setLabour_charge(String labour_charge) {
+		Labour_charge = labour_charge;
+	}
+
+	public String getTransport_type() {
+		return Transport_type;
+	}
+
+	public void setTransport_type(String transport_type) {
+		Transport_type = transport_type;
+	}
+	
+	
 	
 }
