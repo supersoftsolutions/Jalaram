@@ -12,6 +12,8 @@ import org.springframework.stereotype.Repository;
 import com.VO.Add_wholesale_client_VO;
 import com.VO.ProductRateVO;
 import com.VO.RegularorderVO;
+import com.VO.TransportVO;
+import com.VO.Wholesale_product_VO;
 
 
 
@@ -133,6 +135,47 @@ public class LiveCounterDAO {
 		session.close();
 		return i;
 
+	}
+
+	public List search2(RegularorderVO vo) {
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery("from RegularorderVO where Status='pending'");
+		List ls = q.list();
+		// System.out.println(ls.get(0));
+		session.close();
+		return ls;
+	}
+
+
+
+	public void update(RegularorderVO vo) {
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery("update RegularorderVO set Status='cancel' where id='"+vo.getRegular_orderid()+"'");
+		Transaction tr = session.beginTransaction();
+		q.executeUpdate();
+		tr.commit();
+		session.close();				
+	}
+	
+	public String get(TransportVO vo) {
+
+		Session session = sessionFactory.openSession();
+		Query q1 = session.createQuery("select charges from TransportVO where transportid='"+vo.getTransportid()+"'");
+		String i= (String)q1.uniqueResult();
+		Transaction tr = session.beginTransaction();
+		tr.commit();
+		session.close();
+		return i;
+	}
+	
+	
+
+	public List search13(TransportVO vo, String m) {
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery("from TransportVO where id='" +m+ "'");
+		List ls = q.list();
+		session.close();
+		return ls;
 	}
 
 }

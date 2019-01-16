@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 
+import org.hibernate.internal.util.collections.ConcurrentReferenceHashMap.Option;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,13 +14,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.DAO.LabourDAO;
 import com.DAO.LiveCounterDAO;
 import com.DAO.ProductDAO;
+import com.VO.ChargeVO;
 import com.VO.MiscellaneousVO;
 import com.VO.ProductRateVO;
 import com.VO.RegularorderVO;
 import com.VO.Staff_leaveVO;
+import com.VO.TransportVO;
+import com.sun.research.ws.wadl.Request;
 
 
 
@@ -32,6 +38,9 @@ public class LivecounterController {
 	
 	@Autowired
 	LiveCounterDAO dao;
+	
+	@Autowired
+	LabourDAO ldao;
 	
 	@RequestMapping(value = { "/", "Add_product_rate.html" }, method = RequestMethod.GET)
 	public ModelAndView index1() {
@@ -139,24 +148,25 @@ public class LivecounterController {
 	}
 	
 	@RequestMapping(value="delete_regular_order.html",method=RequestMethod.GET)
-	public ModelAndView delete12(@RequestParam("id") int id, RegularorderVO vo,Model model)
-	{
-			vo.setRegular_orderid(id);
-			
-			//System.out.println(dao.insert1(vo));
-			if(dao.insert1(vo).equals("Complete"))
-			{
-				System.out.println("hi");
-				JOptionPane.showMessageDialog(null, "You can not Delete This Order");
-			}
-			else
-			{
-				dao.delete(vo);
-			}
-			//
-			return new ModelAndView("redirect:view_regular_order.html");
-	}
-	
+    public ModelAndView delete12(@RequestParam("id") int id, RegularorderVO vo,Model model)
+    {
+            vo.setRegular_orderid(id);
+            
+            //System.out.println(dao.insert1(vo));
+            if(dao.insert1(vo).equals("Complete"))
+            {
+                System.out.println("hi");
+                return new ModelAndView("redirect:view_regular_order.html","list1","hi");
+                
+            }
+            else
+            {
+                dao.delete(vo);
+                return new ModelAndView("redirect:view_regular_order.html");
+            }
+            //
+            
+    }
 	@RequestMapping(value = "edit_regular_order.html", method = RequestMethod.GET)
 	public ModelAndView edit12(@RequestParam("id") int id, RegularorderVO vo) {
 
@@ -179,5 +189,43 @@ public class LivecounterController {
 		dao.update1(vo);
 		return new ModelAndView("redirect:view_regular_order.html");
 
+	}
+	
+	@RequestMapping(value = "Add_complete_order.html", method = RequestMethod.GET)
+	public ModelAndView search(@ModelAttribute RegularorderVO vo) {
+		
+		List ls = dao.search2(vo);
+		return new ModelAndView("Admin/Complete_order", "list", ls);
+	}
+	
+	@RequestMapping(value="cancel_regular_order.html",method=RequestMethod.GET)
+	public ModelAndView delete13(@RequestParam("id") int id, RegularorderVO vo)
+	{
+			vo.setRegular_orderid(id);
+			dao.update(vo);
+			return new ModelAndView("redirect:Add_complete_order.html");
+	}
+	
+	
+	@RequestMapping(value = { "/", "Add_charge.html" }, method = RequestMethod.GET)
+	public ModelAndView index13(@RequestParam("id") int id, RegularorderVO vo) {
+		
+		
+		
+	
+		List ls2 = ldao.search1();
+		List ls3 = ldao.search();
+	//	List ls = pdao.search();
+		//ls.add("Patra");
+		
+	//	ls.add("Patra");
+
+		List ls = dao.search1();
+		vo.setRegular_orderid(id);
+		List ls1 = dao.edit(vo);
+	       
+		return new ModelAndView("Admin/Add_charge", "data",(RegularorderVO) ls1.get(0)).addObject("list", ls2).addObject("plist", ls3);
+			
+		
 	}
 }

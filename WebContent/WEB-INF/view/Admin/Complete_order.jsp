@@ -27,18 +27,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //font-awesome icons -->
 <script src="AdminResources/js/jquery2.0.3.min.js"></script>
 
-<script>
-
-$(window).on('load',function () {
-
-    var s=window.location.href;
-    var res = s.split("?");
-    var res1 = res[1].split("=");
-        alert("you cannot delete this order");
-        window.location.href =  "view_regular_order.html";
-        
-});
-</script>
 
 <script type="text/javascript">
        function Search_Gridview(strKey, strGV) {
@@ -81,7 +69,7 @@ $(window).on('load',function () {
 		<div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
-    View Order
+    Complete Order
     </div>
     <div class="row w3-res-tb">
    <!--  <div class="col-sm-5 m-b-xs">
@@ -154,7 +142,7 @@ $(window).on('load',function () {
                                      <td>${x.transport_type}</td>
                                      <td>${x.labour_charge}</td>
                                             
-    <td height="30px" width="30px"> <a href="edit_regular_order.html?id=${x.regular_orderid}">Edit/</a> <a href="delete_regular_order.html?id=${x.regular_orderid}">Delete</a></td> 
+    <td height="30px" width="30px">  <a href="Add_charge.html?id=${x.regular_orderid}">Complete/</a>  <a href="cancel_regular_order.html?id=${x.regular_orderid}">Cancel</a></td> 
                                              
       <!--    <td>       -->
           <%--  <button class="btn btn-primary" type="submit" onclick="showPopupWindow(); setAttributes(${question.id}, 0>Save</button> --%> 

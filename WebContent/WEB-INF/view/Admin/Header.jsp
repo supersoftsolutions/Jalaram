@@ -224,6 +224,9 @@
 						<li><a href="view_regular_order.html">View Regular Order</a></li>
                     </ul>
                 </li>  
+                  <li><a href="Add_complete_order.html">Complete Order</a></li>
+                
+                
                     </ul>
                 </li>
                 
