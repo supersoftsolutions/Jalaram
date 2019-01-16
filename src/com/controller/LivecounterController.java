@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -137,10 +138,21 @@ public class LivecounterController {
 	}
 	
 	@RequestMapping(value="delete_regular_order.html",method=RequestMethod.GET)
-	public ModelAndView delete12(@RequestParam("id") int id, RegularorderVO vo)
+	public ModelAndView delete12(@RequestParam("id") int id, RegularorderVO vo,Model model)
 	{
 			vo.setRegular_orderid(id);
-			dao.delete(vo);
+			
+			//System.out.println(dao.insert1(vo));
+			if(dao.insert1(vo).equals("Complete"))
+			{
+				System.out.println("hi");
+				model.addAttribute("list1", "You cannot delete this order");
+			}
+			else
+			{
+				dao.delete(vo);
+			}
+			//
 			return new ModelAndView("redirect:view_regular_order.html");
 	}
 	

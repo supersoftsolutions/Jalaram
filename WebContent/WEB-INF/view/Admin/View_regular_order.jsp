@@ -47,7 +47,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                tblData.rows[i].style.display = styleDisplay;
            }
        }
+      
    </script>
+   
+   <c:if test="${!empty list1}">
+<script>
+ 
+	alert("User is not Registered Successfully. Click Quick Registration Button");
+
+</script>
+</c:if>
 </head>
 <body>
 <section id="container">

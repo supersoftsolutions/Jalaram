@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.VO.Add_wholesale_client_VO;
 import com.VO.ProductRateVO;
 import com.VO.RegularorderVO;
 
@@ -115,6 +116,23 @@ public class LiveCounterDAO {
 		q.executeUpdate();
 		tr.commit();
 		session.close();				
+	}
+	
+	public String insert1(RegularorderVO vo) {
+		// TODO Auto-generated method stub
+
+		Session session = sessionFactory.openSession();
+
+		
+		 Query q1 = session.createQuery("select Status from RegularorderVO where id='"+vo.getRegular_orderid()+"'"); 
+		 String i= (String) q1.uniqueResult();
+		
+		Transaction tr = session.beginTransaction();
+		//session.saveOrUpdate(vo);
+		tr.commit();
+		session.close();
+		return i;
+
 	}
 
 }
