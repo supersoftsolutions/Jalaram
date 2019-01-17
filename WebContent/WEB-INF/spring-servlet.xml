@@ -53,6 +53,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
                  				<value>com.VO.ProductRateVO</value>
                  				<value>com.VO.RegularorderVO</value>
                  				<value>com.VO.ChargeVO</value>
+                 				<value>com.VO.LiveorderVO</value>
 			</list>
 			
         </property>

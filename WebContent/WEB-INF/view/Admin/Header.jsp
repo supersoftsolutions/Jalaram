@@ -224,6 +224,16 @@
 						<li><a href="view_regular_order.html">View Regular Order</a></li>
                     </ul>
                 </li>  
+                  <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-glass"></i>
+                        <span>Live Order</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="Add_live_order.html">Add Live Order</a></li>
+						<li><a href="view_live_order.html">View Live Order</a></li>
+                    </ul>
+                </li>  
                   <li><a href="Add_complete_order.html">Complete Order</a></li>
                 
                 

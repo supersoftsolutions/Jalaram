@@ -27,6 +27,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //font-awesome icons -->
 <script src="AdminResources/js/jquery2.0.3.min.js"></script>
 
+<script>
+
+$(window).on('load',function () {
+
+    var s=window.location.href;
+    var res = s.split("?");
+    var res1 = res[1].split("=");
+        alert("you cannot delete this order");
+        window.location.href =  "view_live_order.html";
+        
+});
+</script>
 
 <script type="text/javascript">
        function Search_Gridview(strKey, strGV) {
@@ -69,7 +81,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
-    Complete Order
+    View Order
     </div>
     <div class="row w3-res-tb">
    <!--  <div class="col-sm-5 m-b-xs">
@@ -103,9 +115,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </th> -->
             <th>ID</th> 
              <th>Name</th>
-             <th>Address</th>
+             <th>Product</th>
+             <th>Address No</th>
              <th>Date</th>
-               <th>Product</th>
+               <th>Time</th>
              <th>Kg</th>
              <th>Rate</th>
              <th>Total</th>
@@ -126,11 +139,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <tr>
                                             
                                             
-                                     <td>${x.regular_orderid}</td>
+                                     <td>${x.live_orderid}</td>
                                      <td>${x.caterers_name}</td>   
-                                     <td>${x.address}</td>                                
+                                     <td>${x.product}</td>                                
+                                     <td>${x.address}</td>
                                      <td>${x.date}</td>
-                                     <td>${x.product}</td>
+                                     <td>${x.time}</td>
                                      <td>${x.kg}</td>   
                                      <td>${x.rate}</td>                                
                                      <td>${x.total}</td>
@@ -140,7 +154,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                      <td>${x.transport_type}</td>
                                      <td>${x.labour_charge}</td>
                                             
-    <td height="30px" width="30px">  <a href="Add_charge.html?id=${x.regular_orderid}">Complete/</a>  <a href="cancel_regular_order.html?id=${x.regular_orderid}">Cancel</a></td> 
+     <td height="30px" width="30px">  <a href="edit_live_order.html?id=${x.live_orderid}">Edit/</a>  <a href="delete_live_order.html?id=${x.live_orderid}">Delete</a></td> 
                                              
       <!--    <td>       -->
           <%--  <button class="btn btn-primary" type="submit" onclick="showPopupWindow(); setAttributes(${question.id}, 0>Save</button> --%> 

@@ -20,6 +20,7 @@ import com.DAO.LabourDAO;
 import com.DAO.LiveCounterDAO;
 import com.DAO.ProductDAO;
 import com.VO.ChargeVO;
+import com.VO.LiveorderVO;
 import com.VO.MiscellaneousVO;
 import com.VO.ProductRateVO;
 import com.VO.RegularorderVO;
@@ -180,12 +181,6 @@ public class LivecounterController {
 	@RequestMapping(value = "update_regular_order.html", method = RequestMethod.POST)
 	public ModelAndView update12(@ModelAttribute RegularorderVO vo) {
 
-		
-		
-		/*svo.setWvo(vo.getWvo());
-		mvo.setWvo(vo.getWvo());*/
-		
-		
 		dao.update1(vo);
 		return new ModelAndView("redirect:view_regular_order.html");
 
@@ -208,24 +203,121 @@ public class LivecounterController {
 	
 	
 	@RequestMapping(value = { "/", "Add_charge.html" }, method = RequestMethod.GET)
-	public ModelAndView index13(@RequestParam("id") int id, RegularorderVO vo) {
+	public ModelAndView index13(@RequestParam("id") int id, RegularorderVO vo,Model model) {
 		
-		
-		
-	
+		String s=null;
 		List ls2 = ldao.search1();
-		List ls3 = ldao.search();
-	//	List ls = pdao.search();
-		//ls.add("Patra");
 		
-	//	ls.add("Patra");
-
+		model.addAttribute("list", s);
+		
+		List ls3 = ldao.search();
 		List ls = dao.search1();
 		vo.setRegular_orderid(id);
 		List ls1 = dao.edit(vo);
-	       
+		 System.out.print("list of subcat:"+ls2.size());
+  
 		return new ModelAndView("Admin/Add_charge", "data",(RegularorderVO) ls1.get(0)).addObject("list", ls2).addObject("plist", ls3);
+		
+	}
+	
+/*	@RequestMapping(value = "insert_charge.html", method = RequestMethod.GET)
+	public ModelAndView insert123(@ModelAttribute ChargeVO vo,HttpSession session) {
+		
+	
+
+		this.dao.insert(vo);
+	//	svo.setIdada("0");
+
+
+		return new ModelAndView("redirect:Add_charge.html");
+	}	
+	
+	@RequestMapping(value = "serach_charge.html", method = RequestMethod.GET)
+	public ModelAndView search14(@ModelAttribute ChargeVO vo,HttpSession session) {
+		
+		this.dao.search123();
+
+		return new ModelAndView("redirect:Add_charge.html");
+	}
+	*/
+	@RequestMapping(value = { "/", "Add_live_order.html" }, method = RequestMethod.GET)
+	public ModelAndView index123() {
+		
+		List ls1 = pdao.search2();
+
+		List ls = pdao.search();
+		
+		List ls2 = dao.search(); 
+		
+		return new ModelAndView("Admin/Add_live_order", "data", new LiveorderVO()).addObject("clist", ls1).addObject("list",ls).addObject("plist", ls2);
 			
 		
 	}
+	
+	
+	@RequestMapping(value = "insert_live_order.html", method = RequestMethod.POST)
+	public ModelAndView insert1(@ModelAttribute LiveorderVO vo,HttpSession session) {
+		
+		vo.setStatus("pending");
+		vo.setLabour_charge("0");
+		vo.setTransport_charge("0");
+		vo.setTransport_name("0");
+		vo.setTransport_type("0");
+	
+
+		this.dao.insert1(vo);
+
+	//	svo.setIdada("0");
+
+
+		return new ModelAndView("redirect:Add_live_order.html");
+	}
+	
+	
+	@RequestMapping(value = "view_live_order.html", method = RequestMethod.GET)
+	public ModelAndView search11() {
+		
+		List ls = dao.search11();
+		return new ModelAndView("Admin/View_live_order", "list", ls);
+	}
+	
+	@RequestMapping(value="delete_live_order.html",method=RequestMethod.GET)
+    public ModelAndView delete11(@RequestParam("id") int id, LiveorderVO vo,Model model)
+    {
+            vo.setLive_orderid(id);
+            
+            //System.out.println(dao.insert1(vo));
+            if(dao.insert2(vo).equals("Complete"))
+            {
+                System.out.println("hi");
+                return new ModelAndView("redirect:view_live_order.html","list1","hi");
+                
+            }
+            else
+            {
+                dao.delete(vo);
+                return new ModelAndView("redirect:view_live_order.html");
+            }
+            //
+            
+    }
+	
+	@RequestMapping(value = "edit_live_order.html", method = RequestMethod.GET)
+	public ModelAndView edit11(@RequestParam("id") int id, LiveorderVO vo) {
+
+		List ls = dao.search11();
+		vo.setLive_orderid(id);
+		List ls1 = dao.edit(vo);
+		return new ModelAndView("Admin/Edit_live_order", "data", (LiveorderVO) ls1.get(0));
+				
+	}
+	
+	@RequestMapping(value = "update_live_order.html", method = RequestMethod.POST)
+	public ModelAndView update11(@ModelAttribute LiveorderVO vo) {
+
+		dao.update1(vo);
+		return new ModelAndView("redirect:view_live_order.html");
+
+	}
+	
 }

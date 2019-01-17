@@ -24,15 +24,8 @@ public class ChargeVO {
 	@Column
 	private String L_charge;
 	
-	@ManyToOne
-	private TransportVO tvo;
 	
-	public TransportVO getTvo() {
-		return tvo;
-	}
-	public void setTvo(TransportVO tvo) {
-		this.tvo = tvo;
-	}
+	
 
 	public int getID() {
 		return ID;

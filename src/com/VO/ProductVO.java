@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -19,6 +20,8 @@ public class ProductVO {
 	private int ID;
 	@Column
 	private String Product_name;
+
+	
 	public int getID() {
 		return ID;
 	}
@@ -31,6 +34,7 @@ public class ProductVO {
 	public void setProduct_name(String product_name) {
 		Product_name = product_name;
 	}
+	
 	
 	
 

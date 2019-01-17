@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@taglib uri="http://www.springframework.org/tags/form" prefix="f" %>
-      <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
-    
 <!DOCTYPE html>
 <head>
 <title>Jalaram</title>
@@ -51,7 +49,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
          }); 
          </script>
          
-     <!--     <script>
+         <script>
 function myFunction() {
   var x = document.getElementById("rate");
   var y = document.getElementById("kg");
@@ -59,38 +57,63 @@ function myFunction() {
   var t=x.value*y.value;
   document.getElementById("total").value =t;
 }
-</script> -->
+</script>
 
-   <script>
-		function getSelectValue()
-		{
-			var selectedValue = document.getElementById("name").value;
-			//var a = dropdown1.options[dropdown1.selectedIndex].value;
-			var selectedValue1 = document.getElementById("charges");
-			selectedValue1.value=(selectedValue);
-			console.log(selectedValue1.value);
-		}
-</script> 
+   <script type="text/javascript">
+     
+     function getsubcategory()
+     {
+    	 var cat=document.getElementById("caterers_name");
+    	 
+    	//alert("in fun");
+   
+    	removesubcategory();
+    	 
+    	 var http =new XMLHttpRequest();
+    	 
+    	 http.onreadystatechange=function()
+    	 {
+    		 //alert("in ajax");
+    		 
+    		 if(http.readyState==4)
+    			 {
+    			//	alert("in if");
+    			
+    			 	var jsn=JSON.parse(http.responseText);
+ 
+    			 //	alert(jsn);
+    		     
+    			 	for(var i=0;i<jsn.length;i++)
+    		    		 {
+    		    	
+    				 	//	alert("in for");
+    		    	 	
+		    		    	 var opt=document.createElement("option");
+		    				 opt.value=jsn[i].subcategoryId;
+		    				 opt.text=jsn[i].subcategoryName;
+		    				 document.form.subCategoryid.options.add(opt);
+	    		    	 }
+    			 }
 
-
- <script>
-		function getSelectValue1()
-		{
-			var selectedValue = document.getElementById("name1").value;
-			//var a = dropdown1.options[dropdown1.selectedIndex].value;
-			var selectedValue1 = document.getElementById("charges1");
-			selectedValue1.value=(selectedValue);
-			console.log(selectedValue1.value);
-		}
-</script> 
-
- <!-- <script type="text/javascript">  
-     $(document).ready(function() {                                       
-        $("#name").live("change", function() {
-          $("#charges").val($(this).find("option:selected").attr("value"));
-        })
-     });                                     
-</script>  -->
+    		
+    	 }
+    	 
+    	 
+    	 http.open("get","JsonSubCategory.htm?caterers_name="+cat.value,true);
+    		http.send();
+    }
+     
+     function removesubcategory()
+	 	{
+	 		var removeSubCategory=document.form.rate.options.length;
+	 			
+	 		for(i=removeSubCategory-1;i>=0;i--)
+	 			{
+	 				alert(i);
+	 				document.form.subCategoryid.options[i].remove();
+	 			}
+	 	}
+     </script>
 
 </head>
 <body>
@@ -104,144 +127,97 @@ function myFunction() {
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Add Charges
+                            Add Live Order
                             
                         </header>
                         <div class="panel-body">
                             <div class="form">
-                                <f:form class="cmxform form-horizontal " modelAttribute="data" id="signupForm" method="post" action="" novalidate="">
-                                	<f:hidden path="regular_orderid" />
-                                
-                                      <div class="form-group ">
-                                        <label for="priority" class="control-label col-lg-3">Transport Type</label>
+                                <f:form class="cmxform form-horizontal " modelAttribute="data" id="signupForm" method="post" action="insert_live_order.html" novalidate="">
+                                <div class="form-group ">
+                                        <label for="priority" class="control-label col-lg-3">Catereres Name</label>
                                         <div class="col-lg-6">
-     							<f:select path="" class="custom-select form-control" required="">
-                                     			<f:option value="local">Local</f:option>
-                                            	<f:option value="khaman">Out side</f:option>
-                                     
+                                            <!--  <input class=" form-control" id="address1" name="address1" type="text">-->
+     							<f:select path="caterers_name" class="custom-select form-control" required="">
+     							        <f:options items="${clist}" itemLabel="Name" itemValue="Name"/>
+                                     			
+                                            </f:select>
+                                        </div>
+                                    </div>
+                                      
+                                    
+                                      
+                                    
+                                     <div class="form-group ">
+                                        <label for="priority" class="control-label col-lg-3">Product Name</label>
+                                        <div class="col-lg-6">
+                                            <!--  <input class=" form-control" id="address1" name="address1" type="text">-->
+     							<f:select path="product" class="custom-select form-control" id="name" required="">
+     							        <f:options items="${list}" itemLabel="Product_name" itemValue="Product_name"/>
+                                     		
                                             </f:select>
                                         </div>
                                     </div>
                                     
-                                            <div class="form-group ">
-                                        <label for="priority" class="control-label col-lg-3">Transport Name</label>
+                                     <div class="form-group ">
+                                        <label for="mon" class="control-label col-lg-3">Address</label>
                                         <div class="col-lg-6">
-                                            <!--  <input class=" form-control" id="address1" name="address1" type="text">-->
-     							<f:select path="" class="custom-select form-control" required="" id="name" onchange="getSelectValue();">
-     							        <f:options items="${list}" itemLabel="Name" itemValue="charges"/>
-                                     		
-                                            </f:select>
+                                            <f:input class=" form-control" path="address" name="Address" type="text" required="required"/>
                                         </div>
                                     </div>
-                                  <%--   
-                                      <div class="form-group ">
-                                        <label for="priority" class="control-label col-lg-3">Transport Name</label>
+                                    
+                                          <div class="form-group ">
+                                        <label for="priority" class="control-label col-lg-3">Time</label>
                                         <div class="col-lg-6">
                                             <!--  <input class=" form-control" id="address1" name="address1" type="text">-->
-     							<f:select path="" class="custom-select form-control" required="" id="changes">
-     							        <f:options items="${list}" itemLabel="charges" itemValue="transportid"/>
-                                     		
-                                            </f:select>
-                                        </div>
-                                    </div> --%>
-                                    
-                                    
-                             <div class="form-group ">
-                                        <label for="mon" class="control-label col-lg-3">Transport Charges</label>
-                                        <div class="col-lg-6">
-                                            <input class=" form-control"  type="text" id="charges" name="charges" value="" required="required"/>
-                                        </div>
-                                    </div> 
-                                 
-                                    
-                                  <div class="form-group ">
-                                        <label for="priority" class="control-label col-lg-3">Labour Name</label>
-                                        <div class="col-lg-6">
-                                            <!--  <input class=" form-control" id="address1" name="address1" type="text">-->
-     							<f:select path="" class="custom-select form-control" required="" id="name1" onchange="getSelectValue1();">
-     							        <f:options items="${plist}" itemLabel="Name" itemValue="charges"/>
-                                     		
+     							<f:select path="time" class="custom-select form-control" required="">
+                                     			<f:option value="morning">Morning</f:option>
+                                            	<f:option value="evening">Evening</f:option>
+                                            	
+                                            		
                                             </f:select>
                                         </div>
                                     </div>
                                     
                                         <div class="form-group ">
-                                        <label for="mon" class="control-label col-lg-3">Labour Charges</label>
+                                        <label for="mon" class="control-label col-lg-3">Date</label>
                                         <div class="col-lg-6">
-                                            <input class=" form-control" value="" type="text" id="charges1" required="required"/>
+                                            <input class=" form-control" id="date" name="date" type="text" required="required"/>
                                         </div>
                                     </div>
                                     
-                                     	<div class="form-group ">
-									<label for="mon" class="control-label col-lg-3">Kg
-										</label>
-									<div class="col-lg-6">
-										<f:input class=" form-control" id="kg" path="kg" type="text" onkeyup="myFunction()"
-											required="required" />
-									</div>
-								</div>
+                                        <div class="form-group ">
+                                        <label for="mon" class="control-label col-lg-3">Kg</label>
+                                        <div class="col-lg-6">
+                                            <f:input class=" form-control" path="kg" name="Kg" type="text" required="required" id="kg" onkeyup="myFunction()"/>
+                                        </div>
+                                    </div>
                                     
-                                 
-                                  
+                                       <div class="form-group ">
+                                        <label for="mon" class="control-label col-lg-3">Rate</label>
+                                        <div class="col-lg-6">
+                                            <f:input class=" form-control" path="rate" name="rate" type="text" required="required" id="rate" onkeyup="myFunction()"/>
+                                        </div>
+                                    </div>
                                     
-                      <div class="table-responsive">
-      <table class="table table-striped b-t b-light" id="id1">
-        <thead>
-          <tr>
-          <!--   <th style="width:20px;">
-              <label class="i-checks m-b-none">
-                <input type="checkbox"><i></i>
-              </label>
-            </th> -->
-            <th>Name</th> 
-             <th>Charge</th>
-           
-           	
-            
-            <th style="width:30px;"></th>
-          </tr>
-        </thead>
-         <tbody>
-         
-                                        <c:forEach items="${clist}" var="x">
-                                        <tr>
-                                            
-                                            
-                                     <td>${x.l_name}</td> 
-                                     <td>${x.l_charge}</td> 
-                                           
-                                            
-<%--       <td height="30px" width="30px"> <a href="delete_expense.html?id=${x.ID}">Delete</a></td> 
- --%>                                           
-      <!--    <td>       -->
-          <%--  <button class="btn btn-primary" type="submit" onclick="showPopupWindow(); setAttributes(${question.id}, 0>Save</button> --%> 
-<%--            <button onclick="showPopupWindow(); setAttributes(${x.ID}, 0)">Reply</button>
- --%>       <!--   </td>                                  -->
-                                            
-                                                </tr>
-                                        </c:forEach>
-                                      </tbody>
-
-      </table>
-      
-      
-    </div>
-    
-    				  <div class="form-group">
+                                       <div class="form-group ">
+                                        <label for="mon" class="control-label col-lg-3">Total</label>
+                                        <div class="col-lg-6">
+                                            <f:input class=" form-control" path="total" name="total" readonly="true" type="text" required="required" id="total"/>
+                                        </div>
+                                    </div>
+                                    
+                                     
+                                       
+                                    <div class="form-group">
                                         <div class="col-lg-offset-5 col-lg-6">
                                             <button class="btn btn-primary" type="submit">Save</button>
                                         </div>
                                     </div>
                                    
                                 </f:form>
-                                
-                                
                             </div>
 
 	</div>
-	
-	               
-    
 	</section>
 	</div>
 	</div>
