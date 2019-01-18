@@ -226,4 +226,28 @@ public class LiveCounterDAO {
 		return ls;
 	}
 
+	public void insert1(ChargeVO vo) {
+		try{
+			Session session = sessionFactory.openSession();
+			Transaction tr = session.beginTransaction();
+			session.saveOrUpdate(vo);
+			tr.commit();
+			session.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}			
+	}
+
+	public List search11(LiveorderVO lvo) {
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery("from LiveorderVO where Status='pending'");
+
+		List ls = q.list();
+		// System.out.println(ls.get(0));
+		session.close();
+		return ls;
+	}
+
+	
+
 }

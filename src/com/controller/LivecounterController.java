@@ -189,7 +189,10 @@ public class LivecounterController {
 	@RequestMapping(value = "Add_complete_order.html", method = RequestMethod.GET)
 	public ModelAndView search(@ModelAttribute RegularorderVO vo) {
 		
+	LiveorderVO lvo = new LiveorderVO();
+		
 		List ls = dao.search2(vo);
+		List ls1 = dao.search11(lvo);
 		return new ModelAndView("Admin/Complete_order", "list", ls);
 	}
 	
@@ -202,44 +205,9 @@ public class LivecounterController {
 	}
 	
 	
-	@RequestMapping(value = { "/", "Add_charge.html" }, method = RequestMethod.GET)
-	public ModelAndView index13(@RequestParam("id") int id, RegularorderVO vo,Model model) {
-		
-		String s=null;
-		List ls2 = ldao.search1();
-		
-		model.addAttribute("list", s);
-		
-		List ls3 = ldao.search();
-		List ls = dao.search1();
-		vo.setRegular_orderid(id);
-		List ls1 = dao.edit(vo);
-		 System.out.print("list of subcat:"+ls2.size());
-  
-		return new ModelAndView("Admin/Add_charge", "data",(RegularorderVO) ls1.get(0)).addObject("list", ls2).addObject("plist", ls3);
-		
-	}
 	
-/*	@RequestMapping(value = "insert_charge.html", method = RequestMethod.GET)
-	public ModelAndView insert123(@ModelAttribute ChargeVO vo,HttpSession session) {
-		
 	
-
-		this.dao.insert(vo);
-	//	svo.setIdada("0");
-
-
-		return new ModelAndView("redirect:Add_charge.html");
-	}	
 	
-	@RequestMapping(value = "serach_charge.html", method = RequestMethod.GET)
-	public ModelAndView search14(@ModelAttribute ChargeVO vo,HttpSession session) {
-		
-		this.dao.search123();
-
-		return new ModelAndView("redirect:Add_charge.html");
-	}
-	*/
 	@RequestMapping(value = { "/", "Add_live_order.html" }, method = RequestMethod.GET)
 	public ModelAndView index123() {
 		
@@ -318,6 +286,27 @@ public class LivecounterController {
 		dao.update1(vo);
 		return new ModelAndView("redirect:view_live_order.html");
 
+	}
+	
+	@RequestMapping(value = { "/", "Add_charge.html" }, method = RequestMethod.GET)
+	public ModelAndView index13(@RequestParam("id") int id, RegularorderVO vo) {
+		
+		List ls2 = ldao.search1();
+		List ls3 = ldao.search();
+		List ls = dao.search1();
+		vo.setRegular_orderid(id);
+		List ls1 = dao.edit(vo);
+  
+		return new ModelAndView("Admin/Add_charges", "data",(RegularorderVO) ls1.get(0)).addObject("list", ls2).addObject("plist", ls3);
+		
+	}
+	
+	@RequestMapping(value = "insert_charge_order.html", method = RequestMethod.POST)
+	public ModelAndView insert11(@ModelAttribute ChargeVO vo,HttpSession session) {
+		
+		this.dao.insert1(vo);
+
+		return new ModelAndView("redirect:Add_charge.html");
 	}
 	
 }

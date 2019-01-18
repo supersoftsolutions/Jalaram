@@ -61,6 +61,65 @@ function myFunction() {
 }
 </script> -->
 
+
+<script>
+// Create a "close" button and append it to each list item
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("name1").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("name1").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+</script>
+
    <script>
 		function getSelectValue()
 		{
@@ -108,9 +167,8 @@ function myFunction() {
                             
                         </header>
                         <div class="panel-body">
-                            <div class="form">
-                                <f:form class="cmxform form-horizontal " modelAttribute="data" id="signupForm" method="post" action="" novalidate="">
-                                	<f:hidden path="regular_orderid" />
+                            <div class="form" id="myDIV">
+                                <f:form class="cmxform form-horizontal " modelAttribute="data" id="signupForm" method="post" action="insert_charge_order.html" novalidate="">
                                 
                                       <div class="form-group ">
                                         <label for="priority" class="control-label col-lg-3">Transport Type</label>
@@ -176,60 +234,20 @@ function myFunction() {
 									<label for="mon" class="control-label col-lg-3">Kg
 										</label>
 									<div class="col-lg-6">
-										<f:input class=" form-control" id="kg" path="kg" type="text" onkeyup="myFunction()"
+										<f:input class=" form-control"  path="kg" type="text" 
 											required="required" />
 									</div>
 								</div>
                                     
                                  
                                   
-                                    
-                      <div class="table-responsive">
-      <table class="table table-striped b-t b-light" id="id1">
-        <thead>
-          <tr>
-          <!--   <th style="width:20px;">
-              <label class="i-checks m-b-none">
-                <input type="checkbox"><i></i>
-              </label>
-            </th> -->
-            <th>Name</th> 
-             <th>Charge</th>
-           
-           	
-            
-            <th style="width:30px;"></th>
-          </tr>
-        </thead>
-         <tbody>
          
-                                        <c:forEach items="${clist}" var="x">
-                                        <tr>
-                                            
-                                            
-                                     <td>${x.l_name}</td> 
-                                     <td>${x.l_charge}</td> 
-                                           
-                                            
-<%--       <td height="30px" width="30px"> <a href="delete_expense.html?id=${x.ID}">Delete</a></td> 
- --%>                                           
-      <!--    <td>       -->
-          <%--  <button class="btn btn-primary" type="submit" onclick="showPopupWindow(); setAttributes(${question.id}, 0>Save</button> --%> 
-<%--            <button onclick="showPopupWindow(); setAttributes(${x.ID}, 0)">Reply</button>
- --%>       <!--   </td>                                  -->
-                                            
-                                                </tr>
-                                        </c:forEach>
-                                      </tbody>
-
-      </table>
       
-      
-    </div>
+    
     
     				  <div class="form-group">
                                         <div class="col-lg-offset-5 col-lg-6">
-                                            <button class="btn btn-primary" type="submit">Save</button>
+                                            <button class="btn btn-primary" type="submit" onclick="newElement()">Save</button>
                                         </div>
                                     </div>
                                    
