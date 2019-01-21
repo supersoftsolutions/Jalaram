@@ -126,6 +126,11 @@ function newElement() {
 			var selectedValue = document.getElementById("name").value;
 			//var a = dropdown1.options[dropdown1.selectedIndex].value;
 			var selectedValue1 = document.getElementById("charges");
+			//alert(selectedValue);
+			if(selectedValue=='SELECT')
+			{
+				selectedValue="0";
+			}
 			selectedValue1.value=(selectedValue);
 			console.log(selectedValue1.value);
 		}
@@ -138,6 +143,11 @@ function newElement() {
 			var selectedValue = document.getElementById("name1").value;
 			//var a = dropdown1.options[dropdown1.selectedIndex].value;
 			var selectedValue1 = document.getElementById("charges1");
+			
+			if(selectedValue=='SELECT')
+			{
+				selectedValue="0";
+			}
 			selectedValue1.value=(selectedValue);
 			console.log(selectedValue1.value);
 		}
@@ -185,10 +195,10 @@ function newElement() {
                                         <label for="priority" class="control-label col-lg-3">Transport Name</label>
                                         <div class="col-lg-6">
                                             <!--  <input class=" form-control" id="address1" name="address1" type="text">-->
-     							<f:select path="" class="custom-select form-control" required="" id="name" onchange="getSelectValue();">
-     							        <f:options items="${list}" itemLabel="Name" itemValue="charges"/>
-                                     		
-                                            </f:select>
+			     							<f:select path="" class="custom-select form-control" required="" id="name" onchange="getSelectValue();">
+			     									<option>SELECT</option>
+			     							        <f:options items="${list}" itemLabel="Name" itemValue="charges"/>
+			                                </f:select>
                                         </div>
                                     </div>
                                   <%--   
@@ -217,6 +227,7 @@ function newElement() {
                                         <div class="col-lg-6">
                                             <!--  <input class=" form-control" id="address1" name="address1" type="text">-->
      							<f:select path="" class="custom-select form-control" required="" id="name1" onchange="getSelectValue1();">
+     							<option>SELECT</option>
      							        <f:options items="${plist}" itemLabel="Name" itemValue="charges"/>
                                      		
                                             </f:select>

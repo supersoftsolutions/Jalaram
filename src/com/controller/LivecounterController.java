@@ -298,7 +298,6 @@ public class LivecounterController {
 		List ls1 = dao.edit(vo);
   
 		return new ModelAndView("Admin/Add_charges", "data",(RegularorderVO) ls1.get(0)).addObject("list", ls2).addObject("plist", ls3);
-		
 	}
 	
 	@RequestMapping(value = "insert_charge_order.html", method = RequestMethod.POST)
