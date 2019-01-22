@@ -36,22 +36,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
-<script>
-         $(function() {
-            $( "#date" ).datepicker({
-
-         
-/*                   defaultDate:+1	,
- */               dateFormat:"yy-mm-dd",
-               altField: "#day",
-               altFormat: "D"
-            });
-           // $( "#datepicker-3" ).datepicker("setDate", "1");  
-
-         }); 
-         </script>
-         
-        <script>
+	<script>
+	         $(function() {
+	            $( "#date" ).datepicker({
+	
+	         
+	/*                   defaultDate:+1	,
+	 */               dateFormat:"yy-mm-dd",
+	               altField: "#day",
+	               altFormat: "D"
+	            });
+	           // $( "#datepicker-3" ).datepicker("setDate", "1");  
+	
+	         }); 
+	         </script>
+	         
+	        <script>
 function myFunction() {
   var x = document.getElementById("rate");
   var y = document.getElementById("qty");
@@ -61,40 +61,25 @@ function myFunction() {
 }
 </script> 
 
-<script>
-		function getSelectValue1()
-		{
-			var selectedValue = document.getElementById("product").value;
-			//var a = dropdown1.options[dropdown1.selectedIndex].value;
-			var selectedValue1 = document.getElementById("name");
-			//alert(selectedValue);
-			if(selectedValue=='SELECT')
-			{
-				selectedValue="0";
-			}
-			selectedValue1.value=(selectedValue);
-			console.log(selectedValue1.value);
-		}
-</script> 
-
-
-
-    <script>
+	<script>
 		function getSelectValue()
 		{
 			var selectedValue = document.getElementById("name").value;
-			//var a = dropdown1.options[dropdown1.selectedIndex].value;
+			var selectedValue2 = document.getElementById("product").value;
 			var selectedValue1 = document.getElementById("rate");
 			//alert(selectedValue);
 			if(selectedValue=='SELECT')
 			{
 				selectedValue="0";
 			}
-			selectedValue1.value=(selectedValue);
+			selectedValue1.value=selectedValue2.value=(selectedValue);
 			console.log(selectedValue1.value);
+			console.log(selectedValue2.value);
+
 		}
 </script> 
 
+ 
  
 
  
@@ -118,56 +103,58 @@ function myFunction() {
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Add Product Purchase
+                            Add Order Purchase
                             
                         </header>
                         <div class="panel-body">
                             <div class="form">
-                                <f:form class="cmxform form-horizontal " modelAttribute="data" id="signupForm" method="post" action="insert_product_purchase.html" novalidate="">
+                                <f:form class="cmxform form-horizontal " modelAttribute="data" id="signupForm" method="post" action="insert_order_purchase.html" novalidate="">
                                 
-                                 <div class="form-group ">	
+                                 <div class="form-group ">
                                         <label for="mon" class="control-label col-lg-3">Date</label>
                                         <div class="col-lg-6">
                                             <input class=" form-control" id="date" name="date" type="text" required="required"/>
                                         </div>
                                     </div>
                                     
-                                    
                                       <div class="form-group ">
+	                                        <label for="priority" class="control-label col-lg-3">Creditor Name</label>
+	                                        <div class="col-lg-6">
+	                                            <!--  <input class=" form-control" id="address1" name="address1" type="text">-->
+				     							<f:select path="cvo.creditorid" class="custom-select form-control" required="" id="name" onchange="getSelectValue();">
+				     									<option>SELECT</option>
+				     							        <f:options items="${list}" itemLabel="Name" itemValue="rate"/>
+				     							        
+				                                </f:select>
+	                                        </div>
+	                                    </div>
+                                    
+                                           <div class="form-group ">
                                         <label for="priority" class="control-label col-lg-3">Product Name</label>
                                         <div class="col-lg-6">
-     							<f:select path="product" class="custom-select form-control" required="" id="product" name="name" onchange="getSelectValue1();">
+     							<f:select path="product" class="custom-select form-control" required="" id="product" onchange="getSelectValue();">
                                      			<f:option value="patra">Patra</f:option>
                                             	<f:option value="khaman">Khaman</f:option>
                                             	<f:option value="nylon">Nylon</f:option>
                                             	<f:option value="idada">Idada</f:option>
-                                            	<f:option value="khadvi">Khandvi</f:option>
-                                            	<f:option value="sandwich_dhokla">Sandwich Dhokla</f:option>
-                                            	<f:option value="sp_patra">SP Patra</f:option>
-                                            	<f:option value="samosa">Samosa</f:option>
+                                            	<f:option value="khandvi">Khandvi</f:option>
+                                            		<f:option value="Sandwich Dhokla">Sandwich Dhokla</f:option>
+                                            		<f:option value="SP Patra">SP Patra</f:option>
+                                            		<f:option value="Samosa">Samosa</f:option>
+                                     
                                             </f:select>
                                         </div>
                                     </div>
                                     
-                                            <div class="form-group ">
-                                        <label for="priority" class="control-label col-lg-3">Creditor Name</label>
-                                        <div class="col-lg-6">
-                                            <!--  <input class=" form-control" id="address1" name="address1" type="text">-->
-			     							<f:select path="pvo.creditorid" class="custom-select form-control" required="" id="name" onchange="getSelectValue();">
-			     									<option>SELECT</option>
-			     							        <f:options items="${list}" itemLabel="Name" itemValue="rate"/>
-			                                </f:select>
-                                        </div>
-                                    </div>
                          
-                             <div class="form-group ">
+                              <div class="form-group ">
                                         <label for="mon" class="control-label col-lg-3">Rate</label>
                                         <div class="col-lg-6">
-                                            <f:input class=" form-control" path="rate"  type="text" id="rate" name="rate" value="" required="required" onkeyup="myFunction()"/>
+                                            <f:input class=" form-control" path="rate"  type="text" id="rate" name="rate" value="" required="required"  onkeyup="myFunction()"/>
                                         </div>
                                     </div> 
                            			
-                                     	<div class="form-group ">
+                                	<div class="form-group ">
 									<label for="mon" class="control-label col-lg-3">Quantity
 										</label>
 									<div class="col-lg-6">
@@ -185,14 +172,11 @@ function myFunction() {
 											 readonly="true" type="text" required="required" id="total"/>
 									</div>
 								</div>
-                                         
-         
-      
-    
-    
-    				  <div class="form-group">
+								
+							
+                                  				  <div class="form-group">
                                         <div class="col-lg-offset-5 col-lg-6">
-                                            <button class="btn btn-primary" type="submit">Save</button>
+                                            <button class="btn btn-primary" type="submit" onclick="newElement();">Save</button>
                                         </div>
                                     </div>
                                    

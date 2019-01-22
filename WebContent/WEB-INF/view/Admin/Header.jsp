@@ -162,7 +162,58 @@
                     </li>
                     </ul>
                 </li>
-             
+             	   <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-glass"></i>
+                        <span>Purchase</span>
+                    </a>
+                    
+                    <ul class="sub">
+                        <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-glass"></i>
+                        <span>Product Purchase</span>
+                    </a>
+                    
+                    <ul class="sub">
+                        <li><a href="Add_product_purchase.html">Add Purchase</a></li>
+						<li><a href="View_product_purchase.html">View Purchase</a></li>
+						
+                    </ul>
+                    
+                    </li>
+                    
+                     <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-glass"></i>
+                        <span>Material Purchase</span>
+                    </a>
+                    
+                    <ul class="sub">
+                        <li><a href="Add_material_purchase.html">Add Material Purchase</a></li>
+						<li><a href="View_material_purchase.html">View Material Purchase</a></li>
+						
+                    </ul>
+                    
+                    </li>
+                    
+                        <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-glass"></i>
+                        <span>Order Purchase</span>
+                    </a>
+                    
+                    <ul class="sub">
+                        <li><a href="Add_order_purchase.html">Add Order Purchase</a></li>
+						<li><a href="View_order_purchase.html">View Order Purchase</a></li>
+						
+                    </ul>
+                    
+                    </li>
+                   
+                    
+                    </ul>
+                </li>
              
                 
                 <li class="sub-menu">
@@ -196,25 +247,14 @@
                     </ul>
                 </li>
                 
-                   <li class="sub-menu">
+                  <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-glass"></i>
                         <span>Live Counter</span>
                     </a>
-                  
                     <ul class="sub">
-                        <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-glass"></i>
-                        <span>Product Rate</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="Add_product_rate.html">Add Product Rate</a></li>
-						<li><a href="view_product_rate.html">View Product Rate</a></li>
-                    </ul>
-                </li>  
-                
-                  <li class="sub-menu">
+                       
+						 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-glass"></i>
                         <span>Regular Order</span>
@@ -223,8 +263,8 @@
                         <li><a href="Add_regular_order.html">Add Regular Order</a></li>
 						<li><a href="view_regular_order.html">View Regular Order</a></li>
                     </ul>
-                </li>  
-                  <li class="sub-menu">
+                </li>
+                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-glass"></i>
                         <span>Live Order</span>
@@ -233,16 +273,14 @@
                         <li><a href="Add_live_order.html">Add Live Order</a></li>
 						<li><a href="view_live_order.html">View Live Order</a></li>
                     </ul>
-                </li>  
-                  <li><a href="Add_complete_order.html">Complete Order</a></li>
-                  
-                
+                </li>
+                                  <li><a href="Add_complete_order.html">Complete Order</a></li>
                 
                     </ul>
                 </li>
                 
                 
-                 <li class="sub-menu">
+              <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-glass"></i>
                         <span>Caterers</span>
@@ -306,14 +344,14 @@
 						<li><a href="view_miscellaneous.html">View miscellaneous</a></li>
                     </ul>
                 </li>
-                   <li>
+                   <li class="sub-menu">
                     <a href="index.html">
                         <i class="fa fa-user"></i>
                         <span>Login Page</span>
                     </a>
-                </li>
+                </li> 
                 
-            </ul>            </div>
+                       </div>
         <!-- sidebar menu end-->
     </div>
 </aside>

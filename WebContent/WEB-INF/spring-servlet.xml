@@ -54,6 +54,9 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
                  				<value>com.VO.RegularorderVO</value>
                  				<value>com.VO.ChargeVO</value>
                  				<value>com.VO.LiveorderVO</value>
+                 				<value>com.VO.PurchaseVO</value>
+                 				<value>com.VO.Material_purchaseVO</value>
+                 				<value>com.VO.Order_purchaseVO</value>
 			</list>
 			
         </property>

@@ -64,7 +64,7 @@ function myFunction() {
 
 <script>
 // Create a "close" button and append it to each list item
-var myNodelist = document.getElementsByTagName("LI");
+/* var myNodelist = document.getElementsByTagName("LI");
 var i;
 for (i = 0; i < myNodelist.length; i++) {
   var span = document.createElement("SPAN");
@@ -72,10 +72,10 @@ for (i = 0; i < myNodelist.length; i++) {
   span.className = "close";
   span.appendChild(txt);
   myNodelist[i].appendChild(span);
-}
+} */
 
 // Click on a close button to hide the current list item
-var close = document.getElementsByClassName("close");
+/* var close = document.getElementsByClassName("close");
 var i;
 for (i = 0; i < close.length; i++) {
   close[i].onclick = function() {
@@ -83,7 +83,7 @@ for (i = 0; i < close.length; i++) {
     div.style.display = "none";
   }
 }
-
+ */
 // Add a "checked" symbol when clicking on a list item
 var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
@@ -96,6 +96,8 @@ list.addEventListener('click', function(ev) {
 function newElement() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("name1").value;
+  var inputValue = document.getElementById("charges1").value;
+
   var t = document.createTextNode(inputValue);
   li.appendChild(t);
   if (inputValue === '') {
@@ -104,20 +106,11 @@ function newElement() {
     document.getElementById("myUL").appendChild(li);
   }
   document.getElementById("name1").value = "";
+  document.getElementById("charges1").value = "";
 
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  li.appendChild(span);
 
-  for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
-    }
   }
-}
+
 </script>
 
    <script>
@@ -177,7 +170,7 @@ function newElement() {
                             
                         </header>
                         <div class="panel-body">
-                            <div class="form" id="myDIV">
+                            <div class="form">
                                 <f:form class="cmxform form-horizontal " modelAttribute="data" id="signupForm" method="post" action="insert_charge_order.html" novalidate="">
                                 
                                       <div class="form-group ">
@@ -258,7 +251,7 @@ function newElement() {
     
     				  <div class="form-group">
                                         <div class="col-lg-offset-5 col-lg-6">
-                                            <button class="btn btn-primary" type="submit" onclick="newElement()">Save</button>
+                                            <button class="btn btn-primary" type="submit" onclick="newElement();">Save</button>
                                         </div>
                                     </div>
                                    

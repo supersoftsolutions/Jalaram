@@ -60,7 +60,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
-    View Expense
+    View Order Purchase
     </div>
     <div class="row w3-res-tb">
    <!--  <div class="col-sm-5 m-b-xs">
@@ -93,9 +93,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               </label>
             </th> -->
             <th>ID</th> 
-             <th>Expense</th>
-             <th>Remark</th>
-             <th>Balance</th>
+             <th>Name</th>
+             <th>Product</th>
+             <th>Date</th>
+             <th>Qty</th>
+             <th>Rate</th>
+             <th>Total</th>
             
            	
             
@@ -107,16 +110,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
          
                                         <c:forEach items="${list}" var="x">
                                         <tr>
-                                            
-                                            
-                                      <td>${x.ID}</td>
-                                     <td>${x.expense}</td> 
-                                     <td>Z${x.remark}</td> 
-                                     <td>${x.balance}</td> 
-                                           
-                                            
-      <td height="30px" width="30px"> <a href="delete_expense.html?id=${x.ID}">Delete</a></td> 
-                                           
+                                   
+                                     <td>${x.orderid}</td>
+                                     <td>${x.cvo.name}</td> 
+                                     <td>${x.product}</td> 
+                                     <td>${x.date}</td>
+                                     <td>${x.qty}</td> 
+                                     <td>${x.rate}</td>
+                                     <td>${x.total}</td>
+<%--      <td height="30px" width="30px"> <a href="delete_expense.html?id=${x.ID}">Delete</a></td> 
+ --%>                                            
       <!--    <td>       -->
           <%--  <button class="btn btn-primary" type="submit" onclick="showPopupWindow(); setAttributes(${question.id}, 0>Save</button> --%> 
 <%--            <button onclick="showPopupWindow(); setAttributes(${x.ID}, 0)">Reply</button>
