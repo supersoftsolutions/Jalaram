@@ -67,7 +67,6 @@ public class PurchaseDAO {
 		}catch(Exception e){
 			e.printStackTrace();
 		}	
-				
 	}
 
 
@@ -103,5 +102,22 @@ public class PurchaseDAO {
 		return ls;
 	}
 
-	
+
+	public List add(PurchaseVO pvo) {
+		
+		List ls=new ArrayList();
+		{
+			try
+			{
+
+				Session session=sessionFactory.openSession();
+				Query q=session.createQuery("from PurchaseVO where product='"+pvo.getPvo().getCreditorid()+"'");
+				ls=q.list();
+			}
+			catch (Exception e) {
+				// TODO: handle exception
+			}
+			return ls;
+		}
+	}
 }

@@ -206,9 +206,7 @@
                     <ul class="sub">
                         <li><a href="Add_order_purchase.html">Add Order Purchase</a></li>
 						<li><a href="View_order_purchase.html">View Order Purchase</a></li>
-						
                     </ul>
-                    
                     </li>
                    
                     

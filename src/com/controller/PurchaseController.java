@@ -53,6 +53,23 @@ public class PurchaseController {
 		
 	}
 	
+	@RequestMapping(value="jsonpurchase.html",method=RequestMethod.GET)
+	public ModelAndView SubCategory(@ModelAttribute Product_creditor_VO vo,PurchaseVO pvo,@RequestParam("productId") String i)
+	{
+	    System.out.println("in con of sub");
+	 	    pvo.setProduct(i);
+		//vo.setCreditorid(i);
+		
+		pvo.setPvo(vo);
+
+		List ls1=this.pdao.add(pvo);
+		
+	    System.out.print("list of subcat:"+ls1.size());
+		
+		return new ModelAndView("admin/Jsonpurchase","purcahselist",ls1);
+	}
+	
+	
 	@RequestMapping(value = "insert_product_purchase.html", method = RequestMethod.POST)
 	public ModelAndView insert1(@RequestParam("id") int id,@ModelAttribute PurchaseVO vo,HttpSession session) {
 	
@@ -64,22 +81,18 @@ public class PurchaseController {
 
 	//	svo.setIdada("0");
 
-
 		return new ModelAndView("redirect:Add_product_purchase.html");
 	}
 	
 	
-	
 	@RequestMapping(value = "View_product_purchase.html", method = RequestMethod.GET)
 	public ModelAndView search() {
-		
 		List ls = pdao.search();
 		return new ModelAndView("Admin/View_product_purchase", "list", ls);
 	}
 	
 	@RequestMapping(value = { "/", "Add_material_purchase.html" }, method = RequestMethod.GET)
 	public ModelAndView index() {
-		
 		
 		List ls = dao.search();
 		List ls2 = ldao.search();
@@ -91,9 +104,10 @@ public class PurchaseController {
 	
 	@RequestMapping(value = "insert_material_purchase.html", method = RequestMethod.POST)
 	public ModelAndView insert12(@ModelAttribute Material_purchaseVO vo,HttpSession session) {
-	
+		Product_creditor_VO pvo = new Product_creditor_VO();
+
 		this.pdao.insert(vo);
-	//	pdao.update(pvo, vo);
+		//pdao.update(pvo, vo);
 
 	//	svo.setIdada("0");
 
@@ -120,7 +134,7 @@ public class PurchaseController {
 	//	pdao.update(pvo, vo);
 
 	//	svo.setIdada("0");
-
+		
 		return new ModelAndView("redirect:Add_order_purchase.html");
 	}
 	

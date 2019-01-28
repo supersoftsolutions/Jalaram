@@ -12,8 +12,8 @@
 	<c:forEach items="${list}" var="x" varStatus="counter">
 
 		{
-			  "creditorid":"${x.creditorid}",
-              "rate":"${x.rate}"
+			  "id":"${x.creditorid}",
+              "name":"${x.name}"
 		}
 
 		<c:if test="${index ne counter.count}">,</c:if>

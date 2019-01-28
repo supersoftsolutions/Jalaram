@@ -61,13 +61,13 @@ function myFunction() {
 }
 </script> 
 
-<script>
+ <!-- <script>
 		function getSelectValue1()
 		{
 			var selectedValue = document.getElementById("product").value;
 			//var a = dropdown1.options[dropdown1.selectedIndex].value;
-			var selectedValue1 = document.getElementById("name");
-			//alert(selectedValue);
+			var selectedValue1 = document.getElementById("name").value;
+			alert(selectedValue1);
 			if(selectedValue=='SELECT')
 			{
 				selectedValue="0";
@@ -75,37 +75,77 @@ function myFunction() {
 			selectedValue1.value=(selectedValue);
 			console.log(selectedValue1.value);
 		}
-</script> 
+</script>   -->
 
 
-
-    <script>
-		function getSelectValue()
-		{
-			var selectedValue = document.getElementById("name").value;
-			//var a = dropdown1.options[dropdown1.selectedIndex].value;
-			var selectedValue1 = document.getElementById("rate");
-			//alert(selectedValue);
-			if(selectedValue=='SELECT')
-			{
-				selectedValue="0";
-			}
-			selectedValue1.value=(selectedValue);
-			console.log(selectedValue1.value);
-		}
-</script> 
-
+  <script type="text/javascript">
+     
+     function getsubcategory()
+     {
+    	 var cat=document.getElementById("productid").value;
+    	 
+ 		//alert(cat);
+   
+ removesubcategory();
+    	 
+    	 var http =new XMLHttpRequest();
+    	 
+    	 http.onreadystatechange=function()
+    	 {
+    		 //alert("in ajax");
+    		 
+    		 if(http.readyState==4)
+    			 {
+    				alert("in if");
+    			
+    			 	var jsn=JSON.parse(http.responseText);
  
+    			 alert(jsn);
+    		     
+    			 	for(var i=0;i<jsn.length;i++)
+    		    		 {
+    		    	
+    				 		alert("in for");
+    				 		
+		    		    	 var opt=document.createElement("option");
+		    				 opt.value=jsn[i].id;
+		    				 opt.text=jsn[i].name;
+		    				 document.form.product.options.add(opt);
+	    		    	 }
+    			 }
 
+    		
+    	 }
+    	 
+    	 
+    	 http.open("get","jsonpurchase.html?productId="+cat,true);
+    		http.send();
+    		
+    }
+     function removesubcategory()
+	 	{
+	 		var removeSubCategory=document.getElementById("product").options.length;
+	 		//alert(removeSubCategory);	
+	 		for(i=removeSubCategory-1;i>=0;i--)
+	 			{
+	 				alert(i);
+	 				document.form.product.options[i].remove();
+	 			}
+	 	}
  
- <!-- <script type="text/javascript">  
-     $(document).ready(function() {                                       
-        $("#name").live("change", function() {
-          $("#charges").val($(this).find("option:selected").attr("value"));
-        })
-     });                                     
-</script>  -->
+     </script> 
 
+<!-- <script type="text/javascript">
+var $select1 = $( '#productid' ),
+$select2 = $( '#product' ),
+$options = $select2.find( 'option' );
+
+$select1.on('change', function() {
+$select2.html($options.filter('[value="' + this.value + '"]'));
+}).trigger('change'); 
+
+
+</script> -->
 </head>
 <body>
 <!--sidebar end-->
@@ -128,20 +168,19 @@ function myFunction() {
                                  <div class="form-group ">	
                                         <label for="mon" class="control-label col-lg-3">Date</label>
                                         <div class="col-lg-6">
-                                            <input class=" form-control" id="date" name="date" type="text" required="required"/>
+                                            <input class=" form-control" id="date" name="date" type="text"  required="required"/>
                                         </div>
                                     </div>
-                                    
                                     
                                       <div class="form-group ">
                                         <label for="priority" class="control-label col-lg-3">Product Name</label>
                                         <div class="col-lg-6">
-     							<f:select path="product" class="custom-select form-control" required="" id="product" name="name" onchange="getSelectValue1();">
+     							<f:select path="product" class="custom-select form-control" required="" id="productid" onchange="getsubcategory()">
                                      			<f:option value="patra">Patra</f:option>
                                             	<f:option value="khaman">Khaman</f:option>
                                             	<f:option value="nylon">Nylon</f:option>
                                             	<f:option value="idada">Idada</f:option>
-                                            	<f:option value="khadvi">Khandvi</f:option>
+                                            	<f:option value="khandvi">Khandvi</f:option>
                                             	<f:option value="sandwich_dhokla">Sandwich Dhokla</f:option>
                                             	<f:option value="sp_patra">SP Patra</f:option>
                                             	<f:option value="samosa">Samosa</f:option>
@@ -153,9 +192,9 @@ function myFunction() {
                                         <label for="priority" class="control-label col-lg-3">Creditor Name</label>
                                         <div class="col-lg-6">
                                             <!--  <input class=" form-control" id="address1" name="address1" type="text">-->
-			     							<f:select path="pvo.creditorid" class="custom-select form-control" required="" id="name" onchange="getSelectValue();">
-			     									<option>SELECT</option>
-			     							        <f:options items="${list}" itemLabel="Name" itemValue="rate"/>
+			     							<f:select path="pvo.creditorid" class="custom-select form-control" id="product"  required="">
+			     								<%-- 	<option>SELECT</option>
+			     							        <f:options items="${list}" itemLabel="Name" itemValue="name"/> --%>
 			                                </f:select>
                                         </div>
                                     </div>
@@ -185,11 +224,7 @@ function myFunction() {
 											 readonly="true" type="text" required="required" id="total"/>
 									</div>
 								</div>
-                                         
-         
-      
-    
-    
+                               
     				  <div class="form-group">
                                         <div class="col-lg-offset-5 col-lg-6">
                                             <button class="btn btn-primary" type="submit">Save</button>

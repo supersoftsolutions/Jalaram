@@ -65,20 +65,33 @@ function myFunction() {
 		function getSelectValue()
 		{
 			var selectedValue = document.getElementById("name").value;
-			var selectedValue2 = document.getElementById("product").value;
 			var selectedValue1 = document.getElementById("rate");
 			//alert(selectedValue);
 			if(selectedValue=='SELECT')
 			{
 				selectedValue="0";
 			}
-			selectedValue1.value=selectedValue2.value=(selectedValue);
+			selectedValue1.value=(selectedValue);
 			console.log(selectedValue1.value);
+
+		}
+</script> 
+	
+		<script>
+		function getSelectValue1()
+		{
+			var selectedValue = document.getElementById("produt").value;
+			var selectedValue2 = document.getElementById("rate");
+			//alert(selectedValue);
+			if(selectedValue=='SELECT')
+			{
+				selectedValue="0";
+			}
+			selectedValue2.value=(selectedValue);
 			console.log(selectedValue2.value);
 
 		}
 </script> 
-
  
  
 
@@ -132,15 +145,15 @@ function myFunction() {
                                            <div class="form-group ">
                                         <label for="priority" class="control-label col-lg-3">Product Name</label>
                                         <div class="col-lg-6">
-     							<f:select path="product" class="custom-select form-control" required="" id="product" onchange="getSelectValue();">
+     							<f:select path="product" class="custom-select form-control" required="" id="product" itemValue="rate" onchange="getSelectValue1();">
                                      			<f:option value="patra">Patra</f:option>
                                             	<f:option value="khaman">Khaman</f:option>
                                             	<f:option value="nylon">Nylon</f:option>
                                             	<f:option value="idada">Idada</f:option>
                                             	<f:option value="khandvi">Khandvi</f:option>
-                                            		<f:option value="Sandwich Dhokla">Sandwich Dhokla</f:option>
-                                            		<f:option value="SP Patra">SP Patra</f:option>
-                                            		<f:option value="Samosa">Samosa</f:option>
+                                            	<f:option value="Sandwich Dhokla">Sandwich Dhokla</f:option>
+                                            	<f:option value="SP Patra">SP Patra</f:option>
+                                            	<f:option value="Samosa">Samosa</f:option>
                                      
                                             </f:select>
                                         </div>

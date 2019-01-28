@@ -104,9 +104,7 @@ public class Row_MaterialController {
 			vo.setPurchaseid(id);
 
 			String m=dao.get(vo);
-			
-
-			
+		
 			dao.update1(rvo, vo, m,id);
 
 			dao.delete(vo);

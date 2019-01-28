@@ -62,7 +62,21 @@ function myFunction() {
 </script> 
 
 
- 
+ <script>
+		function getSelectValue1()
+		{
+			var selectedValue = document.getElementById("name").value;
+			//var a = dropdown1.options[dropdown1.selectedIndex].value;
+			var selectedValue1 = document.getElementById("product");
+			//alert(selectedValue);
+			if(selectedValue=='SELECT')
+			{
+				selectedValue="0";
+			}
+			selectedValue1.value=(selectedValue);
+			console.log(selectedValue1.value);
+		}
+</script>  
 
  
  <!-- <script type="text/javascript">  
@@ -100,7 +114,22 @@ function myFunction() {
                                     </div>
                                     
                                     
-                                      <div class="form-group ">
+                                     
+                                    
+                                            <div class="form-group ">
+                                        <label for="priority" class="control-label col-lg-3">Creditor Name</label>
+                                        <div class="col-lg-6">
+                                            <!--  <input class=" form-control" id="address1" name="address1" type="text">-->
+			     							<f:select path="name" class="custom-select form-control" required="" id="name" onchange="getSelectValue1();">
+			     									<option>SELECT</option>
+			     							        <f:options items="${list}" itemLabel="Name" itemValue="Product"/>
+			     							        
+			                                </f:select>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                     <div class="form-group ">
                                         <label for="priority" class="control-label col-lg-3">Product Name</label>
                                         <div class="col-lg-6">
      							<f:select path="product" class="custom-select form-control" required="" id="product">
@@ -108,18 +137,6 @@ function myFunction() {
 			     							        <f:options items="${rlist}" itemLabel="Product_name" itemValue="Product_name"/>
                                      
                                             </f:select>
-                                        </div>
-                                    </div>
-                                    
-                                            <div class="form-group ">
-                                        <label for="priority" class="control-label col-lg-3">Creditor Name</label>
-                                        <div class="col-lg-6">
-                                            <!--  <input class=" form-control" id="address1" name="address1" type="text">-->
-			     							<f:select path="name" class="custom-select form-control" required="" id="name">
-			     									<option>SELECT</option>
-			     							        <f:options items="${list}" itemLabel="Name" itemValue="rate"/>
-			     							        
-			                                </f:select>
                                         </div>
                                     </div>
                          
@@ -154,13 +171,13 @@ function myFunction() {
 										</label>
 									<div class="col-lg-6">
 										<f:input class=" form-control"  path="labour_charge" 
-											 readonly="true" type="text" required="required"/>
+											  type="text" required="required"/>
 									</div>
 								</div>
 								
                                   				  <div class="form-group">
                                         <div class="col-lg-offset-5 col-lg-6">
-                                            <button class="btn btn-primary" type="submit" onclick="newElement();">Save</button>
+                                            <button class="btn btn-primary" type="submit">Save</button>
                                         </div>
                                     </div>
                                    
