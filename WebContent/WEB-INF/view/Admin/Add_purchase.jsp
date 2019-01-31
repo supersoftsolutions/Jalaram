@@ -86,7 +86,7 @@ function myFunction() {
     	 
  		//alert(cat);
    
- removesubcategory();
+		 removesubcategory();
     	 
     	 var http =new XMLHttpRequest();
     	 

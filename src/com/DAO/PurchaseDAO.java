@@ -103,7 +103,7 @@ public class PurchaseDAO {
 	}
 
 
-	public List add(PurchaseVO pvo) {
+	public List add(PurchaseVO pvo,Product_creditor_VO vo) {
 		
 		List ls=new ArrayList();
 		{
@@ -111,7 +111,9 @@ public class PurchaseDAO {
 			{
 
 				Session session=sessionFactory.openSession();
-				Query q=session.createQuery("from PurchaseVO where product='"+pvo.getPvo().getCreditorid()+"'");
+				Query q=session.createQuery("from Product_creditor_VO where product='"+vo.getName()+"'");
+			//	Query query=session.createQuery(" FROM PurchaseVO WHERE vo IN (SELECT creditorid FROM  Product_creditor_VO WHERE product='"+vo.getProduct()+"')");
+
 				ls=q.list();
 			}
 			catch (Exception e) {

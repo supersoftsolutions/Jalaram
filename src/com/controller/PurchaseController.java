@@ -57,12 +57,13 @@ public class PurchaseController {
 	public ModelAndView SubCategory(@ModelAttribute Product_creditor_VO vo,PurchaseVO pvo,@RequestParam("productId") String i)
 	{
 	    System.out.println("in con of sub");
-	 	    pvo.setProduct(i);
-		//vo.setCreditorid(i);
-		
+	 	//    pvo.setProduct(i);
+	 	    
+		vo.setName(i);
+		vo.setProduct(i);
 		pvo.setPvo(vo);
 
-		List ls1=this.pdao.add(pvo);
+		List ls1=this.pdao.add(pvo,vo);
 		
 	    System.out.print("list of subcat:"+ls1.size());
 		

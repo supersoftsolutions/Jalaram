@@ -77,10 +77,10 @@ function myFunction() {
 		}
 </script> 
 	
-		<script>
+	<!-- 	<script>
 		function getSelectValue1()
 		{
-			var selectedValue = document.getElementById("produt").value;
+			var selectedValue = document.getElementById("product").value;
 			var selectedValue2 = document.getElementById("rate");
 			//alert(selectedValue);
 			if(selectedValue=='SELECT')
@@ -92,7 +92,7 @@ function myFunction() {
 
 		}
 </script> 
- 
+  -->
  
 
  
@@ -145,15 +145,15 @@ function myFunction() {
                                            <div class="form-group ">
                                         <label for="priority" class="control-label col-lg-3">Product Name</label>
                                         <div class="col-lg-6">
-     							<f:select path="product" class="custom-select form-control" required="" id="product" itemValue="rate" onchange="getSelectValue1();">
+     							<f:select path="product" class="custom-select form-control" required="" id="product">
                                      			<f:option value="patra">Patra</f:option>
                                             	<f:option value="khaman">Khaman</f:option>
                                             	<f:option value="nylon">Nylon</f:option>
                                             	<f:option value="idada">Idada</f:option>
                                             	<f:option value="khandvi">Khandvi</f:option>
-                                            	<f:option value="Sandwich Dhokla">Sandwich Dhokla</f:option>
-                                            	<f:option value="SP Patra">SP Patra</f:option>
-                                            	<f:option value="Samosa">Samosa</f:option>
+                                            	<f:option value="sandwich_dhokla">Sandwich Dhokla</f:option>
+                                            	<f:option value="sp_patra">SP Patra</f:option>
+                                            	<f:option value="samosa">Samosa</f:option>
                                      
                                             </f:select>
                                         </div>

@@ -151,7 +151,6 @@ public class Daily_report_Controller {
 	@RequestMapping(value = "update.html", method = RequestMethod.GET)
 	public ModelAndView index123(Model model,HttpSession session,@RequestParam(value="date", required = false) String id)
 	{
-
 		Product_mon_retail_VO mrvo =new Product_mon_retail_VO();
 		Product_sun_retail_VO srvo =new Product_sun_retail_VO();
 		Product_mon_wholesale_VO mwvo =new Product_mon_wholesale_VO();
