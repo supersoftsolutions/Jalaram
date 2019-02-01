@@ -13,7 +13,10 @@
 
 		{
 			  "id":"${x.creditorid}",
-              "name":"${x.name}"
+              "name":"${x.Name}"
+              <%-- System.out.println(${x.Name}); --%>
+              
+              <c:out value="${x.Name}"/> 
 		}
 
 		<c:if test="${index ne counter.count}">,</c:if>

@@ -95,13 +95,13 @@ function myFunction() {
     		 //alert("in ajax");
     		 
     		 if(http.readyState==4)
-    			 {
-    				alert("in if");
+    		 {
+    				//alert("in if");
     			
     			 	var jsn=JSON.parse(http.responseText);
  
-    			 alert(jsn);
-    		     
+    				 alert(jsn);
+
     			 	for(var i=0;i<jsn.length;i++)
     		    		 {
     		    	
@@ -113,27 +113,22 @@ function myFunction() {
 		    				 document.form.product.options.add(opt);
 	    		    	 }
     			 }
-
-    		
-    	 }
+			}
     	 
-    	 
-    	 http.open("get","jsonpurchase.html?productId="+cat,true);
+    	 	http.open("get","jsonpurchase.html?productId="+cat,true);
     		http.send();
-    		
     }
      function removesubcategory()
 	 	{
 	 		var removeSubCategory=document.getElementById("product").options.length;
 	 		//alert(removeSubCategory);	
-	 		for(i=removeSubCategory-1;i>=0;i--)
+	 		for(i=removeSubCategory-1;i>=1;i--)
 	 			{
-	 				alert(i);
-	 				document.form.product.options[i].remove();
+	 				
+	 				document.getElementById("product").options[i].remove();
 	 			}
 	 	}
- 
-     </script> 
+ 		</script> 
 
 <!-- <script type="text/javascript">
 var $select1 = $( '#productid' ),
@@ -176,6 +171,7 @@ $select2.html($options.filter('[value="' + this.value + '"]'));
                                         <label for="priority" class="control-label col-lg-3">Product Name</label>
                                         <div class="col-lg-6">
      							<f:select path="product" class="custom-select form-control" required="" id="productid" onchange="getsubcategory()">
+                                     			<f:option value="SELECT">SELECT</f:option>
                                      			<f:option value="patra">Patra</f:option>
                                             	<f:option value="khaman">Khaman</f:option>
                                             	<f:option value="nylon">Nylon</f:option>
@@ -193,8 +189,8 @@ $select2.html($options.filter('[value="' + this.value + '"]'));
                                         <div class="col-lg-6">
                                             <!--  <input class=" form-control" id="address1" name="address1" type="text">-->
 			     							<f:select path="pvo.creditorid" class="custom-select form-control" id="product"  required="">
-			     								<%-- 	<option>SELECT</option>
-			     							        <f:options items="${list}" itemLabel="Name" itemValue="name"/> --%>
+			     								 	<option>SELECT</option>
+			     								 	<%-- <f:options items="${list}" itemLabel="Name" itemValue="name"/> --%>
 			                                </f:select>
                                         </div>
                                     </div>
